@@ -241,14 +241,14 @@
     "sourceUrls": []
   },
   {
-    "name": "Target Guest Database Platform (TCS)",
+    "name": "Target Corporation Guest Database Platform (TCS)",
     "slug": "target-guest-database-tcs",
     "type": "project",
     "status": "completed",
     "role": "Software Engineering / Customer Delivery",
     "period": "TCS era",
-    "summary": "Worked with Target US during the TCS period to help build a guest database platform. The work included onsite collaboration in the United States, enterprise data engineering, customer coordination, and delivery support for a large retail technology environment.",
-    "tags": ["TCS", "Target US", "Guest Database", "Enterprise Data"],
+    "summary": "Worked on a TCS customer engagement for Target Corporation, the US retail company, to help build a guest database platform. The work included onsite collaboration in the United States, enterprise data engineering, customer coordination, and delivery support for a large retail technology environment.",
+    "tags": ["TCS", "Target Corporation", "Guest Database", "Enterprise Data"],
     "featured": false,
     "sourceUrls": []
   }
