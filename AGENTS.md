@@ -9,6 +9,15 @@ This repo is the pre-production Astro website for GG Nagarkar. Treat changes as 
 - Primary pages: `/`, `/about`, `/experience`, `/projects`, `/patents`, `/writing`, `/contact`, `/facts`.
 - Feed endpoint: `/activity.xml`.
 
+## URL And Sitemap Rules
+
+- Never change the URL path of an existing page or feed after it exists. Existing paths are permanent unless the user explicitly approves a migration plan.
+- Do not rename, move, or delete existing routes such as `/about`, `/experience`, `/projects`, `/patents`, `/writing`, `/contact`, `/facts`, or `/activity.xml`.
+- If a new page or feed is added, make sure it is included in the generated sitemap by the Astro route structure.
+- If a page or feed is intentionally removed with explicit approval, update all internal links, navigation, footer links, JSON-LD, `public/llms.txt`, and sitemap expectations in this file.
+- Always run `npm run build` after route changes and inspect the generated `dist/sitemap-index.xml` and `dist/sitemap-0.xml`.
+- Always keep `public/robots.txt` pointing to the correct sitemap index URL for the active production domain.
+
 ## Important Files
 
 - `src/pages/*.astro`: page routes and page-specific JSON-LD.
@@ -31,15 +40,16 @@ This repo is the pre-production Astro website for GG Nagarkar. Treat changes as 
 - Do not recreate `/rss.xml` until there are real first-party writing posts.
 - If adding first-party writing later, add the content model deliberately and update README, `llms.txt`, footer links, sitemap expectations, and feed behavior together.
 - Keep names, dates, roles, company descriptions, and source URLs consistent across `about`, `experience`, `projects`, `facts`, `llms.txt`, and JSON-LD.
-- Prefer removing stale pre-prod routes over preserving redirects; the site has not launched yet.
+- Preserve existing page URLs. If the user asks for cleanup, clean content and presentation without changing established URL paths.
 
 ## SEO, GEO, And Sharing
 
 - Every page must use `Layout` so `SEOHead` emits title, description, canonical, Open Graph, Twitter card, robots, and JSON-LD.
 - Page descriptions should be specific, factual, and non-marketing-heavy.
 - Canonical paths should be stable and absolute once rendered.
+- Keep canonical paths aligned with existing page URLs; do not change canonical paths for existing pages.
 - Update `public/llms.txt` whenever the canonical page set, entities, feeds, or current focus changes.
-- Update `public/robots.txt` if the production domain or sitemap path changes.
+- Update `public/robots.txt` if the production domain or sitemap path changes, and verify the rendered sitemap files.
 - Social preview image defaults to `/brand/gg-logo-horizontal.png`; only change it if the replacement is production-ready.
 
 ## Design Standards
@@ -77,6 +87,7 @@ Expected pre-prod output:
 - Build emits 8 HTML pages: home, about, contact, experience, facts, patents, projects, writing.
 - `/activity.xml` exists.
 - `/activity` and `/rss.xml` should 404 unless intentionally reintroduced.
+- `dist/sitemap-index.xml` and `dist/sitemap-0.xml` must exist and list the expected page URLs.
 - `check:links` and `check:seo` must pass.
 
 ## Deployment Notes
