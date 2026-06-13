@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import builtItems from '../data/built.json';
+
+interface BuiltItem {
+  name: string;
+  slug: string;
+  category: string;
+  context: string;
+  outcome: string;
+  architecture: string[];
+  scale: string;
+  lessons: string[];
+  tags: string[];
+}
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const items = builtItems as BuiltItem[];
+const categories = [...new Set(items.map((item) => item.category))];
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: "Things I've Built - GG Nagarkar",
+  description: 'Selected AI, cloud, DevSecOps, and enterprise systems built by GG Nagarkar, with architecture notes, scale, outcomes, and lessons learned.',
+  url: `${site}/built`,
+  hasPart: items.map((item) => ({
+    '@type': 'CreativeWork',
+    name: item.name,
+    description: item.outcome,
+    url: `${site}/built#${item.slug}`,
+    keywords: item.tags
+  }))
+};
+---
+<Layout
+  title="Things I've Built | GG Nagarkar"
+  description="Selected AI, cloud, DevSecOps, and enterprise systems built by GG Nagarkar, covering architecture, scale, outcomes, and lessons learned."
+  canonicalPath="/built"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: "Things I've Built", item: `${site}/built` }
+  ]}
+>
+  <section class="mb-6">
+    <p class="text-sm font-medium uppercase tracking-wide text-slate-500">Selected build notes</p>
+    <h1 class="mt-2 text-3xl font-semibold text-slate-900">Things I've Built</h1>
+    <p class="mt-3 max-w-3xl text-slate-700">
+      A focused record of systems I helped build across agentic AI, cloud platforms, DevSecOps modernization, and internal AI operations. Each entry captures the outcome, architectural choices, scale, and lessons learned.
+    </p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {categories.map((category) => (
+        <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{category}</span>
+      ))}
+    </div>
+  </section>
+
+  <div class="space-y-5">
+    {items.map((item, index) => (
+      <article id={item.slug} class="card scroll-mt-24 p-5">
+        <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+          <div>
+            <p class="text-sm font-medium text-slate-500">{String(index + 1).padStart(2, '0')} · {item.category}</p>
+            <h2 class="mt-1 text-2xl font-semibold text-slate-900">{item.name}</h2>
+            <p class="mt-2 text-sm text-slate-600">{item.context}</p>
+          </div>
+          <div class="flex flex-wrap gap-2 md:max-w-sm md:justify-end">
+            {item.tags.map((tag) => (
+              <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-700">{tag}</span>
+            ))}
+          </div>
+        </div>
+
+        <div class="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.55fr)]">
+          <section>
+            <h3 class="text-base font-semibold text-slate-900">Outcome</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">{item.outcome}</p>
+
+            <h3 class="mt-5 text-base font-semibold text-slate-900">Architecture</h3>
+            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+              {item.architecture.map((point) => <li>{point}</li>)}
+            </ul>
+          </section>
+
+          <aside class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 class="text-base font-semibold text-slate-900">Scale</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">{item.scale}</p>
+
+            <h3 class="mt-5 text-base font-semibold text-slate-900">Lessons Learned</h3>
+            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+              {item.lessons.map((lesson) => <li>{lesson}</li>)}
+            </ul>
+          </aside>
+        </div>
+      </article>
+    ))}
+  </div>
+</Layout>

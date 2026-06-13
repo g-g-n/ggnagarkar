@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Perry Ellis International (PEI) - Customer Service Voice Bot 2.0",
+    "slug": "pei-customer-service-voice-bot",
+    "category": "Agentic AI",
+    "context": "Customer service modernization for the ASI division.",
+    "outcome": "Modernized B2B customer service by automating complex inquiries across inventory, pricing, order tracking, and shipping. The system targeted 80% automation, reduced live agent load, and supported English and Spanish interactions.",
+    "architecture": [
+      "Moved from a rigid Dialogflow-only implementation to a multi-agent architecture using LangGraph and LangChain.",
+      "Hosted the agentic system on a multi-node Google Kubernetes Engine cluster with multi-zone redundancy.",
+      "Used Vertex AI Gemini for generative responses and Vector Search for RAG-based FAQ retrieval.",
+      "Connected securely to legacy on-premise ERP systems including Oracle and RepSpark through VPN/private tunnels for real-time lookups.",
+      "Implemented a dedicated PII redaction layer before persistence or logging."
+    ],
+    "scale": "Designed for high availability and handled approximately 1,000 calls per month.",
+    "lessons": [
+      "Intent-classifier bots become brittle as workflows grow; a supervisor agent with modular sub-agents made debugging and scaling easier.",
+      "Langfuse-style tracing is critical for production LLM systems because hallucinations and integration failures need granular input/output visibility.",
+      "Sensitive workflows need architectural hard-stops. The bot stayed read-only for actions such as payment routing and escalated to humans when required."
+    ],
+    "tags": ["LangGraph", "LangChain", "Vertex AI", "GKE", "RAG", "Voice Bot"]
+  },
+  {
+    "name": "Nexon - AI Sandbox Azure Deployment",
+    "slug": "nexon-ai-sandbox-azure",
+    "category": "Cloud AI Platform",
+    "context": "Secure AI experimentation environment on Microsoft Azure.",
+    "outcome": "Delivered a functional AI Sandbox on Azure so the business unit could test and validate AI models without affecting production systems.",
+    "architecture": [
+      "Used Azure-native cloud services for containerized deployment.",
+      "Created an isolated sandbox that mirrored production-grade security constraints.",
+      "Kept the design portable across clouds by standardizing infrastructure-as-code practices."
+    ],
+    "scale": "Built as a dedicated business-unit environment for safe AI model experimentation and validation.",
+    "lessons": [
+      "Multi-cloud delivery reinforced the value of Terraform and portable infrastructure patterns.",
+      "A sandbox only works if it mirrors production network constraints such as VPC design, firewalls, and access controls closely enough to catch real deployment issues."
+    ],
+    "tags": ["Azure", "AI Sandbox", "Terraform", "Containers", "Cloud Security"]
+  },
+  {
+    "name": "Perry Ellis - GitLab DevSecOps Modernization",
+    "slug": "pei-gitlab-devsecops-modernization",
+    "category": "DevSecOps",
+    "context": "Security-first modernization of CI/CD, infrastructure, and service delivery practices.",
+    "outcome": "Moved the organization toward a security-first CI/CD model, reducing manual overhead and strengthening alignment with ISO 27001 and NIST-oriented controls.",
+    "architecture": [
+      "Centralized source control and CI/CD on GitLab.",
+      "Enforced signed commits, stronger secret handling, and secure pipeline controls.",
+      "Used Google Secret Manager for secret management.",
+      "Enforced TLS 1.2+ across service endpoints.",
+      "Embedded static and dynamic security checks inside the deployment pipeline."
+    ],
+    "scale": "Designed as a foundational delivery platform for multiple application and infrastructure workflows.",
+    "lessons": [
+      "Shift-left security works best when security checks are built into the pipeline instead of handled after deployment.",
+      "Workload identity reduced risk more effectively than static service account keys because it removed long-lived credentials from the delivery path."
+    ],
+    "tags": ["GitLab", "DevSecOps", "Google Secret Manager", "Workload Identity", "ISO 27001", "NIST"]
+  },
+  {
+    "name": "AI Scrum Master Elisa Rollout",
+    "slug": "ai-scrum-master-elisa",
+    "category": "Internal AI Operations",
+    "context": "Internal process improvement integrated into project delivery workflows.",
+    "outcome": "Automated routine scrum support, backlog flow, sprint reporting, meeting progress insights, pre-reads, and summary reports.",
+    "architecture": [
+      "Integrated AI-assisted workflow support into team ceremonies and project reporting.",
+      "Connected operational context from tools such as Jira and Slack.",
+      "Used centralized configuration management to reduce breakage from process and meeting changes."
+    ],
+    "scale": "Rolled into active project delivery to improve recurring team operations and visibility.",
+    "lessons": [
+      "Onboarding an AI agent is a product experience; data quality and tool ingestion determine adoption.",
+      "Internal automation is vulnerable to configuration drift when meeting links, ceremonies, or workflows change.",
+      "Real-time active communication from an AI Scrum Master was more useful for team momentum than static reporting alone."
+    ],
+    "tags": ["AI Agents", "Scrum", "Jira", "Slack", "Delivery Automation"]
+  }
+]

@@ -11,6 +11,7 @@ Core pages:
 - /experience: professional experience across founder, product, AI, cloud, DevOps, and platform roles
 - /facts: concise factual profile for AI/search engines
 - /projects: Applied AI Consulting, OpsRabbit, and selected work
+- /built: selected AI, cloud, DevSecOps, and enterprise systems with architecture notes, outcomes, scale, and lessons learned
 - /patents: patent portfolio and filing status
 - /writing: categorized writing and public activity archive
 - /contact: direct contact links

@@ -29,6 +29,7 @@ Editable profile and structured data files:
 
 - `src/data/profile.json`
 - `src/data/experience.json`
+- `src/data/built.json`
 - `src/data/projects.json`
 - `src/data/patents.json`
 - `src/data/social-links.json`
@@ -40,6 +41,7 @@ Editable profile and structured data files:
 - `/about`
 - `/experience`
 - `/projects`
+- `/built`
 - `/patents`
 - `/writing`
 - `/contact`
