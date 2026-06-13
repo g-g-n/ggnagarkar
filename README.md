@@ -42,6 +42,7 @@ Editable profile and structured data files:
 - `/experience`
 - `/projects`
 - `/built`
+- `/built/{slug}` generated build detail pages
 - `/patents`
 - `/writing`
 - `/contact`

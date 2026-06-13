@@ -6,6 +6,8 @@ interface BuiltItem {
   name: string;
   slug: string;
   category: string;
+  phase?: string;
+  period?: string;
   context: string;
   outcome: string;
   architecture: string[];
@@ -17,6 +19,13 @@ interface BuiltItem {
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
 const items = builtItems as BuiltItem[];
 const categories = [...new Set(items.map((item) => item.category))];
+const phases = [...new Set(items.map((item) => item.phase ?? 'Selected Architecture Notes'))];
+const phaseGroups = phases.map((phase) => ({
+  phase,
+  items: items.filter((item) => (item.phase ?? 'Selected Architecture Notes') === phase)
+}));
+const architectureTags = [...new Set(items.flatMap((item) => item.tags))].slice(0, 16);
+const namedProducts = items.filter((item) => item.phase === 'Founder-Built Products').length;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
@@ -27,7 +36,7 @@ const jsonLd = {
     '@type': 'CreativeWork',
     name: item.name,
     description: item.outcome,
-    url: `${site}/built#${item.slug}`,
+    url: `${site}/built/${item.slug}`,
     keywords: item.tags
   }))
 };
@@ -42,57 +51,161 @@ const jsonLd = {
     { name: "Things I've Built", item: `${site}/built` }
   ]}
 >
-  <section class="mb-6">
-    <p class="text-sm font-medium uppercase tracking-wide text-slate-500">Selected build notes</p>
-    <h1 class="mt-2 text-3xl font-semibold text-slate-900">Things I've Built</h1>
-    <p class="mt-3 max-w-3xl text-slate-700">
-      A focused record of systems I helped build across agentic AI, cloud platforms, DevSecOps modernization, and internal AI operations. Each entry captures the outcome, architectural choices, scale, and lessons learned.
-    </p>
-    <div class="mt-4 flex flex-wrap gap-2">
-      {categories.map((category) => (
-        <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{category}</span>
+  <section class="mb-8">
+    <div class="grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <div class="card p-6">
+        <p class="text-sm font-medium uppercase tracking-wide text-slate-500">Architecture portfolio</p>
+        <h1 class="mt-2 text-3xl font-semibold text-slate-900">Things I've Built</h1>
+        <p class="mt-3 max-w-3xl text-slate-700">
+          Systems where I was responsible for the technology architecture, with hands-on involvement across product engineering, deployment, DevOps, cost, scale, reliability, and production readiness.
+        </p>
+        <p class="mt-4 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
+          Client names are intentionally omitted where confidentiality matters. The architecture, outcomes, and lessons are preserved without exposing private customer identities.
+        </p>
+      </div>
+
+      <aside class="grid grid-cols-2 gap-3">
+        <div class="card p-4">
+          <p class="text-3xl font-semibold text-slate-900">{items.length}</p>
+          <p class="mt-1 text-sm text-slate-500">Builds captured</p>
+        </div>
+        <div class="card p-4">
+          <p class="text-3xl font-semibold text-slate-900">{namedProducts}</p>
+          <p class="mt-1 text-sm text-slate-500">Founder products</p>
+        </div>
+        <div class="card p-4">
+          <p class="text-3xl font-semibold text-slate-900">{categories.length}</p>
+          <p class="mt-1 text-sm text-slate-500">Architecture domains</p>
+        </div>
+        <div class="card p-4">
+          <p class="text-3xl font-semibold text-slate-900">{phases.length}</p>
+          <p class="mt-1 text-sm text-slate-500">Delivery phases</p>
+        </div>
+      </aside>
+    </div>
+
+    <div class="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
+      <nav class="card p-5" aria-label="Things built index">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Build Index</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          {phaseGroups.map((group) => (
+            <section>
+              <h3 class="text-sm font-semibold text-slate-900">{group.phase}</h3>
+              <div class="mt-2 space-y-2">
+                {group.items.map((item) => (
+                  <a href={`/built/${item.slug}`} class="block rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-700 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900">
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </nav>
+
+      <aside class="card p-5">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Role Pattern</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+          <li>Owned or guided technology architecture decisions.</li>
+          <li>Worked hands-on where architecture, delivery, or production risk required it.</li>
+          <li>Covered deployment, DevOps, cost, scale, reliability, and operational readiness.</li>
+        </ul>
+
+        <h2 class="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-500">Architecture Themes</h2>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {architectureTags.map((tag) => (
+            <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-700">{tag}</span>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="card mb-8 p-5">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Architecture Responsibility</h2>
+    <div class="mt-3 grid gap-4 md:grid-cols-4">
+      {['System Design', 'Deployment & DevOps', 'Cost & Scale', 'Reliability'].map((area) => (
+        <div class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+          <h3 class="text-base font-semibold text-slate-900">{area}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-700">
+            {area === 'System Design' && 'Architecture choices, service boundaries, data flows, integration patterns, and hands-on technical direction.'}
+            {area === 'Deployment & DevOps' && 'CI/CD, infrastructure automation, cloud deployment, release readiness, and operational controls.'}
+            {area === 'Cost & Scale' && 'Runtime efficiency, capacity planning, cost optimization, and scaling patterns aligned to workload needs.'}
+            {area === 'Reliability' && 'Observability, high availability, security posture, incident readiness, and production resilience.'}
+          </p>
+        </div>
       ))}
     </div>
   </section>
 
-  <div class="space-y-5">
-    {items.map((item, index) => (
-      <article id={item.slug} class="card scroll-mt-24 p-5">
-        <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div>
-            <p class="text-sm font-medium text-slate-500">{String(index + 1).padStart(2, '0')} · {item.category}</p>
-            <h2 class="mt-1 text-2xl font-semibold text-slate-900">{item.name}</h2>
-            <p class="mt-2 text-sm text-slate-600">{item.context}</p>
-          </div>
-          <div class="flex flex-wrap gap-2 md:max-w-sm md:justify-end">
-            {item.tags.map((tag) => (
-              <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-700">{tag}</span>
-            ))}
-          </div>
+  <div class="space-y-8">
+    {phaseGroups.map((group) => (
+      <section>
+        <div class="mb-3 flex flex-col gap-1 border-l-4 border-slate-300 pl-3">
+          <h2 class="text-xl font-semibold text-slate-900">{group.phase}</h2>
+          <p class="text-sm text-slate-600">{group.items.length} build{group.items.length === 1 ? '' : 's'} captured in this phase</p>
         </div>
 
-        <div class="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.55fr)]">
-          <section>
-            <h3 class="text-base font-semibold text-slate-900">Outcome</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-700">{item.outcome}</p>
+        <div class="space-y-5">
+          {group.items.map((item) => (
+            <article id={item.slug} class="card scroll-mt-24 overflow-hidden">
+              <div class="p-5">
+                <div class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div class="flex gap-4">
+                    <div class="hidden h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-slate-900 text-sm font-semibold text-white md:flex">
+                      {String(items.findIndex((entry) => entry.slug === item.slug) + 1).padStart(2, '0')}
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-slate-500">
+                        {item.category}{item.period ? ` · ${item.period}` : ''}
+                      </p>
+                      <h3 class="mt-1 text-2xl font-semibold text-slate-900">
+                        <a href={`/built/${item.slug}`} class="text-slate-900 hover:text-slate-700">{item.name}</a>
+                      </h3>
+                      <p class="mt-2 text-sm text-slate-600">{item.context}</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-2 md:max-w-sm md:justify-end">
+                    {item.tags.map((tag) => (
+                      <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-700">{tag}</span>
+                    ))}
+                  </div>
+                </div>
 
-            <h3 class="mt-5 text-base font-semibold text-slate-900">Architecture</h3>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-              {item.architecture.map((point) => <li>{point}</li>)}
-            </ul>
-          </section>
+                <div class="mt-5 grid gap-4 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+                  <section class="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                    <h4 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Role and Outcome</h4>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      Responsible for technical architecture and hands-on delivery direction across system design, deployment, DevOps, cost, scale, reliability, and production readiness.
+                    </p>
+                    <p class="mt-3 text-sm leading-6 text-slate-700">{item.outcome}</p>
+                    <a href={`/built/${item.slug}`} class="mt-4 inline-block text-sm underline">View detailed build note</a>
 
-          <aside class="rounded-lg border border-slate-200 bg-slate-50 p-4">
-            <h3 class="text-base font-semibold text-slate-900">Scale</h3>
-            <p class="mt-2 text-sm leading-6 text-slate-700">{item.scale}</p>
+                    <h4 class="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-500">Scale</h4>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">{item.scale}</p>
+                  </section>
 
-            <h3 class="mt-5 text-base font-semibold text-slate-900">Lessons Learned</h3>
-            <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
-              {item.lessons.map((lesson) => <li>{lesson}</li>)}
-            </ul>
-          </aside>
+                  <section class="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <h4 class="text-base font-semibold text-slate-900">Architecture</h4>
+                      <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                        {item.architecture.map((point) => <li>{point}</li>)}
+                      </ul>
+                    </div>
+
+                    <div class="border-t border-slate-200 pt-4 md:border-l md:border-t-0 md:pl-4 md:pt-0">
+                      <h4 class="text-base font-semibold text-slate-900">Lessons Learned</h4>
+                      <ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+                        {item.lessons.map((lesson) => <li>{lesson}</li>)}
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
-      </article>
+      </section>
     ))}
   </div>
 </Layout>

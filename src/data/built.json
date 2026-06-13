@@ -1,29 +1,97 @@
 [
   {
-    "name": "Perry Ellis International (PEI) - Customer Service Voice Bot 2.0",
-    "slug": "pei-customer-service-voice-bot",
+    "name": "OpsRabbit",
+    "slug": "opsrabbit",
+    "category": "AIOps Platform",
+    "phase": "Founder-Built Products",
+    "period": "2025-Present",
+    "context": "AI-powered CloudOps and SRE incident investigation platform.",
+    "outcome": "Built OpsRabbit as a hands-on founder product focused on reducing MTTR, improving incident investigation, and helping engineering teams connect alerts, logs, deploys, ownership, and operational context.",
+    "architecture": [
+      "Designed the product around AI-assisted incident investigation and operational evidence gathering.",
+      "Focused workflows on CloudOps, SRE, incident response, and reliability engineering use cases.",
+      "Built the platform direction around practical automation that helps teams move from noisy alerts to clearer action.",
+      "Kept the product grounded in real operational workflows rather than generic chatbot-style responses."
+    ],
+    "scale": "Built as a founder-led product initiative for modern SRE, CloudOps, and incident response teams.",
+    "lessons": [
+      "AI for operations must connect incidents to real engineering context: ownership, deploys, alerts, logs, and system behavior.",
+      "SRE automation needs explainability and traceability because engineers will not trust black-box answers during production incidents.",
+      "The product architecture has to fit existing incident workflows while gradually improving speed, consistency, and reliability."
+    ],
+    "tags": ["AIOps", "SRE", "CloudOps", "Incident Automation", "Reliability Engineering"]
+  },
+  {
+    "name": "7Targets AI Sales Assistants",
+    "slug": "7targets-ai-sales-assistants",
+    "category": "AI SaaS Product",
+    "phase": "Founder-Built Products",
+    "period": "2019-2024",
+    "context": "AI-assisted sales automation platform for follow-ups, response handling, and sales workflow productivity.",
+    "outcome": "Hands-on built and scaled 7Targets as a SaaS product for AI-assisted sales follow-up, inbound/outbound response handling, and workflow automation for sales teams.",
+    "architecture": [
+      "Built AI assistant workflows for sales follow-ups, lead engagement, response handling, and sales activity automation.",
+      "Designed the product around practical sales-user workflows, customer feedback loops, and SaaS operating needs.",
+      "Worked across product, platform, and customer-facing implementation concerns as a hands-on founder and CTO.",
+      "Evolved the product with recurring feedback from smaller companies and sales teams using AI assistance in daily workflows."
+    ],
+    "scale": "Built as a multi-year SaaS product with founder-led product, engineering, and customer feedback cycles.",
+    "lessons": [
+      "Practical AI products win when the intelligence is embedded inside the user's daily workflow rather than exposed as a separate tool.",
+      "Founder-led SaaS architecture needs tight loops between customer feedback, product direction, engineering tradeoffs, and support reality.",
+      "Automation should improve consistency and follow-through while preserving the human intent behind communication."
+    ],
+    "tags": ["AI Sales", "SaaS", "Sales Automation", "AI Assistants", "Founder-Built"]
+  },
+  {
+    "name": "DocuLens",
+    "slug": "doculens",
+    "category": "Document AI Product",
+    "phase": "Founder-Built Products",
+    "period": "2021-Present",
+    "context": "AI document intelligence product for extraction, summarization, OCR, translation, redaction, and chat-over-documents workflows.",
+    "outcome": "Hands-on built DocuLens as a document intelligence product to help users work with unstructured documents through OCR, extraction, summarization, translation, redaction, and document chat capabilities.",
+    "architecture": [
+      "Built document-processing workflows around OCR, extraction, summarization, translation, redaction, and conversational document interaction.",
+      "Designed the product around practical document-heavy business workflows where users need faster understanding and safer handling of information.",
+      "Focused on turning unstructured document inputs into usable structured outputs and summaries.",
+      "Kept redaction and controlled document handling as important product concerns because document workflows often include sensitive information."
+    ],
+    "scale": "Built as a hands-on AI product initiative for document-heavy business workflows.",
+    "lessons": [
+      "Document AI quality depends on the full pipeline: ingestion, OCR, extraction, summarization, redaction, and user-facing interaction.",
+      "Security and controlled handling need to be designed into document workflows early because business documents often contain sensitive data.",
+      "The strongest product experience comes from combining extraction, summarization, and interaction into one workflow instead of separate utilities."
+    ],
+    "tags": ["Document AI", "OCR", "Data Extraction", "Redaction", "AI Product"]
+  },
+  {
+    "name": "B2B Customer Service Voice Bot 2.0",
+    "slug": "b2b-customer-service-voice-bot",
     "category": "Agentic AI",
-    "context": "Customer service modernization for the ASI division.",
+    "phase": "Confidential Client Builds",
+    "context": "Customer service modernization for a B2B apparel and distribution business unit.",
     "outcome": "Modernized B2B customer service by automating complex inquiries across inventory, pricing, order tracking, and shipping. The system targeted 80% automation, reduced live agent load, and supported English and Spanish interactions.",
     "architecture": [
       "Moved from a rigid Dialogflow-only implementation to a multi-agent architecture using LangGraph and LangChain.",
       "Hosted the agentic system on a multi-node Google Kubernetes Engine cluster with multi-zone redundancy.",
       "Used Vertex AI Gemini for generative responses and Vector Search for RAG-based FAQ retrieval.",
-      "Connected securely to legacy on-premise ERP systems including Oracle and RepSpark through VPN/private tunnels for real-time lookups.",
+      "Connected securely to legacy on-premise ERP systems through VPN/private tunnels for real-time lookups.",
       "Implemented a dedicated PII redaction layer before persistence or logging."
     ],
     "scale": "Designed for high availability and handled approximately 1,000 calls per month.",
     "lessons": [
-      "Intent-classifier bots become brittle as workflows grow; a supervisor agent with modular sub-agents made debugging and scaling easier.",
-      "Langfuse-style tracing is critical for production LLM systems because hallucinations and integration failures need granular input/output visibility.",
-      "Sensitive workflows need architectural hard-stops. The bot stayed read-only for actions such as payment routing and escalated to humans when required."
+      "Intent-only bot architectures become brittle as business workflows grow; agentic systems need modular boundaries that can be observed and debugged.",
+      "Production LLM systems require traces, metrics, and prompt/output visibility from day one, otherwise reliability and cost cannot be managed.",
+      "For enterprise AI, architecture must define safe limits clearly: read-only actions, escalation paths, and human control for sensitive workflows."
     ],
     "tags": ["LangGraph", "LangChain", "Vertex AI", "GKE", "RAG", "Voice Bot"]
   },
   {
-    "name": "Nexon - AI Sandbox Azure Deployment",
-    "slug": "nexon-ai-sandbox-azure",
+    "name": "AI Sandbox Azure Deployment",
+    "slug": "ai-sandbox-azure-deployment",
     "category": "Cloud AI Platform",
+    "phase": "Confidential Client Builds",
     "context": "Secure AI experimentation environment on Microsoft Azure.",
     "outcome": "Delivered a functional AI Sandbox on Azure so the business unit could test and validate AI models without affecting production systems.",
     "architecture": [
@@ -33,15 +101,104 @@
     ],
     "scale": "Built as a dedicated business-unit environment for safe AI model experimentation and validation.",
     "lessons": [
-      "Multi-cloud delivery reinforced the value of Terraform and portable infrastructure patterns.",
-      "A sandbox only works if it mirrors production network constraints such as VPC design, firewalls, and access controls closely enough to catch real deployment issues."
+      "Multi-cloud architecture is easier to sustain when infrastructure patterns are standardized through Terraform and repeatable delivery practices.",
+      "A sandbox is useful only when it reflects production security, networking, and deployment constraints closely enough to reveal real risks.",
+      "Cloud experimentation environments still need operational discipline around access, cost, isolation, and lifecycle management."
     ],
     "tags": ["Azure", "AI Sandbox", "Terraform", "Containers", "Cloud Security"]
   },
   {
-    "name": "Perry Ellis - GitLab DevSecOps Modernization",
-    "slug": "pei-gitlab-devsecops-modernization",
+    "name": "Marketing Offer Intelligence Agent",
+    "slug": "marketing-offer-intelligence-agent",
+    "category": "Agentic AI",
+    "phase": "Confidential Client Builds",
+    "context": "AI agent for marketing teams to analyze public market offers and create standardized offers faster.",
+    "outcome": "Built an AI agent that helped marketing teams review publicly available offers from banks and financial institutions, compare market patterns, standardize offer templates, and create new offers more quickly.",
+    "architecture": [
+      "Designed standardized offer templates so marketing teams could move from ad hoc offer creation to repeatable structured workflows.",
+      "Collected and organized publicly available offer data from banks, financial institutions, and market sources.",
+      "Used AI-assisted summarization and comparison to highlight offer patterns, positioning, eligibility, benefits, and terms.",
+      "Created a workflow that helped users move from market research to draft offer creation with less manual effort."
+    ],
+    "scale": "Built for marketing research and offer-generation workflows where teams needed faster comparison across public market data.",
+    "lessons": [
+      "AI agents create business value when unstructured market research is converted into a repeatable operating workflow.",
+      "Public-data workflows need structure, traceability, and review paths so users can understand how recommendations were derived.",
+      "The architecture should standardize the business artifact first; data collection and AI generation become much more reliable after the template is clear."
+    ],
+    "tags": ["Agentic AI", "Marketing Automation", "Offer Intelligence", "Public Data", "Template Standardization"]
+  },
+  {
+    "name": "Document Workflow Integration Gateway",
+    "slug": "document-workflow-integration-gateway",
+    "category": "Integration Platform",
+    "phase": "Growth Phase: Modernization and Scale",
+    "period": "2021-2022",
+    "context": "Cloud-native integration gateway for ERP adapter configurations.",
+    "outcome": "Created a generic API integration gateway that reduced maintenance by using a single cloud-native codebase across multiple ERP adapter configurations.",
+    "architecture": [
+      "Used an AWS serverless-first architecture with Lambda and Step Functions for orchestration.",
+      "Stored integration state and configuration data in DynamoDB.",
+      "Built a React frontend to manage integration workflows and adapter configuration.",
+      "Designed the platform around reusable adapters instead of bespoke client-specific integration code."
+    ],
+    "scale": "Built to support multiple ERP adapter configurations from a shared integration codebase.",
+    "lessons": [
+      "Integration architecture should avoid bespoke code where configuration-driven adapters can provide reuse and lower maintenance.",
+      "Serverless workflows are powerful when the integration stages, retries, state, and operational ownership are explicit.",
+      "A generic adapter platform reduces delivery cost only when it is paired with clear templates, testing, and support boundaries."
+    ],
+    "tags": ["AWS Lambda", "Step Functions", "DynamoDB", "React", "ERP Integration"]
+  },
+  {
+    "name": "Recruiting Platform Infrastructure Modernization",
+    "slug": "recruiting-platform-infrastructure-modernization",
+    "category": "Cloud Modernization",
+    "phase": "Growth Phase: Modernization and Scale",
+    "period": "2022-2024",
+    "context": "Legacy infrastructure modernization, security improvement, and AWS organization consolidation.",
+    "outcome": "Transformed legacy infrastructure into a secure, cost-optimized platform, including AWS organizational consolidation.",
+    "architecture": [
+      "Used ECS Fargate with Spot capacity to improve cost efficiency.",
+      "Standardized infrastructure management with Terraform.",
+      "Implemented G-Suite and AWS SSO integration for identity access.",
+      "Consolidated AWS organization structure to improve governance and operational control."
+    ],
+    "scale": "Modernized a production platform over a multi-year growth period while improving cost, security, and operational consistency.",
+    "lessons": [
+      "Cost optimization works best when it is designed into runtime architecture, capacity choices, and deployment automation from the start.",
+      "Terraform changes cloud operations from manual activity into governed, reviewable, repeatable engineering.",
+      "Identity, account structure, and access governance are core architecture concerns in any serious modernization program."
+    ],
+    "tags": ["AWS ECS Fargate", "Spot Instances", "Terraform", "AWS SSO", "Cost Optimization"]
+  },
+  {
+    "name": "AI/ML Video Confidence Predictor",
+    "slug": "ai-ml-video-confidence-predictor",
+    "category": "Applied AI",
+    "phase": "Growth Phase: Modernization and Scale",
+    "period": "2022",
+    "context": "Computer-vision workflow for confidence scoring from video signals.",
+    "outcome": "Automated facial and posture expression analysis to derive High, Medium, and Low confidence scores.",
+    "architecture": [
+      "Used AWS SageMaker for model experimentation and ML workflow support.",
+      "Used MediaPipe and MoviePy for video processing and feature extraction.",
+      "Automated processing with AWS Lambda and Step Functions.",
+      "Designed the flow to convert raw video inputs into structured confidence classifications."
+    ],
+    "scale": "Built as an automated video-analysis pipeline for repeatable confidence scoring.",
+    "lessons": [
+      "Applied AI systems need deterministic preprocessing and clear scoring logic so model outputs remain explainable and operationally useful.",
+      "Serverless orchestration works well for staged AI/ML workflows when each processing step has clear inputs, outputs, and failure handling.",
+      "AI architecture should make the business signal visible, not just run a model and return a score."
+    ],
+    "tags": ["AWS SageMaker", "MediaPipe", "MoviePy", "Lambda", "Step Functions", "Computer Vision"]
+  },
+  {
+    "name": "GitLab DevSecOps Modernization",
+    "slug": "gitlab-devsecops-modernization",
     "category": "DevSecOps",
+    "phase": "Confidential Client Builds",
     "context": "Security-first modernization of CI/CD, infrastructure, and service delivery practices.",
     "outcome": "Moved the organization toward a security-first CI/CD model, reducing manual overhead and strengthening alignment with ISO 27001 and NIST-oriented controls.",
     "architecture": [
@@ -53,10 +210,55 @@
     ],
     "scale": "Designed as a foundational delivery platform for multiple application and infrastructure workflows.",
     "lessons": [
-      "Shift-left security works best when security checks are built into the pipeline instead of handled after deployment.",
-      "Workload identity reduced risk more effectively than static service account keys because it removed long-lived credentials from the delivery path."
+      "Security becomes sustainable when it is built into CI/CD pipelines, identity, secrets, and infrastructure automation instead of reviewed after deployment.",
+      "Workload identity and short-lived access patterns reduce operational risk more effectively than static keys.",
+      "DevSecOps architecture should make secure delivery the default path for engineering teams, not a separate approval burden."
     ],
     "tags": ["GitLab", "DevSecOps", "Google Secret Manager", "Workload Identity", "ISO 27001", "NIST"]
+  },
+  {
+    "name": "IoT Hospitality Platform High Availability",
+    "slug": "iot-hospitality-platform-high-availability",
+    "category": "Cloud Platform",
+    "phase": "Recent Phase: Agentic AI and Intelligence",
+    "period": "2024",
+    "context": "High-availability platform work for a multi-tenant IoT hospitality system.",
+    "outcome": "Enabled high availability for a multi-tenant IoT hospitality platform.",
+    "architecture": [
+      "Used AWS EKS as the Kubernetes runtime for service orchestration.",
+      "Managed complex service deployment and configuration through Helm charts.",
+      "Used Traefik and CertManager for secure, automated service communication.",
+      "Focused on tenant-aware operations, service reliability, and certificate lifecycle automation."
+    ],
+    "scale": "Built for a multi-tenant IoT hospitality platform with high-availability requirements.",
+    "lessons": [
+      "Kubernetes platforms become reliable when deployment, routing, certificates, observability, and service configuration are managed as one operating model.",
+      "Helm discipline matters because unmanaged configuration complexity becomes release risk in multi-service environments.",
+      "High availability is not only infrastructure redundancy; it also requires release hygiene, certificate automation, and operational ownership."
+    ],
+    "tags": ["AWS EKS", "Helm", "Traefik", "CertManager", "IoT", "High Availability"]
+  },
+  {
+    "name": "Gen-AI and Agentic Framework QA Standards",
+    "slug": "gen-ai-agentic-framework-qa-standards",
+    "category": "Agentic AI",
+    "phase": "Recent Phase: Agentic AI and Intelligence",
+    "period": "2025",
+    "context": "Production-grade QA standards for LLM and RAG pipelines.",
+    "outcome": "Established automated QA gatekeeping for LLM pipelines, moving beyond basic unit tests toward measurable recall, faithfulness, and relevance standards.",
+    "architecture": [
+      "Integrated RAGAS into CI/CD pipelines to score retrieval recall, faithfulness, and answer relevance.",
+      "Configured hard build gates around quality thresholds such as 0.90 recall and 0.85 faithfulness/relevance targets.",
+      "Used Langfuse for live tracing, latency monitoring, and token cost tracking in production.",
+      "Connected evaluation signals to release decisions so quality regressions could block merges."
+    ],
+    "scale": "Designed as a production QA standard for Gen-AI and agentic delivery pipelines.",
+    "lessons": [
+      "Gen-AI systems need evaluation architecture, not only unit tests, because quality depends on retrieval, prompts, grounding, and model behavior.",
+      "RAG pipelines should have measurable CI gates for recall, faithfulness, and relevance so quality regressions block release.",
+      "Tracing, evaluation, cost monitoring, and release control must work together before LLM systems can be treated as production-grade."
+    ],
+    "tags": ["RAGAS", "Langfuse", "CI/CD", "RAG Evaluation", "LLM QA", "Agentic AI"]
   },
   {
     "name": "AI Scrum Master Elisa Rollout",
@@ -71,9 +273,9 @@
     ],
     "scale": "Rolled into active project delivery to improve recurring team operations and visibility.",
     "lessons": [
-      "Onboarding an AI agent is a product experience; data quality and tool ingestion determine adoption.",
-      "Internal automation is vulnerable to configuration drift when meeting links, ceremonies, or workflows change.",
-      "Real-time active communication from an AI Scrum Master was more useful for team momentum than static reporting alone."
+      "Internal AI agents need the same product discipline as external tools: onboarding, data quality, reliability, and user trust determine adoption.",
+      "Workflow automation must handle configuration drift because real teams constantly change links, ceremonies, tools, and processes.",
+      "AI delivery automation is most useful when it improves team rhythm and decision-making, not just when it produces reports."
     ],
     "tags": ["AI Agents", "Scrum", "Jira", "Slack", "Delivery Automation"]
   }

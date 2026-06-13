@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import builtItems from '../../data/built.json';
+
+interface BuiltItem {
+  name: string;
+  slug: string;
+  category: string;
+  phase?: string;
+  period?: string;
+  context: string;
+  outcome: string;
+  architecture: string[];
+  scale: string;
+  lessons: string[];
+  tags: string[];
+}
+
+export function getStaticPaths() {
+  return (builtItems as BuiltItem[]).map((item) => ({
+    params: { slug: item.slug },
+    props: { item }
+  }));
+}
+
+const { item } = Astro.props as { item: BuiltItem };
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const description = `${item.name}: architecture ownership, hands-on delivery, outcome, scale, and lessons learned across ${item.category.toLowerCase()}.`;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: item.name,
+  description: item.outcome,
+  url: `${site}/built/${item.slug}`,
+  keywords: item.tags,
+  creator: {
+    '@type': 'Person',
+    name: 'GG Nagarkar',
+    url: `${site}/about`
+  },
+  about: item.tags.map((tag) => ({
+    '@type': 'Thing',
+    name: tag
+  }))
+};
+---
+<Layout
+  title={`${item.name} | GG Nagarkar`}
+  description={description}
+  canonicalPath={`/built/${item.slug}`}
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: "Things I've Built", item: `${site}/built` },
+    { name: item.name, item: `${site}/built/${item.slug}` }
+  ]}
+>
+  <article class="space-y-5">
+    <section class="card p-6">
+      <a href="/built" class="text-sm underline">Back to Things I've Built</a>
+      <p class="mt-5 text-sm font-medium uppercase tracking-wide text-slate-500">{item.category}{item.period ? ` · ${item.period}` : ''}</p>
+      <h1 class="mt-2 text-3xl font-semibold text-slate-900">{item.name}</h1>
+      {item.phase && <p class="mt-2 text-sm font-medium text-slate-600">{item.phase}</p>}
+      <p class="mt-4 max-w-3xl text-slate-700">{item.context}</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        {item.tags.map((tag) => (
+          <span class="rounded-full bg-slate-100 px-3 py-1.5 text-xs text-slate-700">{tag}</span>
+        ))}
+      </div>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">Architecture Responsibility</h2>
+      <p class="mt-3 text-sm leading-6 text-slate-700">
+        Responsible for technology architecture and hands-on delivery direction across system design, deployment, DevOps, cost, scale, reliability, and production readiness.
+      </p>
+    </section>
+
+    <div class="grid gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+      <section class="card p-5">
+        <h2 class="text-xl font-semibold text-slate-900">Outcome</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">{item.outcome}</p>
+
+        <h2 class="mt-6 text-xl font-semibold text-slate-900">Scale</h2>
+        <p class="mt-3 text-sm leading-6 text-slate-700">{item.scale}</p>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="text-xl font-semibold text-slate-900">Architecture</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+          {item.architecture.map((point) => <li>{point}</li>)}
+        </ul>
+      </section>
+    </div>
+
+    <section class="card p-5">
+      <h2 class="text-xl font-semibold text-slate-900">Lessons Learned</h2>
+      <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+        {item.lessons.map((lesson) => <li>{lesson}</li>)}
+      </ul>
+    </section>
+  </article>
+</Layout>

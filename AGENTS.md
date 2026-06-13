@@ -7,12 +7,13 @@ This repo is the pre-production Astro website for GG Nagarkar. Treat changes as 
 - Static Astro site with Tailwind CSS and GitHub Pages deployment.
 - No backend, no client-side framework, and no MDX/content collection currently in use.
 - Primary pages: `/`, `/about`, `/experience`, `/projects`, `/built`, `/patents`, `/writing`, `/contact`, `/facts`.
+- Built detail pages are generated at `/built/{slug}` from `src/data/built.json`.
 - Feed endpoint: `/activity.xml`.
 
 ## URL And Sitemap Rules
 
 - Never change the URL path of an existing page or feed after it exists. Existing paths are permanent unless the user explicitly approves a migration plan.
-- Do not rename, move, or delete existing routes such as `/about`, `/experience`, `/projects`, `/built`, `/patents`, `/writing`, `/contact`, `/facts`, or `/activity.xml`.
+- Do not rename, move, or delete existing routes such as `/about`, `/experience`, `/projects`, `/built`, `/built/{slug}`, `/patents`, `/writing`, `/contact`, `/facts`, or `/activity.xml`.
 - If a new page or feed is added, make sure it is included in the generated sitemap by the Astro route structure.
 - If a page or feed is intentionally removed with explicit approval, update all internal links, navigation, footer links, JSON-LD, `public/llms.txt`, and sitemap expectations in this file.
 - Always run `npm run build` after route changes and inspect the generated `dist/sitemap-index.xml` and `dist/sitemap-0.xml`.
@@ -84,7 +85,7 @@ npm run check:seo
 
 Expected pre-prod output:
 
-- Build emits 9 HTML pages: home, about, built, contact, experience, facts, patents, projects, writing.
+- Build emits the primary HTML pages plus one built detail page per `src/data/built.json` item.
 - `/activity.xml` exists.
 - `/activity` and `/rss.xml` should 404 unless intentionally reintroduced.
 - `dist/sitemap-index.xml` and `dist/sitemap-0.xml` must exist and list the expected page URLs.
