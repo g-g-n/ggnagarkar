@@ -4,7 +4,7 @@ import profile from '../data/profile.json';
 import patents from '../data/patents.json';
 import projects from '../data/projects.json';
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
 const currentProducts = projects.filter((project) => ['Applied AI Consulting', 'OpsRabbit'].includes(project.name));
 const reanPlatform = projects.filter((project) => ['deploynow-rean-cloud', 'testnow-rean-cloud', 'rean-cloud-platform-products'].includes(project.slug));
 const jsonLd = {

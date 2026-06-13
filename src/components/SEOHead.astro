@@ -32,7 +32,7 @@ const {
   breadcrumbs = []
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
 const canonical = `${siteUrl}${canonicalPath}`;
 const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 

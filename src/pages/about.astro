@@ -5,7 +5,7 @@ import links from '../data/social-links.json';
 import experience from '../data/experience.json';
 import patents from '../data/patents.json';
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
 const currentOrgs = ['Applied AI Consulting', 'OpsRabbit', '7Targets'];
 const recentExperience = [...experience].slice(0, 6);
 const activeLinks = links.filter((link) => link.active && link.url);
