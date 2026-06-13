@@ -1,0 +1,32 @@
+[
+  {
+    "label": "GitHub",
+    "url": "https://github.com/g-g-n",
+    "icon": "github",
+    "active": true
+  },
+  {
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/gg-nagarkar-ai/",
+    "icon": "linkedin",
+    "active": true
+  },
+  {
+    "label": "X / Twitter",
+    "url": "https://x.com/ggnagarkar",
+    "icon": "x",
+    "active": true
+  },
+  {
+    "label": "Applied AI Consulting",
+    "url": "https://appliedaiconsulting.com/",
+    "icon": "website",
+    "active": true
+  },
+  {
+    "label": "OpsRabbit",
+    "url": "https://www.linkedin.com/company/opsrabbit",
+    "icon": "website",
+    "active": true
+  }
+]

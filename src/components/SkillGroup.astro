@@ -1,0 +1,30 @@
+---
+import profile from '../data/profile.json';
+
+interface Props {
+  href?: string;
+}
+
+const { href } = Astro.props as Props;
+---
+{
+  href ? (
+    <a
+      href={href}
+      class="card block p-5 transition hover:border-slate-400 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+      aria-labelledby="skills-heading"
+    >
+      <h2 id="skills-heading" class="text-xl font-semibold text-slate-900">Domains and Skills</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {profile.interests.map((interest) => <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{interest}</span>)}
+      </div>
+    </a>
+  ) : (
+    <section class="card p-5" aria-labelledby="skills-heading">
+      <h2 id="skills-heading" class="text-xl font-semibold text-slate-900">Domains and Skills</h2>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {profile.interests.map((interest) => <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{interest}</span>)}
+      </div>
+    </section>
+  )
+}

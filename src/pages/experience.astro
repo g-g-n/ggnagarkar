@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'GG Nagarkar professional experience',
+  description: 'Professional experience across Applied AI Consulting, OpsRabbit, 7Targets, REAN Cloud, OpexSoftware, and Hitachi Vantara.',
+  url: `${site}/experience`
+};
+---
+<Layout
+  title="Experience | GG Nagarkar"
+  description="Professional experience timeline of GG Nagarkar across founding, enterprise software, AI, and DevOps programs."
+  canonicalPath="/experience"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Experience', item: `${site}/experience` }
+  ]}
+>
+  <h1 class="mb-4 text-3xl font-semibold text-slate-900">Experience</h1>
+  <ExperienceTimeline />
+</Layout>

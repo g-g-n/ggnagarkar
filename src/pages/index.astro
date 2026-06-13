@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProfileCard from '../components/ProfileCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PatentCard from '../components/PatentCard.astro';
+import SkillGroup from '../components/SkillGroup.astro';
+import profile from '../data/profile.json';
+import projects from '../data/projects.json';
+import patents from '../data/patents.json';
+import links from '../data/social-links.json';
+
+const featuredProjects = projects.filter((project) => project.featured).slice(0, 4);
+const topPatents = patents.slice(0, 2);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const activeLinks = links.filter((link) => link.active && link.url);
+const profileCards = [
+  { title: 'GG Nagarkar Profile', description: 'Factual biography and focus domains.', href: '/about' },
+  { title: 'Applied AI Consulting', description: 'Company profile and work focus.', href: '/projects' },
+  { title: 'OpsRabbit', description: 'DevOps and SRE automation initiative.', href: '/projects' },
+  { title: 'Patents', description: 'Portfolio, status, and summaries.', href: '/patents' },
+  { title: 'Writing & Activity', description: 'Articles, talks, videos, and public updates.', href: '/writing' }
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: 'Founder',
+    description: profile.headline,
+    homeLocation: profile.location,
+    url: `${site}/about`,
+    image: `${site}${profile.profileImage}`,
+    sameAs: activeLinks.map((link) => link.url),
+    knowsAbout: profile.interests
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Applied AI Consulting',
+    url: 'https://appliedaiconsulting.com/',
+    founder: profile.name
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: `${profile.name} Professional Profile`,
+    url: site,
+    inLanguage: 'en'
+  }
+];
+---
+<Layout
+  title="GG Nagarkar | Founder Profile, Projects, Patents, and Activity"
+  description="Official professional website of GG Nagarkar covering Applied AI Consulting, OpsRabbit, enterprise AI, DevOps/SRE automation, patents, writing, talks, and activity."
+  canonicalPath="/"
+  jsonLd={jsonLd}
+  breadcrumbs={[{ name: 'Home', item: `${site}/` }]}
+>
+  <div class="content-grid">
+    <div class="space-y-4">
+      <ProfileCard />
+      <a
+        href="/projects"
+        class="card block p-5 transition hover:border-slate-400 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+      >
+        <h2 class="text-xl font-semibold text-slate-900">Current Focus</h2>
+        <ul class="mt-3 space-y-2 text-sm text-slate-700">
+          {profile.currentFocus.map((focus) => <li>• {focus}</li>)}
+        </ul>
+      </a>
+      <SkillGroup href="/facts" />
+    </div>
+
+    <div class="space-y-4">
+      <a
+        href="/about"
+        class="card block p-5 transition hover:border-slate-400 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+      >
+        <h2 class="text-xl font-semibold text-slate-900">Key Highlights</h2>
+        <ul class="mt-3 space-y-2 text-sm text-slate-700">
+          {profile.highlights.map((highlight) => <li>• {highlight}</li>)}
+        </ul>
+      </a>
+
+      <section class="card p-5">
+        <h2 class="text-xl font-semibold text-slate-900">Professional Hub</h2>
+        <div class="mt-3 grid gap-3 md:grid-cols-2">
+          {profileCards.map((card) => (
+            <a href={card.href} class="rounded-lg border border-slate-200 p-4 transition hover:border-slate-900">
+              <h3 class="text-base font-semibold text-slate-900">{card.title}</h3>
+              <p class="mt-1 text-sm text-slate-600">{card.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-2">
+        <div class="mb-3 flex items-center justify-between">
+          <h2 class="text-xl font-semibold text-slate-900">Featured Projects</h2>
+          <a href="/projects" class="text-sm underline">All projects</a>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+          {featuredProjects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </section>
+
+      <section class="py-2">
+        <div class="mb-3 flex items-center justify-between">
+          <h2 class="text-xl font-semibold text-slate-900">Patents</h2>
+          <a href="/patents" class="text-sm underline">View patents</a>
+        </div>
+        <div class="grid gap-3 md:grid-cols-2">
+          {topPatents.map((patent) => <PatentCard patent={patent} />)}
+        </div>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="text-xl font-semibold text-slate-900">Contact</h2>
+        <p class="mt-2 text-sm text-slate-700">For collaborations, advisory, consulting, speaking, product discussions, startup mentorship, technical validation, or related conversations, please use the contact options below.</p>
+        <div class="mt-3">
+          <a href="/contact" class="rounded-full bg-slate-900 px-4 py-2 text-sm text-white">Contact details</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

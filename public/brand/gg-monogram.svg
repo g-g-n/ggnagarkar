@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GG monogram">
+  <title>GG Monogram</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="92" cy="128" r="56" stroke="#0F172A" stroke-width="18" stroke-dasharray="286 86" transform="rotate(-26 92 128)"/>
+    <path d="M92 128H132V158" stroke="#0F172A" stroke-width="18"/>
+
+    <circle cx="164" cy="128" r="56" stroke="#1E293B" stroke-width="18" stroke-dasharray="286 86" transform="rotate(-26 164 128)"/>
+    <path d="M164 128H204V158" stroke="#1E293B" stroke-width="18"/>
+
+    <path d="M128 92V164" stroke="#2563EB" stroke-width="8" opacity="0.9"/>
+  </g>
+</svg>

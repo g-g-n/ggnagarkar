@@ -1,0 +1,21 @@
+---
+import links from '../data/social-links.json';
+
+const activeLinks = links.filter((link) => link.active && link.url);
+---
+<ul class="flex flex-wrap gap-2" aria-label="Social links">
+  {activeLinks.map((link) =>
+    (
+      <li>
+        <a
+          href={link.url}
+          class="inline-flex rounded-full border border-slate-300 px-3 py-1.5 text-sm text-slate-700 transition hover:border-slate-900 hover:text-slate-900"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {link.label}
+        </a>
+      </li>
+    )
+  )}
+</ul>

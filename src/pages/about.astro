@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../data/profile.json';
+import links from '../data/social-links.json';
+import experience from '../data/experience.json';
+import patents from '../data/patents.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const currentOrgs = ['Applied AI Consulting', 'OpsRabbit', '7Targets'];
+const recentExperience = [...experience].slice(0, 6);
+const activeLinks = links.filter((link) => link.active && link.url);
+const personJson = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  description: profile.shortBio,
+  jobTitle: 'Founder',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Pune',
+    addressCountry: 'IN'
+  },
+  sameAs: activeLinks.map((link) => link.url),
+  knowsAbout: profile.interests,
+  image: `${site}${profile.profileImage}`,
+  mainEntityOfPage: `${site}/about`
+};
+---
+<Layout
+  title="About GG Nagarkar | Founder Biography"
+  description="Biography of GG Nagarkar, founder and product engineering leader focused on agentic AI systems, DevOps/SRE automation, cloud infrastructure, and enterprise software."
+  canonicalPath="/about"
+  jsonLd={personJson}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'About', item: `${site}/about` }
+  ]}
+>
+  <article class="card p-6">
+    <h1 class="text-3xl font-semibold text-slate-900">About GG Nagarkar</h1>
+    <p class="mt-4 text-slate-700">
+      GG Nagarkar is a founder, product engineer, and technology leader based in Pune, India. His work centers on practical enterprise AI, AIOps/DevOps automation, cloud infrastructure engineering, and software delivery systems.
+    </p>
+    <p class="mt-3 text-slate-700">
+      He has built and scaled products and teams across services, SaaS, and platform engineering contexts, with a track record that spans founding roles, enterprise product leadership, and patent-backed cloud automation work.
+    </p>
+
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">Current Work</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-6 text-slate-700">
+      {currentOrgs.map((org) => <li>{org}</li>)}
+    </ul>
+
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">Core Domains</h2>
+    <div class="mt-3 flex flex-wrap gap-2">
+      {profile.interests.map((domain) => (
+        <span class="rounded-full bg-slate-100 px-3 py-1.5 text-sm text-slate-700">{domain}</span>
+      ))}
+    </div>
+
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">Selected Career Timeline</h2>
+    <ol class="mt-3 space-y-4 border-l border-slate-200 pl-4">
+      {recentExperience.map((item) => (
+        <li class="relative">
+          <span class="absolute -left-[21px] top-2 h-2 w-2 rounded-full bg-slate-500" aria-hidden="true"></span>
+          <h3 class="text-base font-semibold text-slate-900">{item.role} · {item.company}</h3>
+          <p class="text-sm text-slate-600">{item.startDate} to {item.endDate} · {item.location}</p>
+          <p class="mt-1 text-sm text-slate-700">{item.summary}</p>
+        </li>
+      ))}
+    </ol>
+
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">Patents</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-6 text-slate-700">
+      {patents.map((patent) => (
+        <li>
+          <a href={patent.url} class="underline" target="_blank" rel="noreferrer">
+            {patent.patentNumber}
+          </a>{' '}
+          - {patent.title} ({patent.status})
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">How To Reach GG</h2>
+    <p class="mt-3 text-slate-700">
+      For consulting, product collaboration, advisory, or speaking opportunities, use the <a href="/contact" class="underline">contact page</a>.
+    </p>
+
+  </article>
+</Layout>

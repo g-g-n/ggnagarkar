@@ -1,0 +1,19 @@
+---
+import experience from '../data/experience.json';
+---
+<section class="card p-5" aria-labelledby="experience-heading">
+  <h2 id="experience-heading" class="text-xl font-semibold text-slate-900">Experience Timeline</h2>
+  <ol class="mt-4 space-y-4 border-l border-slate-200 pl-4">
+    {experience.map((item) => (
+      <li class="relative">
+        <span class="absolute -left-[21px] top-2 h-2 w-2 rounded-full bg-slate-500" aria-hidden="true"></span>
+        <h3 class="text-base font-semibold text-slate-900">{item.role} · {item.company}</h3>
+        <p class="text-sm text-slate-600">{item.startDate} to {item.endDate} · {item.location}</p>
+        <p class="mt-2 text-sm text-slate-700">{item.summary}</p>
+        <div class="mt-2 flex flex-wrap gap-2">
+          {item.skills.map((skill) => <span class="rounded-full bg-slate-100 px-2 py-1 text-xs">{skill}</span>)}
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

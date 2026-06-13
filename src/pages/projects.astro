@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projects from '../data/projects.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Projects and Products by GG Nagarkar',
+  description: 'Applied AI Consulting, OpsRabbit, 7Targets, REAN Cloud, OpexSoftware, patents, and selected product work.',
+  url: `${site}/projects`,
+  hasPart: projects.map((project) => ({
+    '@type': 'CreativeWork',
+    name: project.name,
+    description: project.summary,
+    url: project.url
+  }))
+};
+---
+<Layout
+  title="Projects and Products | GG Nagarkar"
+  description="Projects and products by GG Nagarkar across Applied AI Consulting, OpsRabbit, 7Targets, OpexSoftware, REAN Cloud, and patent-backed cloud automation."
+  canonicalPath="/projects"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Projects', item: `${site}/projects` }
+  ]}
+>
+  <h1 class="mb-4 text-3xl font-semibold text-slate-900">Projects</h1>
+  <div class="grid gap-4 md:grid-cols-2">
+    {projects.map((project) => <ProjectCard project={project} />)}
+  </div>
+</Layout>

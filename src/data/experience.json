@@ -1,0 +1,107 @@
+[
+  {
+    "company": "Applied AI Consulting",
+    "role": "Founder / Chief Mentor",
+    "startDate": "2019-04",
+    "endDate": "Present",
+    "location": "Pune, India",
+    "summary": "Founded and leads Applied AI Consulting, working with teams on practical AI adoption, product engineering, cloud modernization, DevOps automation, and delivery acceleration. The work focuses on turning complex enterprise technology goals into reliable systems, measurable outcomes, and repeatable engineering practices.",
+    "skills": ["AI Agents", "Product Engineering", "Cloud Architecture", "Advisory"],
+    "sourceUrls": [
+      "https://appliedaiconsulting.com/about-us/",
+      "https://www.thecompanycheck.com/people/applied-artificial-intelligence-consulting-llp/AAP-3351"
+    ]
+  },
+  {
+    "company": "OpsRabbit",
+    "role": "Co-Founder",
+    "startDate": "2025-01",
+    "endDate": "Present",
+    "location": "Pune, India",
+    "summary": "Co-founded OpsRabbit to build AI-assisted incident investigation and operations automation for DevOps, CloudOps, and SRE teams. The platform focuses on faster triage, better operational context, runbook-oriented workflows, and reduced mean time to resolution for modern engineering organizations.",
+    "skills": ["AIOps", "SRE", "DevOps", "Product Strategy"],
+    "sourceUrls": [
+      "https://www.linkedin.com/company/opsrabbit",
+      "https://www.tofler.in/opsrabbit-private-limited/company/U62013PN2025PTC244057"
+    ]
+  },
+  {
+    "company": "7Targets",
+    "role": "Co-Founder / CTO",
+    "startDate": "2019-04",
+    "endDate": "2024-12",
+    "location": "Pune, India",
+    "summary": "Co-founded and led technology for 7Targets, an AI-assisted sales automation product focused on follow-ups, response handling, and sales workflow productivity. The role combined product strategy, platform architecture, customer feedback loops, and technical execution for SaaS go-to-market use cases.",
+    "skills": ["AI Sales Automation", "SaaS Product", "Technical Sales"],
+    "sourceUrls": [
+      "https://wellfound.com/company/7targets-ai-assistants/people",
+      "https://7targets.ai/blog/why-important-help-smaller-companies-succeed-sanju-burkule-rashmi-mishra-story/"
+    ]
+  },
+  {
+    "company": "Hitachi Vantara",
+    "role": "VP Engineering & Products / Cloud Platform",
+    "startDate": "2018-10",
+    "endDate": "2019-03",
+    "location": "India",
+    "summary": "Worked on cloud platform engineering and product leadership initiatives after the REAN Cloud and Hitachi Vantara transition. The work covered enterprise cloud automation, platform reliability, engineering execution, and invention-backed systems for cloud testing and infrastructure automation.",
+    "skills": ["Cloud Platform", "Engineering Leadership", "Enterprise Systems"],
+    "sourceUrls": [
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+      "https://patents.google.com/patent/US11074165",
+      "https://patents.google.com/patent/US11099976B2/en"
+    ]
+  },
+  {
+    "company": "REAN Cloud",
+    "role": "Engineering & Product Leadership",
+    "startDate": "2016-08",
+    "endDate": "2018-09",
+    "location": "India",
+    "summary": "Helped scale DevSecOps and cloud automation capabilities after OpexSoftware joined REAN Cloud. The work included enterprise delivery accelerators, deployment and testing automation, cloud infrastructure practices, and productized platform capabilities for regulated and large-scale customers.",
+    "skills": ["DevSecOps", "Cloud Automation", "Platform Engineering"],
+    "sourceUrls": [
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.newswire.com/news/rean-cloud-acquires-opex-software-to-strengthen-its-devsecops-practice-14052565"
+    ]
+  },
+  {
+    "company": "OpexSoftware",
+    "role": "Co-Founder",
+    "startDate": "2013-01",
+    "endDate": "2016-08",
+    "location": "India",
+    "summary": "Co-founded OpexSoftware to deliver DevOps, cloud integration, and automation solutions for enterprise customers. The company built engineering practices and accelerators around continuous delivery, infrastructure automation, operational readiness, and cloud adoption before being acquired by REAN Cloud.",
+    "skills": ["DevOps", "Cloud Integrations", "Automation", "Product Development"],
+    "sourceUrls": [
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.cbinsights.com/company/opex-software"
+    ]
+  },
+  {
+    "company": "BMC Software",
+    "role": "Engineering",
+    "startDate": "2004-01",
+    "endDate": "2012-12",
+    "location": "India",
+    "summary": "Worked in enterprise software engineering roles focused on systems, tooling, and product delivery. This period built a strong foundation in large-scale software development, IT operations concepts, customer-facing engineering, and the practices that later shaped DevOps and platform automation work.",
+    "skills": ["Enterprise Software", "Engineering", "ITSM/DevOps Foundations"],
+    "sourceUrls": [
+      "https://wellfound.com/company/7targets-ai-assistants/people",
+      "https://7targets.ai/blog/why-important-help-smaller-companies-succeed-sanju-burkule-rashmi-mishra-story/",
+      "https://www.saleshandy.com/people/gunanand-nagarkar-email-phone-36874558"
+    ]
+  },
+  {
+    "company": "TCS",
+    "role": "Software Engineering",
+    "startDate": "2001-01",
+    "endDate": "2003-12",
+    "location": "India",
+    "summary": "Started professional software engineering work in enterprise delivery environments, contributing to software development, implementation, and technical problem solving for customer programs. This early experience established the base for later work in enterprise products, cloud systems, and automation.",
+    "skills": ["Software Engineering", "Enterprise Delivery"],
+    "sourceUrls": [
+      "https://www.saleshandy.com/people/gunanand-nagarkar-email-phone-36874558"
+    ]
+  }
+]

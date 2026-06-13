@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../data/profile.json';
+import links from '../data/social-links.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const activeLinks = links.filter((link) => link.active && link.url);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact GG Nagarkar',
+  description: 'Contact options for consulting, collaboration, speaking, mentorship, and product discussions.',
+  url: `${site}/contact`,
+  mainEntity: {
+    '@type': 'Person',
+    name: profile.name,
+    email: profile.email,
+    sameAs: activeLinks.map((link) => link.url)
+  }
+};
+---
+<Layout
+  title="Contact | GG Nagarkar"
+  description="Contact GG Nagarkar for consulting, product collaboration, speaking, startup mentorship, technical validation, advisory, and professional inquiries."
+  canonicalPath="/contact"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Contact', item: `${site}/contact` }
+  ]}
+>
+  <article class="card p-6">
+    <h1 class="text-3xl font-semibold text-slate-900">Contact</h1>
+    <p class="mt-3 text-slate-700">Best way to reach out is via email. You can also use the public profiles and company links below.</p>
+    <p class="mt-4 text-slate-700">
+      Email:
+      <a class="font-medium underline" href={`mailto:${profile.email}`}>{profile.email}</a>
+    </p>
+
+    <h2 class="mt-6 text-xl font-semibold text-slate-900">Profiles and Websites</h2>
+    <ul class="mt-3 space-y-2 text-slate-700">
+      {activeLinks.map((link) =>
+        (
+          <li>
+            <a class="underline" href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
+          </li>
+        )
+      )}
+    </ul>
+  </article>
+</Layout>

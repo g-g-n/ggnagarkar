@@ -1,0 +1,30 @@
+{
+  "name": "GG Nagarkar",
+  "headline": "Founder building practical AI agents, DevOps automation, and enterprise software systems",
+  "location": "Pune, India",
+  "shortBio": "Founder and product engineer focused on practical AI systems, DevOps automation, and enterprise software delivery. I build products and teams that turn complex technical goals into measurable business outcomes.",
+  "email": "ggnagarkar@gmail.com",
+  "profileImage": "/images/gg.jpg",
+  "currentFocus": [
+    "Applied AI Consulting",
+    "OpsRabbit",
+    "7Targets"
+  ],
+  "highlights": [
+    "Founder of Applied AI Consulting and building OpsRabbit",
+    "Co-founder and product builder across OpexSoftware, REAN Cloud, 7Targets, and OpsRabbit",
+    "US patents in cloud testing and infrastructure automation",
+    "Enterprise AI, DevOps/SRE, cloud platform engineering, and product delivery leadership"
+  ],
+  "interests": [
+    "Agentic AI systems",
+    "Enterprise AI architecture",
+    "AIOps and incident automation",
+    "DevOps and SRE automation",
+    "Cloud infrastructure automation",
+    "Platform and reliability engineering",
+    "Software delivery and CI/CD",
+    "AI sales workflow automation",
+    "Founder-led product engineering"
+  ]
+}

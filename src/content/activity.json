@@ -1,0 +1,362 @@
+[
+  {
+    "title": "SlideShare: What is DevOps? What is DevOps CoE?",
+    "type": "talk",
+    "date": "2015-05-13",
+    "source": "SlideShare / OpexSoftware-era",
+    "summary": "Early public presentation on DevOps Center of Excellence concepts and enterprise DevOps adoption patterns.",
+    "url": "https://www.slideshare.net/slideshow/what-is-devops-what-is-devops-coe/48029624",
+    "image": "",
+    "tags": ["DevOps", "SlideShare", "OpexSoftware", "Talk"]
+  },
+  {
+    "title": "Publication Mention: eGov March 2019 Issue",
+    "type": "post",
+    "date": "2019-03-01",
+    "source": "eGov Magazine",
+    "summary": "Archived publication issue containing coverage related to digital innovation and technology leadership context involving GG Nagarkar.",
+    "url": "https://egov.eletsonline.com/magazinepdf/pdf/eGov_March_2019_eIndia.pdf",
+    "image": "",
+    "tags": ["Publication", "eGov", "REAN Cloud"]
+  },
+  {
+    "title": "What is REAN Accelerator Platform ?",
+    "type": "video",
+    "date": "2026-06-10",
+    "source": "YouTube (@ggnagarkar)",
+    "summary": "Video presentation by GG Nagarkar on the REAN Accelerator Platform.",
+    "url": "https://www.youtube.com/watch?v=vbfze8VkvgI",
+    "image": "",
+    "tags": ["YouTube", "Video", "Talk"]
+  },
+  {
+    "title": "Webinar Speaker: Why and How to Migrate Workloads to Cloud?",
+    "type": "talk",
+    "date": "2022-10-31",
+    "source": "Applied AI Consulting Webinar",
+    "summary": "Spoke in an Applied AI Consulting webinar discussing practical cloud migration approaches and outcomes.",
+    "url": "https://appliedaiconsulting.com/news-events/webinar-why-and-how-to-migrate-ms-sql-server-to-postgresql/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Webinar", "Cloud Migration", "Talk"]
+  },
+  {
+    "title": "Speaker at Digital Innovation and Cyber Security Summit 2019",
+    "type": "talk",
+    "date": "2019-01-18",
+    "source": "Elets / REAN Cloud",
+    "summary": "Featured speaker session representing REAN Cloud perspective on digital innovation and cyber security themes.",
+    "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+    "image": "",
+    "tags": ["REAN Cloud", "Conference", "Cyber Security", "Talk"]
+  },
+  {
+    "title": "AI Apps With Actions Are Becoming an Ops Incident Surface",
+    "type": "blog",
+    "date": "2026-06-03",
+    "source": "OpsRabbit Blog",
+    "summary": "Once AI apps can search internal systems, invoke tools, or act through MCP-connected services, they stop being just another productivity feature and become part of the live incident surface.",
+    "url": "https://opsrabbit.io/blog/ai-apps-with-actions-are-becoming-an-ops-incident-surface",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Operations", "Incident Response"]
+  },
+  {
+    "title": "Why AI Agent Permissions Sprawl Is Becoming an Ops Incident",
+    "type": "blog",
+    "date": "2026-05-31",
+    "source": "OpsRabbit Blog",
+    "summary": "Agent adoption is moving faster than visibility and least-privilege controls. This explains why MCP and A2A permissions sprawl is now an operations problem.",
+    "url": "https://opsrabbit.io/blog/ai-agent-permissions-sprawl-is-becoming-an-ops-incident",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Agents", "Security Operations"]
+  },
+  {
+    "title": "Agentic AI Adoption Needs Operational Guardrails Before It Becomes an Ops Incident",
+    "type": "blog",
+    "date": "2026-05-05",
+    "source": "OpsRabbit Blog",
+    "summary": "CISA's guidance on agentic AI adoption is useful, but ops teams still need guardrails around access, ownership, telemetry, and response context.",
+    "url": "https://opsrabbit.io/blog/agentic-ai-adoption-needs-operational-guardrails",
+    "image": "",
+    "tags": ["OpsRabbit", "Agentic AI", "Operations"]
+  },
+  {
+    "title": "Why MCP-Connected Admin Tools Turn Fast Vulnerability News Into Ops Incidents",
+    "type": "blog",
+    "date": "2026-05-03",
+    "source": "OpsRabbit Blog",
+    "summary": "The nginx-ui MCP auth-bypass story shows how AI- and MCP-connected admin tools can turn a fresh disclosure into a live ops incident fast.",
+    "url": "https://opsrabbit.io/blog/nginx-ui-mcp-auth-bypass-incident-response",
+    "image": "",
+    "tags": ["OpsRabbit", "MCP", "Security Operations"]
+  },
+  {
+    "title": "Why Kubernetes AI Workloads Often Fail First at Memory Pressure, Not CPU",
+    "type": "blog",
+    "date": "2026-05-02",
+    "source": "OpsRabbit Blog",
+    "summary": "AI workloads in Kubernetes often surface first as memory pressure, OOM kills, and evictions. This explains why and how responders can debug faster.",
+    "url": "https://opsrabbit.io/blog/kubernetes-ai-memory-pressure-incidents",
+    "image": "",
+    "tags": ["OpsRabbit", "Kubernetes", "AI Operations"]
+  },
+  {
+    "title": "AI Investigation Context Windows Are Becoming an Ops Problem",
+    "type": "blog",
+    "date": "2026-04-30",
+    "source": "OpsRabbit Blog",
+    "summary": "AI copilots can start incident investigations faster, but many still lose the thread once evidence spans alerts, logs, deploys, chat, and ownership data.",
+    "url": "https://opsrabbit.io/blog/ai-investigation-context-windows-are-becoming-an-ops-problem",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Operations", "Incident Response"]
+  },
+  {
+    "title": "AI Alert Fatigue Is Now an AI Ops Incident, Not Just a Monitoring Problem",
+    "type": "blog",
+    "date": "2026-04-29",
+    "source": "OpsRabbit Blog",
+    "summary": "AI is making already noisy operational environments harder to interpret, turning alert fatigue into a real incident-response problem.",
+    "url": "https://opsrabbit.io/blog/ai-alert-fatigue-is-now-an-ai-ops-incident",
+    "image": "",
+    "tags": ["OpsRabbit", "Alert Fatigue", "AIOps"]
+  },
+  {
+    "title": "Predictive Hardening for AI Ops Incidents",
+    "type": "blog",
+    "date": "2026-04-28",
+    "source": "OpsRabbit Blog",
+    "summary": "When an AI-connected incident starts moving, teams need trusted context fast enough to apply temporary, targeted hardening before the blast radius grows.",
+    "url": "https://opsrabbit.io/blog/predictive-hardening-for-ai-ops-incidents",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Security", "Operations"]
+  },
+  {
+    "title": "How Kubernetes User Namespaces Change Production Debugging and Incident Response",
+    "type": "blog",
+    "date": "2026-04-27",
+    "source": "OpsRabbit Blog",
+    "summary": "Kubernetes user namespaces are now GA. This explains what changes for platform teams, production debugging, and incident response.",
+    "url": "https://opsrabbit.io/blog/how-kubernetes-user-namespaces-change-production-debugging-and-incident-response",
+    "image": "",
+    "tags": ["OpsRabbit", "Kubernetes", "Incident Response"]
+  },
+  {
+    "title": "Why AI Runbooks Fail Without Live Infrastructure Context",
+    "type": "blog",
+    "date": "2026-04-26",
+    "source": "OpsRabbit Blog",
+    "summary": "AI-era runbooks fail when responders lack live ownership, change, access, and blast-radius context before they can act safely.",
+    "url": "https://opsrabbit.io/blog/why-ai-runbooks-fail-without-live-infrastructure-context",
+    "image": "",
+    "tags": ["OpsRabbit", "Runbooks", "SRE"]
+  },
+  {
+    "title": "Indirect Prompt Injection Is Becoming an Ops Incident",
+    "type": "blog",
+    "date": "2026-04-21",
+    "source": "OpsRabbit Blog",
+    "summary": "Indirect prompt injection is becoming an incident pattern where retrieved content or tool output can change agent behavior faster than responders can assemble context.",
+    "url": "https://opsrabbit.io/blog/indirect-prompt-injection-is-becoming-an-ops-incident",
+    "image": "",
+    "tags": ["OpsRabbit", "Prompt Injection", "AI Security"]
+  },
+  {
+    "title": "Shadow AI Is Creating Ops Incidents Faster Than Teams Can Build Context",
+    "type": "blog",
+    "date": "2026-04-20",
+    "source": "OpsRabbit Blog",
+    "summary": "AI adoption is moving faster than documentation, ownership, and guardrails, leaving operations teams to reconstruct what changed during incidents.",
+    "url": "https://opsrabbit.io/blog/shadow-ai-is-creating-ops-incidents-faster-than-teams-can-build-context",
+    "image": "",
+    "tags": ["OpsRabbit", "Shadow AI", "Operations"]
+  },
+  {
+    "title": "Why Time-to-Context Is the Real Bottleneck in the Agentic SOC Era",
+    "type": "blog",
+    "date": "2026-04-18",
+    "source": "OpsRabbit Blog",
+    "summary": "The agentic SOC is emerging, but ops teams still lose time assembling ownership, deploy history, runtime evidence, and next actions.",
+    "url": "https://opsrabbit.io/blog/why-time-to-context-is-the-real-bottleneck-in-the-agentic-soc-era",
+    "image": "",
+    "tags": ["OpsRabbit", "Agentic SOC", "Security Operations"]
+  },
+  {
+    "title": "Agentic Runbooks for IT Operations",
+    "type": "blog",
+    "date": "2026-04-17",
+    "source": "OpsRabbit Blog",
+    "summary": "Agentic runbooks help IT operations teams gather evidence, validate context, and recommend the next step faster without automating blindly.",
+    "url": "https://opsrabbit.io/blog/agentic-runbooks-for-it-operations",
+    "image": "",
+    "tags": ["OpsRabbit", "Runbooks", "IT Operations"]
+  },
+  {
+    "title": "When MCP Endpoints Become an Ops Incident",
+    "type": "blog",
+    "date": "2026-04-16",
+    "source": "OpsRabbit Blog",
+    "summary": "The nginx-ui takeover flaw shows why MCP and admin-plane integrations are now part of the incident surface.",
+    "url": "https://opsrabbit.io/blog/mcp-endpoints-ops-incident-nginx-ui",
+    "image": "",
+    "tags": ["OpsRabbit", "MCP", "Incident Response"]
+  },
+  {
+    "title": "The Agentic SOC Is Coming. The Operations Bottleneck Is Still Context.",
+    "type": "blog",
+    "date": "2026-04-15",
+    "source": "OpsRabbit Blog",
+    "summary": "The agentic SOC is becoming the new security operating model, but production incidents still stall when responders cannot assemble service context quickly.",
+    "url": "https://opsrabbit.io/blog/the-agentic-soc-is-coming-the-operations-bottleneck-is-still-context",
+    "image": "",
+    "tags": ["OpsRabbit", "Agentic SOC", "Operations"]
+  },
+  {
+    "title": "Mitigating the Axios npm Supply Chain Compromise Before It Becomes a 2 A.M. Incident",
+    "type": "blog",
+    "date": "2026-04-14",
+    "source": "OpsRabbit Blog",
+    "summary": "The Axios npm supply chain compromise is a reminder that dependency incidents become operations incidents fast.",
+    "url": "https://opsrabbit.io/blog/mitigating-the-axios-npm-supply-chain-compromise",
+    "image": "",
+    "tags": ["OpsRabbit", "Supply Chain", "Incident Response"]
+  },
+  {
+    "title": "Why AI-Generated Code Is Creating a New Incident Response Problem",
+    "type": "blog",
+    "date": "2026-04-13",
+    "source": "OpsRabbit Blog",
+    "summary": "AI coding tools speed up delivery but create a new investigation burden for operations teams when production breaks.",
+    "url": "https://opsrabbit.io/blog/ai-generated-code-incident-response-problem",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Code", "Incident Response"]
+  },
+  {
+    "title": "MTTD, MTTF, MTBF, and MTTR: How OpsRabbit Improves DevOps Metrics",
+    "type": "blog",
+    "date": "2026-04-01",
+    "source": "OpsRabbit Blog",
+    "summary": "A practical guide to core reliability metrics and how AI-driven incident investigation helps teams detect faster and resolve sooner.",
+    "url": "https://opsrabbit.io/blog/mttd-mttf-mtbf-mttr-how-opsrabbit-improves-devops-metrics",
+    "image": "",
+    "tags": ["OpsRabbit", "MTTR", "SRE"]
+  },
+  {
+    "title": "Everyone Waits for Gaurav: Solving the Tribal Knowledge Bottleneck in IT Operations",
+    "type": "blog",
+    "date": "2025-09-01",
+    "source": "OpsRabbit Blog",
+    "summary": "A story-driven post on how tribal knowledge slows teams down and what scalable, AI-supported operations can look like.",
+    "url": "https://opsrabbit.io/blog/everyone-waits-for-gaurav-tribal-knowledge-bottleneck",
+    "image": "",
+    "tags": ["OpsRabbit", "IT Operations", "Team Scaling"]
+  },
+  {
+    "title": "Why Ops Teams Can't Keep Up with AI Code",
+    "type": "blog",
+    "date": "2025-09-01",
+    "source": "OpsRabbit Blog",
+    "summary": "AI coding tools are accelerating development while creating new challenges for operations teams responsible for stable production systems.",
+    "url": "https://opsrabbit.io/blog/why-ops-teams-cant-keep-up-with-ai-code",
+    "image": "",
+    "tags": ["OpsRabbit", "AI Code", "IT Operations"]
+  },
+  {
+    "title": "Transforming QA Efficiency: 80% Regression Time Reduction Through Automation",
+    "type": "case-study",
+    "date": "2024-10-16",
+    "source": "Applied AI Consulting",
+    "summary": "Case study on quality engineering automation that reduced regression testing time and improved release confidence.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/transforming-qa-efficiency-achieving-80-regression-time-reduction-through-automation/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Quality Engineering", "Case Study", "Automation"]
+  },
+  {
+    "title": "Accelerating CI/CD Efficiency: From Jenkins to GitHub Actions",
+    "type": "case-study",
+    "date": "2024-10-23",
+    "source": "Applied AI Consulting",
+    "summary": "Case study on CI/CD modernization and automation reliability improvements through GitHub Actions migration.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/accelerating-ci-cd-efficiency-from-jenkins-to-github-actions-for-seamless-automation/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Case Study", "Automation"]
+  },
+  {
+    "title": "Manage Contact Data with AI",
+    "type": "blog",
+    "date": "2024-12-09",
+    "source": "Applied AI Consulting",
+    "summary": "Practical guide for using AI to normalize, enrich, and manage contact data quality at scale.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/manage-your-contact-data-effectively-for-impactful-sales/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Data", "AI Automation"]
+  },
+  {
+    "title": "Accelerating Private Sector Bank’s App Releases with Azure DevOps",
+    "type": "case-study",
+    "date": "2024-08-23",
+    "source": "Applied AI Consulting",
+    "summary": "Case study on improving release velocity and reliability through Azure DevOps modernization in banking.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/accelerating-private-sector-banks-app-releases-with-aws-and-devops-expertise-by-applied-ai-consulting/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "CI/CD", "Case Study"]
+  },
+  {
+    "title": "Driving Quality and Reliability for Modern Mobile and Web Applications",
+    "type": "case-study",
+    "date": "2024-08-21",
+    "source": "Applied AI Consulting",
+    "summary": "Case study on QA modernization for mobile/web applications with stronger release confidence and reliability.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/driving-quality-and-reliability-for-modern-mobile-and-web-applications-2/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Sales AI", "Case Study"]
+  },
+  {
+    "title": "AI-Driven Secure Search for Pharma Product Information",
+    "type": "blog",
+    "date": "2024-09-23",
+    "source": "Applied AI Consulting",
+    "summary": "Case-led write-up on secure AI search and retrieval patterns for pharmaceutical information workflows.",
+    "url": "https://appliedaiconsulting.com/case-studies-web/ai-driven-secure-search-for-federal-agencies/",
+    "image": "",
+    "tags": ["Applied AI Consulting", "Quality Engineering", "AI"]
+  },
+  {
+    "title": "Prevent Missed Follow-ups with AI Sales Automation",
+    "type": "blog",
+    "date": "2025-02-06",
+    "source": "7Targets Blog",
+    "summary": "Shows how AI sales assistants help teams reduce dropped conversations and improve follow-up consistency.",
+    "url": "https://blog.7targets.ai/prevent-missed-follow-ups-with-ai-sales-automation/",
+    "image": "",
+    "tags": ["7Targets", "Sales Automation", "AI"]
+  },
+  {
+    "title": "Boost Sales with AI Assistant Sales Agents",
+    "type": "blog",
+    "date": "2025-02-05",
+    "source": "7Targets Blog",
+    "summary": "Overview of AI sales assistant use cases for prospecting, follow-ups, and conversion acceleration.",
+    "url": "https://7targets.ai/blog/boost-sales-with-ai-follow-up-solutions/",
+    "image": "",
+    "tags": ["7Targets", "AI Sales", "SaaS"]
+  },
+  {
+    "title": "Why It Is Important to Help Smaller Companies Succeed",
+    "type": "post",
+    "date": "2019-03-09",
+    "source": "7Targets Story",
+    "summary": "Founder story and motivation behind building AI assistants that help smaller businesses scale their sales process.",
+    "url": "https://blog.7targets.ai/why-important-help-smaller-companies-succeed-sanju-burkule-rashmi-mishra-story/",
+    "image": "",
+    "tags": ["7Targets", "Founder Story", "Startup"]
+  },
+  {
+    "title": "REAN Cloud Acquires Opex Software to Strengthen DevSecOps Practice",
+    "type": "product",
+    "date": "2016-08-19",
+    "source": "Opex / REAN News",
+    "summary": "Milestone announcement covering OpexSoftware acquisition and expansion of DevSecOps capabilities.",
+    "url": "https://www.newswire.com/news/rean-cloud-acquires-opex-software-to-strengthen-its-devsecops-practice-14052565",
+    "image": "",
+    "tags": ["OpexSoftware", "REAN Cloud", "DevSecOps", "Acquisition"]
+  }
+]

@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../data/profile.json';
+import patents from '../data/patents.json';
+import projects from '../data/projects.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const currentProducts = projects.filter((project) => ['Applied AI Consulting', 'OpsRabbit'].includes(project.name));
+const reanPlatform = projects.filter((project) => ['deploynow-rean-cloud', 'testnow-rean-cloud', 'rean-cloud-platform-products'].includes(project.slug));
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: 'Verified facts about GG Nagarkar',
+  description: 'Concise factual profile for search engines, AI systems, and professional verification.',
+  url: `${site}/facts`,
+  mainEntity: {
+    '@type': 'Person',
+    name: profile.name,
+    jobTitle: 'Founder',
+    homeLocation: profile.location,
+    knowsAbout: profile.interests
+  }
+};
+---
+<Layout
+  title="Facts | GG Nagarkar"
+  description="Concise factual profile of GG Nagarkar for search and AI systems, including current focus entities, domains, patents, contact references, and source-backed project notes."
+  canonicalPath="/facts"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Facts', item: `${site}/facts` }
+  ]}
+>
+  <article class="card p-6">
+    <h1 class="text-3xl font-semibold text-slate-900">Verified Facts</h1>
+    <ul class="mt-4 list-disc space-y-2 pl-6 text-slate-700">
+      <li>Name: {profile.name}</li>
+      <li>Location: {profile.location}</li>
+      <li>Current headline: {profile.headline}</li>
+      <li>Primary companies/products: Applied AI Consulting, OpsRabbit, 7Targets</li>
+      <li>Domains: {profile.interests.join(', ')}</li>
+      <li>Patent records listed: {patents.length} (see source links on the Patents page)</li>
+      <li>Primary contact page: <a href="/contact" class="underline">/contact</a></li>
+    </ul>
+
+    <h2 class="mt-6 text-xl font-semibold text-slate-900">Current Focus Entities</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-6 text-slate-700">
+      {currentProducts.map((item) => (
+        <li>
+          <strong>{item.name}</strong>: {item.summary}
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mt-6 text-xl font-semibold text-slate-900">REAN Cloud Platform Product References</h2>
+    <ul class="mt-3 list-disc space-y-2 pl-6 text-slate-700">
+      {reanPlatform.map((item) => (
+        <li>
+          <strong>{item.name}</strong> ({item.period}) - {item.summary}
+        </li>
+      ))}
+    </ul>
+
+    <h2 class="mt-6 text-xl font-semibold text-slate-900">Entity Descriptions</h2>
+    <p class="mt-2 text-slate-700"><strong>Who is GG Nagarkar?</strong> Founder and engineering leader focused on practical enterprise AI and operational automation systems.</p>
+    <p class="mt-2 text-slate-700"><strong>What is Applied AI Consulting?</strong> A company focused on implementing practical AI solutions and modern software systems for business outcomes.</p>
+    <p class="mt-2 text-slate-700"><strong>What is OpsRabbit?</strong> A product initiative for DevOps and SRE automation to improve reliability, response, and delivery speed.</p>
+    <p class="mt-6 text-xs text-slate-500">Last factual refresh: June 10, 2026.</p>
+  </article>
+</Layout>

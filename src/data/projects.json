@@ -1,0 +1,195 @@
+[
+  {
+    "name": "Applied AI Consulting",
+    "slug": "applied-ai-consulting",
+    "type": "company",
+    "status": "active",
+    "role": "Founder / Chief Mentor",
+    "period": "2019 - Present",
+    "summary": "AI, cloud, DevOps, and product engineering company delivering enterprise modernization programs and automation solutions.",
+    "url": "https://appliedaiconsulting.com/about-us/",
+    "tags": ["Enterprise AI", "Cloud Engineering", "DevOps", "Product Engineering"],
+    "featured": true,
+    "sourceUrls": [
+      "https://appliedaiconsulting.com/about-us/",
+      "https://www.thecompanycheck.com/people/applied-artificial-intelligence-consulting-llp/AAP-3351"
+    ]
+  },
+  {
+    "name": "OpsRabbit",
+    "slug": "opsrabbit",
+    "type": "product",
+    "status": "active",
+    "role": "Co-Founder",
+    "period": "2025 - Present",
+    "summary": "AI-powered CloudOps/SRE incident investigation and automation platform focused on reducing MTTR and improving operational reliability.",
+    "url": "https://www.linkedin.com/company/opsrabbit",
+    "tags": ["AIOps", "SRE", "Incident Automation", "CloudOps"],
+    "featured": true,
+    "sourceUrls": [
+      "https://www.linkedin.com/company/opsrabbit",
+      "https://www.tofler.in/opsrabbit-private-limited/company/U62013PN2025PTC244057"
+    ]
+  },
+  {
+    "name": "7Targets AI Assistants",
+    "slug": "7targets-ai-assistants",
+    "type": "product",
+    "status": "active",
+    "role": "Co-Founder / CTO",
+    "period": "2019 - 2024",
+    "summary": "AI-assisted sales follow-up and response automation platform for outbound/inbound sales workflows.",
+    "url": "https://7targets.ai/",
+    "tags": ["AI Sales", "Sales Automation", "SaaS"],
+    "featured": true,
+    "sourceUrls": [
+      "https://7targets.ai/blog/why-important-help-smaller-companies-succeed-sanju-burkule-rashmi-mishra-story/",
+      "https://www.f6s.com/company/appliedaiconsulting"
+    ]
+  },
+  {
+    "name": "DocuLens",
+    "slug": "doculens",
+    "type": "product",
+    "status": "active",
+    "role": "Co-Founder / Director",
+    "period": "2021 - Present",
+    "summary": "AI document intelligence product focused on summarization, extraction, translation, OCR, redaction, and chat-over-documents workflows.",
+    "url": "https://7targets.ai/doculens.html",
+    "tags": ["Document AI", "OCR", "Data Extraction", "AI Product"],
+    "featured": false,
+    "sourceUrls": [
+      "https://7targets.ai/doculens.html",
+      "https://www.thecompanycheck.com/people-profile/gunanand-gajanan-nagarkar/07028084"
+    ]
+  },
+  {
+    "name": "OpexSoftware",
+    "slug": "opexsoftware",
+    "type": "company",
+    "status": "acquired",
+    "role": "Co-Founder",
+    "period": "2013 - 2016",
+    "summary": "DevOps and cloud automation services company; acquired by REAN Cloud in August 2016.",
+    "url": "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+    "tags": ["DevOps", "Cloud Automation", "Services"],
+    "featured": false,
+    "sourceUrls": [
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.newswire.com/news/rean-cloud-acquires-opex-software-to-strengthen-its-devsecops-practice-14052565"
+    ]
+  },
+  {
+    "name": "REAN Cloud DevSecOps Platform Work",
+    "slug": "rean-cloud-devsecops",
+    "type": "project",
+    "status": "completed",
+    "role": "Engineering and Product Leadership",
+    "period": "2016 - 2018",
+    "summary": "Built and scaled cloud infrastructure automation and DevSecOps capabilities after OpexSoftware joined REAN Cloud.",
+    "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+    "tags": ["DevSecOps", "Cloud Platform", "Automation"],
+    "featured": false,
+    "sourceUrls": [
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/"
+    ]
+  },
+  {
+    "name": "DeployNow (REAN Cloud)",
+    "slug": "deploynow-rean-cloud",
+    "type": "product",
+    "status": "platform product",
+    "role": "Engineering and Product Leadership",
+    "period": "2016 - 2019",
+    "summary": "Deployment acceleration product initiative aligned with cloud automation, release reliability, and enterprise-scale delivery workflows.",
+    "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+    "tags": ["REAN Cloud", "DeployNow", "Cloud Automation", "DevOps"],
+    "featured": true,
+    "sourceUrls": [
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.slideshare.net/slideshow/what-is-devops-what-is-devops-coe/48029624",
+      "https://www.youtube.com/watch?v=jR_EL0pyNDE"
+    ]
+  },
+  {
+    "name": "TestNow (REAN Cloud)",
+    "slug": "testnow-rean-cloud",
+    "type": "product",
+    "status": "platform product",
+    "role": "Engineering and Product Leadership",
+    "period": "2016 - 2019",
+    "summary": "Testing acceleration product initiative for enterprise cloud delivery with stronger validation coverage and faster release cycles.",
+    "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+    "tags": ["REAN Cloud", "TestNow", "QA Automation", "DevOps"],
+    "featured": true,
+    "sourceUrls": [
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.slideshare.net/slideshow/what-is-devops-what-is-devops-coe/48029624",
+      "https://www.youtube.com/watch?v=jR_EL0pyNDE"
+    ]
+  },
+  {
+    "name": "REAN Cloud Platform Products",
+    "slug": "rean-cloud-platform-products",
+    "type": "project",
+    "status": "platform suite",
+    "role": "Engineering and Product Leadership",
+    "period": "2016 - 2019",
+    "summary": "Platform product portfolio including DeployNow, TestNow, and related cloud/DevOps accelerators for enterprise software delivery.",
+    "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+    "tags": ["REAN Cloud", "Platform Products", "Enterprise DevOps", "Cloud"],
+    "featured": true,
+    "sourceUrls": [
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/"
+    ]
+  },
+  {
+    "name": "Cloud Infrastructure Code Generation (Patent-backed Work)",
+    "slug": "cloud-infra-code-generation",
+    "type": "project",
+    "status": "granted patent",
+    "role": "Inventor",
+    "period": "2017 - 2021",
+    "summary": "Invented methods for generating code used to deploy cloud infrastructure; published and granted as US11099976B2.",
+    "url": "https://patents.google.com/patent/US11099976B2/en",
+    "tags": ["Cloud Infrastructure", "Automation", "Patent"],
+    "featured": false,
+    "sourceUrls": [
+      "https://patents.google.com/patent/US11099976B2/en"
+    ]
+  },
+  {
+    "name": "Cloud Test Infrastructure Generation (Patent-backed Work)",
+    "slug": "cloud-test-infra-generation",
+    "type": "project",
+    "status": "granted patent",
+    "role": "Inventor",
+    "period": "2017 - 2021",
+    "summary": "Invented systems for generating cloud testing infrastructure for software applications; published and granted as US11074165B2.",
+    "url": "https://patents.google.com/patent/US11074165B2/en",
+    "tags": ["Test Automation", "Cloud", "Patent"],
+    "featured": false,
+    "sourceUrls": [
+      "https://patents.google.com/patent/US11074165B2/en"
+    ]
+  },
+  {
+    "name": "AAIC Accelerators (GTAF, aiTest, SLS API Generator, Marxeed)",
+    "slug": "aaic-accelerators",
+    "type": "project",
+    "status": "ongoing",
+    "role": "Founder / Mentor",
+    "period": "2020 - Present",
+    "summary": "Worked on productized accelerators and platforms for DevOps, quality engineering, AI-enabled delivery workflows, API generation, and Marxeed blog optimization.",
+    "url": "https://appliedaiconsulting.com/about-us/",
+    "tags": ["Accelerators", "Quality Engineering", "DevOps", "AI Delivery", "Marxeed"],
+    "featured": false,
+    "sourceUrls": [
+      "https://appliedaiconsulting.com/about-us/",
+      "https://www.linkedin.com/products/appliedaiconsulting-marxeed-blog-optimizer/"
+    ]
+  }
+]

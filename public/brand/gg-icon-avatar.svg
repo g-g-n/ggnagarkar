@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GG avatar icon">
+  <title>GG Avatar Icon</title>
+  <rect x="16" y="16" width="224" height="224" rx="56" fill="#0F172A"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="92" cy="128" r="56" stroke="#F8FAFC" stroke-width="16" stroke-dasharray="286 86" transform="rotate(-26 92 128)"/>
+    <path d="M92 128H132V158" stroke="#F8FAFC" stroke-width="16"/>
+
+    <circle cx="164" cy="128" r="56" stroke="#CBD5E1" stroke-width="16" stroke-dasharray="286 86" transform="rotate(-26 164 128)"/>
+    <path d="M164 128H204V158" stroke="#CBD5E1" stroke-width="16"/>
+
+    <path d="M128 92V164" stroke="#2563EB" stroke-width="7"/>
+  </g>
+</svg>

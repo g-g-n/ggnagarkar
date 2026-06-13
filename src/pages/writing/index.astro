@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import activityItems from '../../content/activity.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const feedItems = [
+  ...activityItems.map((item) => ({
+    title: item.title,
+    type: item.type,
+    date: item.date,
+    source: item.source,
+    summary: item.summary,
+    url: item.url,
+    tags: item.tags ?? [],
+    external: true
+  }))
+].sort((a, b) => +new Date(b.date) - +new Date(a.date));
+
+const featuredItems = feedItems.slice(0, 3);
+const formatType = (type: string) =>
+  type
+    .split('-')
+    .map((part: string) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+const categoryDefinitions = [
+  {
+    id: 'opsrabbit-blog',
+    label: 'OpsRabbit Blog',
+    description: 'Recent AI operations, incident response, runbook, and security operations writing.',
+    items: feedItems.filter((item) => item.source === 'OpsRabbit Blog')
+  },
+  {
+    id: 'aaic-writing',
+    label: 'Applied AI Consulting',
+    description: 'Case studies, applied AI notes, quality engineering, and automation updates.',
+    items: feedItems.filter((item) => item.source === 'Applied AI Consulting')
+  },
+  {
+    id: 'talks-videos',
+    label: 'Talks & Videos',
+    description: 'Conference sessions, webinars, SlideShare references, and public video material.',
+    items: feedItems.filter((item) => ['talk', 'video'].includes(item.type))
+  },
+  {
+    id: 'founder-writing',
+    label: 'Founder Writing',
+    description: 'Personal essays and direct writing published on this site.',
+    items: feedItems.filter((item) => item.source === 'GG Nagarkar')
+  },
+  {
+    id: 'startup-activity',
+    label: 'Startup Activity',
+    description: '7Targets, OpexSoftware, REAN Cloud, and earlier public updates.',
+    items: feedItems.filter((item) =>
+      ['7Targets Blog', '7Targets Story', 'Opex / REAN News', 'eGov Magazine'].includes(item.source)
+    )
+  }
+].filter((category) => category.items.length > 0);
+
+const tagCounts = new Map();
+const sourceCounts = new Map();
+const yearCounts = new Map();
+for (const item of feedItems) {
+  sourceCounts.set(item.source, (sourceCounts.get(item.source) ?? 0) + 1);
+  yearCounts.set(item.date.slice(0, 4), (yearCounts.get(item.date.slice(0, 4)) ?? 0) + 1);
+  for (const tag of item.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const topTags = [...tagCounts.entries()]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 16);
+const sourceSummaries = [...sourceCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const archiveYears = [...yearCounts.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+const latestDate = feedItems[0]?.date;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'GG Nagarkar Writing and Activity',
+  url: `${site}/writing`,
+  inLanguage: 'en',
+  description: 'Writing, talks, product updates, case studies, and public activity from GG Nagarkar.'
+};
+---
+<Layout
+  title="Writing & Activity | GG Nagarkar"
+  description="Writing, talks, product updates, case studies, and public activity from GG Nagarkar across enterprise AI, AIOps, DevOps, SRE, and founder-led product work."
+  canonicalPath="/writing"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Writing & Activity', item: `${site}/writing` }
+  ]}
+>
+  <section class="card p-6 md:p-8">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">Archive</p>
+      <h1 class="mt-2 text-3xl font-semibold text-slate-950 md:text-4xl">Writing & Activity</h1>
+      <p class="mt-3 text-base leading-7 text-slate-700">
+        Blogs, talks, case studies, product notes, and public activity grouped into browsable categories.
+      </p>
+    </div>
+    <div class="mt-6 grid gap-3 sm:grid-cols-3">
+      <div class="border-l-2 border-sky-700 pl-4">
+        <p class="text-2xl font-semibold text-slate-950">{feedItems.length}</p>
+        <p class="text-sm text-slate-600">Total items</p>
+      </div>
+      <div class="border-l-2 border-sky-700 pl-4">
+        <p class="text-2xl font-semibold text-slate-950">{categoryDefinitions.length}</p>
+        <p class="text-sm text-slate-600">Categories</p>
+      </div>
+      <div class="border-l-2 border-sky-700 pl-4">
+        <p class="text-2xl font-semibold text-slate-950">{latestDate}</p>
+        <p class="text-sm text-slate-600">Latest update</p>
+      </div>
+    </div>
+    <nav class="mt-6 flex flex-wrap gap-2" aria-label="Writing categories">
+      {categoryDefinitions.map((category) => (
+        <a
+          href={`#${category.id}`}
+          class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:border-sky-700 hover:text-sky-800"
+        >
+          {category.label}
+        </a>
+      ))}
+    </nav>
+  </section>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <div class="space-y-8">
+      <section aria-labelledby="featured-writing-heading">
+        <div class="mb-3 flex items-end justify-between gap-4">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Recent</p>
+            <h2 id="featured-writing-heading" class="text-2xl font-semibold text-slate-950">Featured Updates</h2>
+          </div>
+        </div>
+        <div class="grid gap-4 md:grid-cols-3">
+          {featuredItems.map((item) => (
+            <article class="card p-5 transition hover:border-slate-400 hover:shadow-sm">
+              <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                {formatType(item.type)} · {item.date}
+              </p>
+              <h3 class="mt-2 text-lg font-semibold leading-snug text-slate-950">
+                <a
+                  href={item.url}
+                  class="hover:underline"
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noreferrer' : undefined}
+                >
+                  {item.title}
+                </a>
+              </h3>
+              <p class="mt-2 text-sm font-medium text-slate-600">{item.source}</p>
+              <p class="mt-3 text-sm leading-6 text-slate-700">{item.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {categoryDefinitions.map((category) => (
+        <section id={category.id} aria-labelledby={`${category.id}-heading`} class="scroll-mt-24">
+          <div class="mb-3">
+            <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Category</p>
+            <h2 id={`${category.id}-heading`} class="text-2xl font-semibold text-slate-950">{category.label}</h2>
+            <p class="mt-1 text-sm leading-6 text-slate-600">{category.description}</p>
+          </div>
+          <div class="grid gap-3">
+            {category.items.map((item) => (
+              <article class="card p-5 transition hover:border-slate-400 hover:shadow-sm">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                      {formatType(item.type)} · {item.date}
+                    </p>
+                    <h3 class="mt-1 text-xl font-semibold leading-snug text-slate-950">
+                      <a
+                        href={item.url}
+                        class="hover:underline"
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noreferrer' : undefined}
+                      >
+                        {item.title}
+                      </a>
+                    </h3>
+                  </div>
+                  <p class="text-sm font-medium text-slate-600 sm:text-right">{item.source}</p>
+                </div>
+                <p class="mt-3 text-sm leading-6 text-slate-700">{item.summary}</p>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
+                    <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">#{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <aside class="space-y-4 lg:sticky lg:top-24">
+      <section class="card p-5" aria-labelledby="topics-heading">
+        <h2 id="topics-heading" class="text-lg font-semibold text-slate-950">Topics</h2>
+        <div class="mt-3 flex flex-wrap gap-2">
+          {topTags.map(([tag, count]) => (
+            <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+              #{tag} ({count})
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section class="card p-5" aria-labelledby="sources-heading">
+        <h2 id="sources-heading" class="text-lg font-semibold text-slate-950">Sources</h2>
+        <div class="mt-3 divide-y divide-slate-200">
+          {sourceSummaries.map(([source, count]) => (
+            <div class="flex items-center justify-between gap-3 py-2 text-sm">
+              <span class="text-slate-700">{source}</span>
+              <span class="font-semibold text-slate-950">{count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="card p-5" aria-labelledby="archive-heading">
+        <h2 id="archive-heading" class="text-lg font-semibold text-slate-950">Archive</h2>
+        <div class="mt-3 divide-y divide-slate-200">
+          {archiveYears.map(([year, count]) => (
+            <div class="flex items-center justify-between gap-3 py-2 text-sm">
+              <span class="text-slate-700">{year}</span>
+              <span class="font-semibold text-slate-950">{count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    </aside>
+  </div>
+</Layout>

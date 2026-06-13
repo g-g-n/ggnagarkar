@@ -1,0 +1,21 @@
+{
+  "name": "GG Nagarkar",
+  "short_name": "GG",
+  "description": "Professional profile of GG Nagarkar",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#17527f",
+  "background_color": "#f3f6f9",
+  "display": "standalone",
+  "start_url": "/"
+}

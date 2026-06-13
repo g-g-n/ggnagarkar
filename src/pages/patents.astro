@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PatentCard from '../components/PatentCard.astro';
+import patents from '../data/patents.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.gunanandnagarkar.com';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Patent portfolio of GG Nagarkar',
+  description: 'Public patent records and summaries associated with GG Nagarkar.',
+  url: `${site}/patents`,
+  itemListElement: patents.map((patent, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: patent.title,
+      identifier: patent.patentNumber,
+      description: patent.summary,
+      url: patent.url
+    }
+  }))
+};
+---
+<Layout
+  title="Patents | GG Nagarkar"
+  description="Patent portfolio and public filings associated with GG Nagarkar, including patent numbers, filing dates, domains, source links, and plain-English summaries."
+  canonicalPath="/patents"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Patents', item: `${site}/patents` }
+  ]}
+>
+  <h1 class="mb-2 text-3xl font-semibold text-slate-900">Patents</h1>
+  <p class="mb-4 text-sm text-slate-600">Public patent records with source links are listed below. Legal status can change over time, so periodically re-verify from the patent office records.</p>
+  <div class="grid gap-4 md:grid-cols-2">
+    {patents.map((patent) => <PatentCard patent={patent} />)}
+  </div>
+</Layout>

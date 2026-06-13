@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Generating testing infrastructure on a cloud for testing software applications",
+    "patentNumber": "US11074165B2",
+    "status": "granted",
+    "summary": "Covers systems and methods for creating cloud-based testing infrastructure to execute application test cases with scalable environments. Google Patents currently lists this grant as expired due to fee status.",
+    "domain": "Cloud Testing Infrastructure",
+    "url": "https://patents.google.com/patent/US11074165B2/en",
+    "filingDate": "2018-10-29"
+  },
+  {
+    "title": "Generating code for deploying cloud infrastructure",
+    "patentNumber": "US11099976B2",
+    "status": "granted",
+    "summary": "Describes generation of deployment code for cloud infrastructure, enabling repeatable and automated provisioning workflows.",
+    "domain": "Cloud Infrastructure Automation",
+    "url": "https://patents.google.com/patent/US11099976B2/en",
+    "filingDate": "2018-10-29"
+  }
+]

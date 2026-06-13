@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 280" role="img" aria-label="Gunanand Nagarkar horizontal logo">
+  <title>Gunanand Nagarkar Horizontal Logo</title>
+  <g transform="translate(42 20)">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.95)">
+      <circle cx="92" cy="128" r="56" stroke="#0F172A" stroke-width="18" stroke-dasharray="286 86" transform="rotate(-26 92 128)"/>
+      <path d="M92 128H132V158" stroke="#0F172A" stroke-width="18"/>
+      <circle cx="164" cy="128" r="56" stroke="#1E293B" stroke-width="18" stroke-dasharray="286 86" transform="rotate(-26 164 128)"/>
+      <path d="M164 128H204V158" stroke="#1E293B" stroke-width="18"/>
+      <path d="M128 92V164" stroke="#2563EB" stroke-width="8" opacity="0.9"/>
+    </g>
+  </g>
+
+  <text x="320" y="130" fill="#0F172A" font-family="Manrope, Segoe UI, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="0.01em">Gunanand Nagarkar</text>
+  <text x="322" y="182" fill="#475569" font-family="Manrope, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" font-weight="600" letter-spacing="0.12em">FOUNDER • INVENTOR • ENTERPRISE AI & AUTOMATION</text>
+</svg>

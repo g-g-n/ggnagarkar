@@ -1,0 +1,16 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="mt-12 border-t border-slate-200/80 bg-white/80">
+  <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-sm text-slate-600 md:flex-row md:items-center md:justify-between md:px-6">
+    <div class="flex items-center gap-2">
+      <img src="/favicon.svg" alt="GG logo" class="h-5 w-5 rounded-sm md:hidden" loading="lazy" />
+      <img src="/brand-lockup.svg" alt="GG Nagarkar logo" class="hidden h-8 w-auto md:block" loading="lazy" />
+      <p>© {year} GG Nagarkar. All rights reserved.</p>
+    </div>
+    <div class="flex gap-4">
+      <a href="/llms.txt" class="hover:text-slate-900">llms.txt</a>
+      <a href="/activity.xml" class="hover:text-slate-900">Activity RSS</a>
+    </div>
+  </div>
+</footer>
