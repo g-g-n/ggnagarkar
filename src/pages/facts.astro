@@ -18,6 +18,10 @@ const jsonLd = {
     name: profile.name,
     jobTitle: 'Founder',
     homeLocation: profile.location,
+    alumniOf: profile.education.map((name) => ({
+      '@type': 'CollegeOrUniversity',
+      name
+    })),
     knowsAbout: profile.interests
   }
 };
@@ -37,6 +41,7 @@ const jsonLd = {
     <ul class="mt-4 list-disc space-y-2 pl-6 text-slate-700">
       <li>Name: {profile.name}</li>
       <li>Location: {profile.location}</li>
+      <li>Education: {profile.education.join(', ')}</li>
       <li>Current headline: {profile.headline}</li>
       <li>Primary companies/products: Applied AI Consulting, OpsRabbit, 7Targets</li>
       <li>Domains: {profile.interests.join(', ')}</li>

@@ -5,6 +5,9 @@
   "shortBio": "Founder and product engineer focused on practical AI systems, DevOps automation, and enterprise software delivery. I build products and teams that turn complex technical goals into measurable business outcomes.",
   "email": "ggnagarkar@gmail.com",
   "profileImage": "/images/gg.jpg",
+  "education": [
+    "IIT Delhi"
+  ],
   "currentFocus": [
     "Applied AI Consulting",
     "OpsRabbit",

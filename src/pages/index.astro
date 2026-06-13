@@ -32,6 +32,10 @@ const jsonLd = [
     url: `${site}/about`,
     image: `${site}${profile.profileImage}`,
     sameAs: activeLinks.map((link) => link.url),
+    alumniOf: profile.education.map((name) => ({
+      '@type': 'CollegeOrUniversity',
+      name
+    })),
     knowsAbout: profile.interests
   },
   {

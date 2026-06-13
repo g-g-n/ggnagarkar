@@ -21,6 +21,10 @@ const personJson = {
     addressCountry: 'IN'
   },
   sameAs: activeLinks.map((link) => link.url),
+  alumniOf: profile.education.map((name) => ({
+    '@type': 'CollegeOrUniversity',
+    name
+  })),
   knowsAbout: profile.interests,
   image: `${site}${profile.profileImage}`,
   mainEntityOfPage: `${site}/about`
@@ -43,6 +47,9 @@ const personJson = {
     </p>
     <p class="mt-3 text-slate-700">
       He has built and scaled products and teams across services, SaaS, and platform engineering contexts, with a track record that spans founding roles, enterprise product leadership, and patent-backed cloud automation work.
+    </p>
+    <p class="mt-3 text-slate-700">
+      He studied at IIT Delhi.
     </p>
 
     <h2 class="mt-7 text-xl font-semibold text-slate-900">Current Work</h2>
