@@ -1,5 +1,15 @@
 [
   {
+    "title": "Why I'm Moving My Professional Content to My Own Website",
+    "type": "blog",
+    "date": "2026-06-13",
+    "source": "GG Nagarkar",
+    "summary": "A founder/operator note on keeping LinkedIn as a basic discovery profile while making ggnagarkar.com the canonical home for writing, projects, patents, activity, and professional identity.",
+    "url": "/writing/why-i-am-moving-my-professional-content-to-my-own-website",
+    "image": "/images/writing/owned-website-professional-home.svg",
+    "tags": ["personal-brand", "founder", "professional-identity", "linkedin", "owned-media", "writing"]
+  },
+  {
     "title": "SlideShare: What is DevOps? What is DevOps CoE?",
     "type": "talk",
     "date": "2015-05-13",

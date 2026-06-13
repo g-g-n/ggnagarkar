@@ -1,9 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import activityItems from '../../content/activity.json';
+import { getWritingPosts } from '../../lib/writing';
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
-const feedItems = [
+const writingPosts = getWritingPosts();
+const rawFeedItems = [
+  ...writingPosts.map((post) => ({
+    title: post.title,
+    type: 'blog',
+    date: post.date,
+    source: post.author,
+    summary: post.description,
+    url: post.canonicalPath,
+    tags: post.tags,
+    external: false
+  })),
   ...activityItems.map((item) => ({
     title: item.title,
     type: item.type,
@@ -12,9 +24,12 @@ const feedItems = [
     summary: item.summary,
     url: item.url,
     tags: item.tags ?? [],
-    external: true
+    external: item.url.startsWith('http')
   }))
-].sort((a, b) => +new Date(b.date) - +new Date(a.date));
+];
+const feedItems = [...new Map(rawFeedItems.map((item) => [item.url, item])).values()].sort(
+  (a, b) => +new Date(b.date) - +new Date(a.date)
+);
 
 const featuredItems = feedItems.slice(0, 3);
 const formatType = (type: string) =>

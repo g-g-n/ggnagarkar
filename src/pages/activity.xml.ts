@@ -15,7 +15,7 @@ export async function GET(context: APIContext) {
       title: `${item.type.toUpperCase()}: ${item.title}`,
       pubDate: new Date(item.date),
       description: item.summary,
-      link: item.url,
+      link: new URL(item.url, site).toString(),
       categories: item.tags
     }))
   });

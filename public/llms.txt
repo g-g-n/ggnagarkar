@@ -15,6 +15,7 @@ Core pages:
 - /built/{slug}: individual build notes focused on one system, architecture ownership, scale, and lessons learned
 - /patents: patent portfolio and filing status
 - /writing: categorized writing and public activity archive
+- /writing/why-i-am-moving-my-professional-content-to-my-own-website: first-party article about making this website the primary professional home
 - /contact: direct contact links
 
 Associated entities:
