@@ -14,13 +14,13 @@ const jsonLd = {
     '@type': 'CreativeWork',
     name: project.name,
     description: project.summary,
-    url: project.url
+    url: project.url ?? `${site}/projects`
   }))
 };
 ---
 <Layout
   title="Projects and Products | GG Nagarkar"
-  description="Projects and products by GG Nagarkar across Applied AI Consulting, OpsRabbit, 7Targets, OpexSoftware, REAN Cloud, and patent-backed cloud automation."
+  description="Projects and products by GG Nagarkar across Applied AI Consulting, OpsRabbit, 7Targets, BMC Software, OpexSoftware, REAN Cloud, TCS, and patent-backed cloud automation."
   canonicalPath="/projects"
   jsonLd={jsonLd}
   breadcrumbs={[

@@ -4,7 +4,7 @@ interface Project {
   summary: string;
   status: string;
   tags: string[];
-  url: string;
+  url?: string;
   role?: string;
   period?: string;
   sourceUrls?: string[];
@@ -13,13 +13,15 @@ interface Project {
 const { project } = Astro.props as { project: Project };
 ---
 <article class="card group relative block p-5 transition hover:border-slate-400 hover:shadow-sm">
-  <a
-    href={project.url}
-    class="absolute inset-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
-    target="_blank"
-    rel="noreferrer"
-    aria-label={`Open project: ${project.name}`}
-  ></a>
+  {project.url && (
+    <a
+      href={project.url}
+      class="absolute inset-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Open project: ${project.name}`}
+    ></a>
+  )}
 
   <div class="relative z-10">
   <h3 class="text-lg font-semibold text-slate-900">{project.name}</h3>
@@ -40,6 +42,6 @@ const { project } = Astro.props as { project: Project };
       ))}
     </p>
   )}
-  <span class="mt-4 inline-block text-sm underline group-hover:text-slate-900">Visit</span>
+  {project.url && <span class="mt-4 inline-block text-sm underline group-hover:text-slate-900">Visit</span>}
   </div>
 </article>

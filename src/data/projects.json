@@ -191,5 +191,53 @@
       "https://appliedaiconsulting.com/about-us/",
       "https://www.linkedin.com/products/appliedaiconsulting-marxeed-blog-optimizer/"
     ]
+  },
+  {
+    "name": "BMC IT Data Analytics (ITDA)",
+    "slug": "bmc-itda",
+    "type": "product",
+    "status": "launched product",
+    "role": "Lead",
+    "period": "BMC Software era",
+    "summary": "Led work on BMC IT Data Analytics, separate from the later Helix branding. Helped build and launch the product, focusing on operational log analytics, search-driven troubleshooting, and practical visibility for IT operations teams.",
+    "tags": ["BMC Software", "IT Data Analytics", "IT Operations", "Product Launch"],
+    "featured": false,
+    "sourceUrls": []
+  },
+  {
+    "name": "Monitoring and ITSM Integration Solution",
+    "slug": "monitoring-itsm-integration",
+    "type": "project",
+    "status": "completed",
+    "role": "Engineering Lead",
+    "period": "BMC Software era",
+    "summary": "Worked on an integration solution connecting monitoring signals with IT service management workflows. The project helped operations teams turn alerts and events into actionable service-management context for incident handling and follow-through.",
+    "tags": ["Monitoring", "ITSM", "Incident Management", "Integrations"],
+    "featured": false,
+    "sourceUrls": []
+  },
+  {
+    "name": "ProactiveNet Integration and Release Management",
+    "slug": "proactivenet-integration-release-management",
+    "type": "project",
+    "status": "completed",
+    "role": "Release and Integration Lead",
+    "period": "BMC Software era",
+    "summary": "Contributed to ProactiveNet integration work after its acquisition by BMC and helped manage product releases afterward. The work involved coordinating integration, release readiness, engineering execution, and operational quality across product teams.",
+    "tags": ["ProactiveNet", "BMC Software", "Release Management", "Product Integration"],
+    "featured": false,
+    "sourceUrls": []
+  },
+  {
+    "name": "United Nations Customer Project (TCS)",
+    "slug": "united-nations-tcs-project",
+    "type": "project",
+    "status": "completed",
+    "role": "Software Engineering / Customer Delivery",
+    "period": "TCS era",
+    "summary": "Worked on a United Nations customer project during the TCS period, including direct customer-facing work and visits to Tokyo and the Netherlands. The experience involved enterprise delivery, implementation support, and collaboration across international customer stakeholders.",
+    "tags": ["TCS", "United Nations", "Customer Delivery", "Enterprise Software"],
+    "featured": false,
+    "sourceUrls": []
   }
 ]
