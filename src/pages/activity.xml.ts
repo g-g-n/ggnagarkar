@@ -3,7 +3,7 @@ import activity from '../content/activity.json';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
-  const site = context.site ?? 'https://ggnagarkar.com';
+  const site = context.site ?? 'https://www.ggnagarkar.com';
   const sortedActivity = [...activity].sort((a, b) => +new Date(b.date) - +new Date(a.date));
 
   return rss({

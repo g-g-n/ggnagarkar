@@ -16,7 +16,7 @@ interface BuiltItem {
   tags: string[];
 }
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
 const items = builtItems as BuiltItem[];
 const categories = [...new Set(items.map((item) => item.category))];
 const phases = [...new Set(items.map((item) => item.phase ?? 'Selected Architecture Notes'))];

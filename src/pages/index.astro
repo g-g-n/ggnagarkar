@@ -11,7 +11,7 @@ import links from '../data/social-links.json';
 
 const featuredProjects = projects.filter((project) => project.featured).slice(0, 4);
 const topPatents = patents.slice(0, 2);
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
 const activeLinks = links.filter((link) => link.active && link.url);
 const profileCards = [
   { title: 'GG Nagarkar Profile', description: 'Factual biography and focus domains.', href: '/about' },

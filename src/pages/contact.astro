@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import profile from '../data/profile.json';
 import links from '../data/social-links.json';
 
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
 const activeLinks = links.filter((link) => link.active && link.url);
 const jsonLd = {
   '@context': 'https://schema.org',

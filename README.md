@@ -73,7 +73,7 @@ Workflow file:
 1. Push this project to GitHub on the `main` branch.
 2. In repository settings, enable **GitHub Pages** source as **GitHub Actions**.
 3. Optionally set repository variable `SITE_URL` to your canonical domain.
-   - Example custom domain: `https://ggnagarkar.com`
+   - Example custom domain: `https://www.ggnagarkar.com`
 4. Every push to `main` triggers build + deploy.
 
 ## Custom domain later

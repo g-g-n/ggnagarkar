@@ -24,7 +24,7 @@ export function getStaticPaths() {
 }
 
 const { item } = Astro.props as { item: BuiltItem };
-const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://ggnagarkar.com';
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
 const description = `${item.name}: architecture ownership, hands-on delivery, outcome, scale, and lessons learned across ${item.category.toLowerCase()}.`;
 const jsonLd = {
   '@context': 'https://schema.org',

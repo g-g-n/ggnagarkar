@@ -3,7 +3,7 @@
 Primary entity: GG Nagarkar
 Role: Founder
 Location: Pune, India
-Canonical site: https://ggnagarkar.com
+Canonical site: https://www.ggnagarkar.com
 
 Core pages:
 - /: professional overview and navigation hub

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ggnagarkar.com/sitemap-index.xml
+Sitemap: https://www.ggnagarkar.com/sitemap-index.xml
