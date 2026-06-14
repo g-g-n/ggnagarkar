@@ -34,6 +34,7 @@ Editable profile and structured data files:
 - `src/data/patents.json`
 - `src/data/social-links.json`
 - `src/content/activity.json`
+- `src/content/writing/*.mdx`
 
 ## Pages
 
@@ -45,6 +46,7 @@ Editable profile and structured data files:
 - `/built/{slug}` generated build detail pages
 - `/patents`
 - `/writing`
+- `/writing/{slug}` generated first-party writing pages
 - `/contact`
 - `/facts`
 
