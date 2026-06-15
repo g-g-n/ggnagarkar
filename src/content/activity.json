@@ -1,5 +1,25 @@
 [
   {
+    "title": "Expanded public portfolio with a built systems archive and sharper engineering record",
+    "type": "project-update",
+    "date": "2026-06-15",
+    "source": "GG Nagarkar",
+    "summary": "Expanded ggnagarkar.com with a dedicated built systems archive, deeper project history, clearer education/profile details, and a more structured public record across AI, cloud, DevOps, and product engineering work.",
+    "url": "https://www.ggnagarkar.com/built",
+    "image": "",
+    "tags": ["GG Nagarkar", "Portfolio", "AI", "Cloud", "DevOps", "Product Engineering"]
+  },
+  {
+    "title": "Why CI/CD Secret Theft Is Now an Incident Response Problem",
+    "type": "blog",
+    "date": "2026-06-13",
+    "source": "OpsRabbit Blog",
+    "summary": "New OpsRabbit writing on how CI/CD secret theft turns quickly into an operations incident, and why responders need telemetry, blast-radius context, and faster investigation paths.",
+    "url": "https://opsrabbit.io/blog/why-cicd-secret-theft-is-now-an-incident-response-problem",
+    "image": "",
+    "tags": ["OpsRabbit", "CI/CD", "Incident Response", "Cloud Security"]
+  },
+  {
     "title": "SlideShare: What is DevOps? What is DevOps CoE?",
     "type": "talk",
     "date": "2015-05-13",
