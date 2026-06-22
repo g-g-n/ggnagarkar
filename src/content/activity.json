@@ -1,5 +1,25 @@
 [
   {
+    "title": "AI Agents Need Operational Context Before More Autonomy",
+    "type": "blog",
+    "date": "2026-06-22",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why enterprise AI value comes from live operational context, constrained permissions, and reviewable response workflows rather than just smarter prompts.",
+    "url": "/writing/ai-agents-need-operational-context-before-more-autonomy",
+    "image": "/images/og-default.svg",
+    "tags": ["AI Agents", "Enterprise AI", "DevOps", "SRE", "Founder Writing"]
+  },
+  {
+    "title": "AIOps Use Cases and How OpsRabbit Fits",
+    "type": "blog",
+    "date": "2026-06-18",
+    "source": "OpsRabbit Blog",
+    "summary": "A practical look at where AIOps is actually useful: faster investigation, alert triage, deployment failure analysis, cloud and Kubernetes outage response, and runbook support with real context.",
+    "url": "https://opsrabbit.io/blog/aiops-use-cases-how-opsrabbit-fits",
+    "image": "",
+    "tags": ["OpsRabbit", "AIOps", "Incident Response", "DevOps"]
+  },
+  {
     "title": "Why I'm Moving My Professional Content to My Own Website",
     "type": "blog",
     "date": "2026-06-13",

@@ -1,0 +1,74 @@
+---
+title: "AI Agents Need Operational Context Before More Autonomy"
+metaTitle: "AI Agents Need Operational Context | GG Nagarkar"
+description: "Why the hard part of enterprise AI is not prompt quality but grounded context, constrained access, and operationally safe execution."
+date: "2026-06-22"
+author: "GG Nagarkar"
+tags: ["ai-agents", "enterprise-ai", "devops", "sre", "founder-writing"]
+image: "/images/og-default.svg"
+imageAlt: "Abstract editorial illustration representing AI agents connected to operational systems through governed pathways."
+---
+
+This week reinforced a view I have been developing for a while: enterprise AI does not get materially better just because the model gets smarter.
+
+It gets better when the system has the right context, the right permissions, and the right operational boundaries.
+
+That sounds obvious, but it is where many real implementations still break down.
+
+Over the last several days, I spent time on practical AIOps positioning, incident-response use cases, and security-adjacent operating patterns around agents. The common thread was not model quality. The common thread was operational context.
+
+## The Real Bottleneck
+
+Most enterprise teams do not lack ideas for where AI could help.
+
+They already know the obvious use cases:
+
+- summarize alerts
+- answer internal questions
+- generate code or runbooks
+- help with incident investigation
+- automate repetitive operations work
+
+The problem is that these systems become unreliable very quickly when they are disconnected from the live state of the environment.
+
+An agent without current operational context is just a polished guesser. It may sound convincing, but it cannot reliably explain what changed, what service is affected, who owns it, what recent deploy touched it, what access path it used, or what the blast radius will be if it acts.
+
+That is why the quality of context matters more than the polish of the response.
+
+## Why This Matters More Now
+
+We are entering a phase where AI systems are moving beyond local experiments and into production paths.
+
+That changes the engineering standard.
+
+Once an agent can reach operational data, query internal systems, or trigger downstream actions, it becomes part of the control surface. At that point, context freshness, least-privilege access, and auditability are not optional nice-to-haves. They are design requirements.
+
+You can see this shift in the broader ecosystem as well. Managed remote MCP patterns are becoming more important because production systems need governed, authenticated, reviewable access to real data. Kubernetes is also continuing to close overly broad permissions because "read-only enough" access often turns out not to be safe enough in practice.
+
+Both trends point to the same conclusion: autonomy without operational discipline is fragile.
+
+## What Builders Should Focus On
+
+If I were evaluating enterprise AI architecture today, I would focus less on demo quality and more on five operational questions:
+
+- What exact live systems or datasets provide grounding?
+- What permissions does the agent truly need?
+- What evidence can it assemble before it recommends or takes action?
+- What audit trail exists for each tool call or decision?
+- Where does human review remain intentionally in the loop?
+
+These questions sound operational because they are operational.
+
+The most useful enterprise AI systems will not be the ones with the flashiest prompt engineering. They will be the ones that can safely gather the right evidence, narrow the decision space, and move work forward without creating a second incident while trying to resolve the first one.
+
+## My Takeaway
+
+This is one reason I continue to care about AI through the lens of cloud architecture, DevOps, SRE, and incident response rather than generic automation.
+
+In real environments, the hard part is not generating language. The hard part is assembling trustworthy context quickly enough to make the next step obvious and safe.
+
+That is true for platform work, security work, and customer-facing operational systems.
+
+AI will absolutely change how teams investigate, reason, and act. But the durable advantage will not come from autonomy alone.
+
+It will come from building systems where autonomy is grounded in context, constrained by design, and made reviewable for humans.
