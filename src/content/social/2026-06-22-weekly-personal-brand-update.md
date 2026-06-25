@@ -23,13 +23,13 @@
 ## Domain Research
 
 - Google Cloud, "The fully-managed Remote MCP Server for AlloyDB is now Generally Available," June 2, 2026
-  https://cloud.google.com/blog/products/data-analytics/alloydb-remote-mcp-server-ga-secure-ai-agent-access-to-your-data
+  `https://cloud.google.com/blog/products/data-analytics/alloydb-remote-mcp-server-ga-secure-ai-agent-access-to-your-data`
 - Kubernetes, "Kubernetes v1.36: Fine-Grained Kubelet API Authorization Graduates to GA," April 24, 2026
-  https://kubernetes.io/blog/2026/04/24/kubernetes-v1-36-fine-grained-kubelet-authorization-ga/
+  `https://kubernetes.io/blog/2026/04/24/kubernetes-v1-36-fine-grained-kubelet-authorization-ga/`
 - Google Cloud, "Detecting and containing AI-powered threats with Google Security Operations agents," June 10, 2026
-  https://cloud.google.com/blog/products/identity-security/detecting-and-containing-powered-threats-with-google-security-operations-agents
+  `https://cloud.google.com/blog/products/identity-security/detecting-and-containing-powered-threats-with-google-security-operations-agents`
 - Google Cloud, "Cloud CISO Perspectives: The 4 lessons that guided AI Threat Defense," June 16, 2026
-  https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-the-4-lessons-that-guided-ai-threat-defense
+  `https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-the-4-lessons-that-guided-ai-threat-defense`
 
 ## LinkedIn Draft
 
@@ -57,10 +57,10 @@ My current view: the hard part of enterprise AI is not prompt quality. It is con
 That is where reliability, safety, and business value start to become real.
 
 Owned note:
-https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-more-autonomy
+`https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-more-autonomy`
 
 Also published:
-https://opsrabbit.io/blog/aiops-use-cases-how-opsrabbit-fits
+`https://opsrabbit.io/blog/aiops-use-cases-how-opsrabbit-fits`
 
 #EnterpriseAI #AIAgents #AgenticAI #AIOps #DevOps #SRE #CloudArchitecture #MCP #Kubernetes #AISecurity
 
@@ -75,7 +75,7 @@ They become useful when they can connect alerts, logs, deploys, ownership, Kuber
 The hard part is context plumbing, not prompt polish.
 
 Owned note:
-https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-more-autonomy
+`https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-more-autonomy`
 
 #EnterpriseAI #AIAgents #AIOps #DevOps #SRE #MCP
 
