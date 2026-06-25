@@ -6,7 +6,7 @@
     "source": "GG Nagarkar",
     "summary": "A founder-engineering note on why enterprise AI value comes from live operational context, constrained permissions, and reviewable response workflows rather than just smarter prompts.",
     "url": "/writing/ai-agents-need-operational-context-before-more-autonomy",
-    "image": "/images/og-default.svg",
+    "image": "/images/writing/ai-agents-operational-context.svg",
     "tags": ["AI Agents", "Enterprise AI", "DevOps", "SRE", "Founder Writing"]
   },
   {
