@@ -8,9 +8,14 @@ export interface WritingPost {
   tags: string[];
   image: string;
   imageAlt: string;
+  draft: boolean;
   canonicalPath: string;
   body: string;
   html: string;
+}
+
+interface GetWritingPostsOptions {
+  includeDrafts?: boolean;
 }
 
 const postModules = import.meta.glob('../content/writing/*.mdx', {
@@ -43,6 +48,12 @@ function parseFrontmatter(raw: string) {
 function parseValue(value: string) {
   if (value.startsWith('[')) {
     return JSON.parse(value);
+  }
+  if (value === 'true') {
+    return true;
+  }
+  if (value === 'false') {
+    return false;
   }
   return value.replace(/^["']|["']$/g, '');
 }
@@ -86,7 +97,7 @@ function renderMarkdown(markdown: string) {
     .join('\n');
 }
 
-export function getWritingPosts(): WritingPost[] {
+export function getWritingPosts(options: GetWritingPostsOptions = {}): WritingPost[] {
   return Object.entries(postModules)
     .map(([path, raw]) => {
       const slug = path.match(/\/([^/]+)\.mdx$/)?.[1] ?? '';
@@ -102,11 +113,13 @@ export function getWritingPosts(): WritingPost[] {
         tags: frontmatter.tags as string[],
         image: String(frontmatter.image),
         imageAlt: String(frontmatter.imageAlt),
+        draft: frontmatter.draft === true,
         canonicalPath: `/writing/${slug}`,
         body,
         html: renderMarkdown(body)
       };
     })
+    .filter((post) => options.includeDrafts || !post.draft)
     .sort((a, b) => +new Date(b.date) - +new Date(a.date));
 }
 

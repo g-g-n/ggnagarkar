@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+import profile from '../data/profile.json';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
+const topics = [
+  {
+    title: 'For Students',
+    description: 'Practical notes on choosing what to learn, building useful habits, and preparing for work without losing curiosity.',
+    tags: ['students', 'learning', 'career-advice']
+  },
+  {
+    title: 'For Parents',
+    description: 'A grounded perspective for parents helping children make education and career choices in a fast-changing world.',
+    tags: ['parents', 'education', 'guidance']
+  },
+  {
+    title: 'Jobs & Skills',
+    description: 'What employers notice beyond credentials: communication, problem-solving, judgment, discipline, and execution.',
+    tags: ['jobs', 'skills', 'employability']
+  },
+  {
+    title: 'AI and the Future of Work',
+    description: 'How AI is changing jobs, workflows, and expectations, and how people can prepare without panic.',
+    tags: ['ai-and-jobs', 'future-of-work', 'skills']
+  },
+  {
+    title: 'Learning Better',
+    description: 'How to study, practice, build projects, seek feedback, and turn knowledge into usable ability.',
+    tags: ['learning', 'practice', 'growth']
+  },
+  {
+    title: 'Career Choices',
+    description: 'How to think through subject choices, first jobs, career moves, and long-term professional growth.',
+    tags: ['careers', 'students', 'decisions']
+  }
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Education & Careers',
+  description:
+    'Education and career guidance from GG Nagarkar for students, parents, young professionals, and people preparing for AI-shaped work.',
+  url: `${site}/education-careers`,
+  inLanguage: 'en',
+  author: {
+    '@type': 'Person',
+    name: profile.name,
+    url: `${site}/about`
+  },
+  keywords: [
+    'education for a better life',
+    'career advice for students',
+    'education and career guidance',
+    'AI and future of jobs',
+    'skills employers look for'
+  ]
+};
+---
+<Layout
+  title="Education & Careers | GG Nagarkar"
+  description="Practical education and career guidance for students, parents, and young professionals preparing for AI, jobs, skills, employability, and a changing world."
+  canonicalPath="/education-careers"
+  jsonLd={jsonLd}
+  breadcrumbs={[
+    { name: 'Home', item: `${site}/` },
+    { name: 'Education & Careers', item: `${site}/education-careers` }
+  ]}
+>
+  <section class="card p-6 md:p-8">
+    <div class="max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-sky-800">Education & Careers</p>
+      <h1 class="mt-2 text-3xl font-semibold text-slate-950 md:text-4xl">Education & Careers</h1>
+      <p class="mt-3 text-lg leading-8 text-slate-700">
+        Practical guidance for students, parents, and young professionals preparing for a changing world.
+      </p>
+      <p class="mt-4 text-base leading-7 text-slate-700">
+        This section is written from the perspective of a founder, employer, technologist, product builder, parent, and lifelong learner. The goal is to make education and career decisions feel more practical, less noisy, and more connected to the way work is actually changing.
+      </p>
+    </div>
+  </section>
+
+  <section class="mt-6 rounded-lg border-l-4 border-sky-700 bg-white p-5 shadow-sm" aria-labelledby="core-belief-heading">
+    <h2 id="core-belief-heading" class="text-lg font-semibold text-slate-950">Core Belief</h2>
+    <p class="mt-2 text-base leading-7 text-slate-700">
+      Education remains one of the strongest ways to build a better life - through opportunity, confidence, independence, judgment, employability, and the ability to keep learning.
+    </p>
+  </section>
+
+  <section class="mt-8" aria-labelledby="topic-clusters-heading">
+    <div class="mb-4 max-w-3xl">
+      <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Topic Clusters</p>
+      <h2 id="topic-clusters-heading" class="text-2xl font-semibold text-slate-950">What This Pillar Covers</h2>
+      <p class="mt-2 text-sm leading-6 text-slate-600">
+        The writing here will focus on education for a better life, what students should study in the age of AI, skills students need for future jobs, and practical career advice for students and early professionals.
+      </p>
+    </div>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {topics.map((topic) => (
+        <article class="card p-5">
+          <h3 class="text-lg font-semibold text-slate-950">{topic.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-slate-700">{topic.description}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {topic.tags.map((tag) => (
+              <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">#{tag}</span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="mt-8 card p-5" aria-labelledby="related-writing-heading">
+    <h2 id="related-writing-heading" class="text-xl font-semibold text-slate-950">Related Writing</h2>
+    <p class="mt-2 text-sm leading-6 text-slate-700">
+      Initial articles for this pillar are being drafted before publication. Once they are reviewed and ready, they will appear in the <a href="/writing" class="underline">Writing & Activity</a> archive.
+    </p>
+  </section>
+</Layout>

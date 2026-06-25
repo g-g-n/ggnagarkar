@@ -17,9 +17,31 @@ const profileCards = [
   { title: 'GG Nagarkar Profile', description: 'Factual biography and focus domains.', href: '/about' },
   { title: 'Applied AI Consulting', description: 'Company profile and work focus.', href: '/projects' },
   { title: 'OpsRabbit', description: 'DevOps and SRE automation initiative.', href: '/projects' },
+  { title: 'Education & Careers', description: 'Guidance on learning, skills, employability, jobs, and AI-era careers.', href: '/education-careers' },
   { title: "Things I've Built", description: 'Architecture, scale, outcomes, and lessons learned.', href: '/built' },
   { title: 'Patents', description: 'Portfolio, status, and summaries.', href: '/patents' },
   { title: 'Writing & Activity', description: 'Articles, talks, videos, and public updates.', href: '/writing' }
+];
+
+const readerPillars = [
+  {
+    title: 'Technology',
+    description:
+      'Practical insights on AI, cloud, DevOps, enterprise software, product engineering, OpsRabbit, 7Targets, and building real systems.',
+    href: '/projects'
+  },
+  {
+    title: 'Education & Careers',
+    description:
+      'Guidance for students, parents, and professionals navigating learning, skills, jobs, employability, and career growth.',
+    href: '/education-careers'
+  },
+  {
+    title: 'Future of Work',
+    description:
+      'Thoughts on how AI is changing work, what skills matter, and how individuals can prepare for the next decade.',
+    href: '/education-careers'
+  }
 ];
 
 const jsonLd = [
@@ -95,6 +117,21 @@ const jsonLd = [
             <a href={card.href} class="rounded-lg border border-slate-200 p-4 transition hover:border-slate-900">
               <h3 class="text-base font-semibold text-slate-900">{card.title}</h3>
               <p class="mt-1 text-sm text-slate-600">{card.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="py-2" aria-labelledby="what-youll-find-heading">
+        <div class="mb-3">
+          <p class="text-sm font-semibold uppercase tracking-wide text-slate-500">Reader Guide</p>
+          <h2 id="what-youll-find-heading" class="text-xl font-semibold text-slate-900">What You'll Find Here</h2>
+        </div>
+        <div class="grid gap-3 md:grid-cols-3">
+          {readerPillars.map((pillar) => (
+            <a href={pillar.href} class="card block p-5 transition hover:border-slate-400 hover:shadow-sm">
+              <h3 class="text-base font-semibold text-slate-900">{pillar.title}</h3>
+              <p class="mt-2 text-sm leading-6 text-slate-700">{pillar.description}</p>
             </a>
           ))}
         </div>

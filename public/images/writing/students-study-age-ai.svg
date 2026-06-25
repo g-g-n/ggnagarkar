@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">What Should Students Study in the Age of AI?</title>
+  <desc id="desc">Editorial social preview with study notes and AI nodes.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="82" y="78" width="1036" height="474" rx="20" fill="#ffffff" stroke="#dbe3eb"/>
+  <rect x="160" y="140" width="390" height="300" rx="16" fill="#eff6ff" stroke="#bfdbfe"/>
+  <path d="M220 210h250M220 270h220M220 330h170" stroke="#0f4c81" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="760" cy="230" r="52" fill="#dbeafe" stroke="#0f4c81" stroke-width="8"/>
+  <circle cx="920" cy="180" r="38" fill="#fef3c7" stroke="#b45309" stroke-width="8"/>
+  <circle cx="940" cy="330" r="46" fill="#dcfce7" stroke="#15803d" stroke-width="8"/>
+  <path d="M805 218l78-24M798 256l99 52M760 282v92" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
+  <text x="150" y="490" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="52" font-weight="800">What Should Students Study</text>
+  <text x="152" y="538" fill="#475569" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="600">A practical framework for the age of AI</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">The Skills That Matter More Than Degrees</title>
+  <desc id="desc">Editorial social preview showing skill blocks and a credential.</desc>
+  <rect width="1200" height="630" fill="#f6f8fb"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#ffffff" stroke="#dbe3eb"/>
+  <rect x="150" y="160" width="250" height="150" rx="16" fill="#dbeafe"/>
+  <rect x="430" y="160" width="250" height="150" rx="16" fill="#dcfce7"/>
+  <rect x="710" y="160" width="250" height="150" rx="16" fill="#fef3c7"/>
+  <rect x="252" y="340" width="250" height="84" rx="16" fill="#ede9fe"/>
+  <rect x="532" y="340" width="250" height="84" rx="16" fill="#e0f2fe"/>
+  <path d="M966 396h74v74h-74z" fill="#0f4c81"/>
+  <path d="M980 426l18 18 34-40" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="180" y="250" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="800">Communication</text>
+  <text x="486" y="250" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="800">Curiosity</text>
+  <text x="780" y="250" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="800">Execution</text>
+  <text x="150" y="500" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="52" font-weight="800">Skills That Matter More Than Degrees</text>
+</svg>

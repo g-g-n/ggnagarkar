@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Education Is Still the Best Investment for a Better Life</title>
+  <desc id="desc">Editorial social preview with books, steps, and a rising path.</desc>
+  <rect width="1200" height="630" fill="#f7fbff"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#ffffff" stroke="#dbe3eb"/>
+  <path d="M160 458h280l96-88 96 44 136-154 118 72 154-174" fill="none" stroke="#0f4c81" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="168" y="162" width="76" height="218" rx="8" fill="#dbeafe"/>
+  <rect x="260" y="212" width="76" height="168" rx="8" fill="#e0f2fe"/>
+  <rect x="352" y="132" width="76" height="248" rx="8" fill="#c7d2fe"/>
+  <circle cx="958" cy="170" r="54" fill="#facc15"/>
+  <text x="150" y="470" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="48" font-weight="800">Education Is Still the Best Investment</text>
+  <text x="152" y="520" fill="#475569" font-family="Manrope, Segoe UI, sans-serif" font-size="28" font-weight="600">Opportunity, confidence, independence, judgment, employability</text>
+</svg>

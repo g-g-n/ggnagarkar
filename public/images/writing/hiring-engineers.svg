@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">What I Look For When Hiring Engineers</title>
+  <desc id="desc">Editorial social preview with code, checklist, and engineering evaluation.</desc>
+  <rect width="1200" height="630" fill="#f7fbff"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#ffffff" stroke="#dbe3eb"/>
+  <rect x="150" y="150" width="470" height="250" rx="18" fill="#0f172a"/>
+  <path d="M220 225l-52 50 52 50M548 225l52 50-52 50M330 340l80-130" fill="none" stroke="#93c5fd" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="700" y="160" width="300" height="54" rx="12" fill="#dbeafe"/>
+  <rect x="700" y="245" width="300" height="54" rx="12" fill="#dcfce7"/>
+  <rect x="700" y="330" width="300" height="54" rx="12" fill="#fef3c7"/>
+  <path d="M725 187l16 16 32-38M725 272l16 16 32-38M725 357l16 16 32-38" fill="none" stroke="#0f4c81" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="150" y="490" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="52" font-weight="800">What I Look For When Hiring Engineers</text>
+</svg>

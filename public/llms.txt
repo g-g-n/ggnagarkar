@@ -14,6 +14,7 @@ Core pages:
 - /built: selected AI, cloud, DevSecOps, and enterprise systems with architecture notes, outcomes, scale, and lessons learned
 - /built/{slug}: individual build notes focused on one system, architecture ownership, scale, and lessons learned
 - /patents: patent portfolio and filing status
+- /education-careers: education and career guidance for students, parents, young professionals, skills, employability, AI, and the future of work
 - /writing: categorized writing and public activity archive
 - /writing/why-i-am-moving-my-professional-content-to-my-own-website: first-party article about making this website the primary professional home
 - /contact: direct contact links
@@ -32,6 +33,9 @@ Domains:
 - Platform and reliability engineering
 - Software delivery and CI/CD
 - AI sales workflow automation
+- Education and career guidance
+- Student skills and employability
+- AI and the future of work
 
 Contact:
 - /contact

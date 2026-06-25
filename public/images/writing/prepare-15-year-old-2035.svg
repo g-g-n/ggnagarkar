@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">How I Would Prepare a 15-Year-Old for 2035</title>
+  <desc id="desc">Editorial social preview with a timeline from today to 2035.</desc>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="80" y="80" width="1040" height="470" rx="20" fill="#ffffff" stroke="#dbe3eb"/>
+  <path d="M180 318h840" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="260" cy="318" r="34" fill="#0f4c81"/>
+  <circle cx="520" cy="318" r="34" fill="#38bdf8"/>
+  <circle cx="780" cy="318" r="34" fill="#22c55e"/>
+  <circle cx="1010" cy="318" r="42" fill="#facc15"/>
+  <text x="230" y="250" fill="#334155" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="700">Now</text>
+  <text x="968" y="250" fill="#334155" font-family="Manrope, Segoe UI, sans-serif" font-size="30" font-weight="700">2035</text>
+  <text x="150" y="470" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="52" font-weight="800">Prepare a 15-Year-Old for 2035</text>
+  <text x="152" y="520" fill="#475569" font-family="Manrope, Segoe UI, sans-serif" font-size="28" font-weight="600">AI, judgment, learning, resilience, useful skills</text>
+</svg>
