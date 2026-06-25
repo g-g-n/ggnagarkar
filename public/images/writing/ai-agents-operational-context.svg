@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AI agents need operational context before more autonomy</title>
+  <desc id="desc">An editorial illustration showing an AI agent grounded by operational context, constrained access, and reviewable actions.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef6fb"/>
+    </linearGradient>
+    <linearGradient id="agent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f4c81"/>
+      <stop offset="100%" stop-color="#137f8a"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#f3f6f9"/>
+  <path d="M0 0h1200v630H0z" fill="#f3f6f9"/>
+  <path d="M0 514c116-48 221-59 316-33 94 26 181 87 286 87 136 0 192-103 338-101 101 2 181 51 260 96v67H0z" fill="#e8f1f8"/>
+
+  <rect x="76" y="64" width="1048" height="502" rx="26" fill="url(#panel)" stroke="#dbe3eb" stroke-width="2" filter="url(#shadow)"/>
+
+  <g transform="translate(116 105)">
+    <text x="0" y="0" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="42" font-weight="800">AI Agents Need Operational Context</text>
+    <text x="0" y="44" fill="#334155" font-family="Manrope, Segoe UI, sans-serif" font-size="25" font-weight="700">Before More Autonomy</text>
+    <text x="0" y="84" fill="#64748b" font-family="Manrope, Segoe UI, sans-serif" font-size="18" font-weight="600">Grounded context. Constrained access. Reviewable action.</text>
+  </g>
+
+  <g transform="translate(132 238)">
+    <rect x="0" y="0" width="268" height="198" rx="20" fill="#ffffff" stroke="#dbe3eb" stroke-width="2"/>
+    <text x="28" y="42" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="22" font-weight="800">Live Context</text>
+    <g transform="translate(28 68)">
+      <rect x="0" y="0" width="88" height="32" rx="16" fill="#e0f2fe"/>
+      <text x="19" y="21" fill="#075985" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Alerts</text>
+      <rect x="102" y="0" width="74" height="32" rx="16" fill="#dcfce7"/>
+      <text x="124" y="21" fill="#166534" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Logs</text>
+      <rect x="0" y="48" width="96" height="32" rx="16" fill="#fef3c7"/>
+      <text x="18" y="69" fill="#92400e" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Deploys</text>
+      <rect x="110" y="48" width="120" height="32" rx="16" fill="#fce7f3"/>
+      <text x="129" y="69" fill="#9d174d" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Ownership</text>
+      <rect x="0" y="96" width="132" height="32" rx="16" fill="#ede9fe"/>
+      <text x="19" y="117" fill="#5b21b6" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Runbooks</text>
+      <rect x="146" y="96" width="84" height="32" rx="16" fill="#fee2e2"/>
+      <text x="165" y="117" fill="#991b1b" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="700">Access</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#9db5c9" stroke-width="4" stroke-linecap="round">
+    <path d="M402 312c54 0 78-42 130-42"/>
+    <path d="M402 360c49 0 82 45 130 45"/>
+    <path d="M666 270c56 0 83 39 137 39"/>
+    <path d="M666 405c56 0 83-41 137-41"/>
+  </g>
+
+  <g transform="translate(526 232)">
+    <rect x="0" y="0" width="154" height="210" rx="24" fill="#ffffff" stroke="#dbe3eb" stroke-width="2"/>
+    <circle cx="77" cy="72" r="48" fill="url(#agent)"/>
+    <path d="M54 73c0-17 10-29 23-29s23 12 23 29c0 16-10 29-23 29S54 89 54 73z" fill="none" stroke="#ffffff" stroke-width="7"/>
+    <path d="M77 43v-18M77 121v-18M47 73H29M125 73h-18" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="77" cy="72" r="9" fill="#f6b73c"/>
+    <text x="37" y="154" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="20" font-weight="800">Agent</text>
+    <text x="32" y="181" fill="#64748b" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="600">grounded first</text>
+  </g>
+
+  <g transform="translate(808 238)">
+    <rect x="0" y="0" width="260" height="82" rx="20" fill="#ffffff" stroke="#dbe3eb" stroke-width="2"/>
+    <circle cx="42" cy="41" r="20" fill="#7abf7a"/>
+    <path d="M33 41l7 7 13-17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="35" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="19" font-weight="800">Least Privilege</text>
+    <text x="76" y="58" fill="#64748b" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="600">only the access needed</text>
+
+    <rect x="0" y="112" width="260" height="82" rx="20" fill="#ffffff" stroke="#dbe3eb" stroke-width="2"/>
+    <circle cx="42" cy="153" r="20" fill="#f6b73c"/>
+    <path d="M33 153h18M42 144v18" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <text x="76" y="147" fill="#0f172a" font-family="Manrope, Segoe UI, sans-serif" font-size="19" font-weight="800">Human Review</text>
+    <text x="76" y="170" fill="#64748b" font-family="Manrope, Segoe UI, sans-serif" font-size="14" font-weight="600">auditable next steps</text>
+  </g>
+
+  <g transform="translate(116 486)">
+    <rect x="0" y="0" width="968" height="44" rx="22" fill="#0f4c81"/>
+    <text x="26" y="29" fill="#ffffff" font-family="Manrope, Segoe UI, sans-serif" font-size="17" font-weight="700">Autonomy is useful when it is connected to evidence, permissions, ownership, and a review trail.</text>
+  </g>
+</svg>
