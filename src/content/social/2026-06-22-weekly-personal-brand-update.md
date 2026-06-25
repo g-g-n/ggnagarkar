@@ -33,7 +33,7 @@
 
 ## LinkedIn Draft
 
-This week's work sharpened something I keep seeing across enterprise AI, DevOps, and incident response:
+This week's work on OpsRabbit sharpened something I keep seeing across enterprise AI, DevOps, and incident response:
 
 AI agents do not become useful in production just because the model gets smarter.
 
@@ -44,7 +44,13 @@ They become useful when they have:
 - evidence before action
 - reviewable workflows
 
-At OpsRabbit, that showed up in practical AIOps use cases, incident-response framing, and ongoing work around MCP-connected systems, kubelet permission blast radius, and identity-layer incidents.
+The concrete examples were not abstract:
+
+- alert triage that needs deploy, ownership, and impact context
+- deployment failure analysis that needs logs, rollout history, and runtime state
+- cloud/Kubernetes incidents where blast radius and permissions matter
+- runbook support that must validate the live environment before recommending action
+- MCP-connected systems where tool access needs governance and auditability
 
 My current view: the hard part of enterprise AI is not prompt quality. It is context plumbing.
 
@@ -56,18 +62,22 @@ https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-mor
 Also published:
 https://opsrabbit.io/blog/aiops-use-cases-how-opsrabbit-fits
 
+#EnterpriseAI #AIAgents #AgenticAI #AIOps #DevOps #SRE #CloudArchitecture #MCP #Kubernetes #AISecurity
+
 ## X Draft
 
-This week's pattern across enterprise AI work:
+This week's pattern from OpsRabbit/AIOps work:
 
 AI agents are not production-useful because they sound smart.
 
-They become useful when they have live context, least-privilege access, evidence before action, and reviewable workflows.
+They become useful when they can connect alerts, logs, deploys, ownership, Kubernetes/cloud state, permissions, and evidence before action.
 
 The hard part is context plumbing, not prompt polish.
 
 Owned note:
 https://www.ggnagarkar.com/writing/ai-agents-need-operational-context-before-more-autonomy
+
+#EnterpriseAI #AIAgents #AIOps #DevOps #SRE #MCP
 
 ## Newsletter Snippet
 
