@@ -1,0 +1,170 @@
+---
+title: "Reviewable AI Workflows Are The Real Enterprise Feature"
+metaTitle: "Reviewable AI Workflows | GG Nagarkar"
+description: "Why enterprise AI systems need evidence, least-privilege access, human review, and audit trails more than autonomy theater."
+date: "2026-06-29"
+author: "GG Nagarkar"
+tags: ["ai-agents", "enterprise-ai", "ai-security", "devops", "founder-writing"]
+image: "/images/writing/reviewable-ai-workflows.svg"
+imageAlt: "Editorial illustration showing an AI workflow moving through evidence, policy, human review, and audit trail checkpoints."
+---
+
+The enterprise AI conversation still spends too much time on autonomy.
+
+How much can an agent do on its own? How many tools can it call? Can it take action without a human in the loop? Can it close the ticket, change the configuration, roll back the deploy, or trigger the workflow?
+
+Those are interesting questions, but they are not the first questions I would ask if I were trusting an AI system inside a real business.
+
+The better question is: can the workflow be reviewed?
+
+Can a human see what evidence the system used, what access it had, which tools it called, what decision path it followed, and where the next action should be approved?
+
+That reviewability is not a minor implementation detail. For enterprise AI, I think it is the feature.
+
+## Why Autonomy Alone Is Not Enough
+
+Autonomy demos are easy to understand.
+
+An agent receives a goal, calls tools, produces an answer, and maybe takes an action. The path looks efficient because the human disappears from the middle of the workflow.
+
+But production systems do not only optimize for fewer clicks.
+
+They optimize for reliability, accountability, security, blast-radius control, and the ability to explain what happened after something goes wrong.
+
+That matters even more when AI systems get closer to operational data, customer systems, cloud environments, source repositories, observability tools, support queues, or security workflows.
+
+At that point, the question is not whether the agent can act. The question is whether the organization can trust, constrain, inspect, and improve the action path.
+
+A workflow that cannot be reviewed becomes difficult to operate. If it works, teams may not know why. If it fails, they may not know where. If it overreaches, they may not know which permission or tool boundary allowed it.
+
+That is not enterprise readiness. That is a new incident surface.
+
+## What Reviewability Means
+
+When I say reviewable AI workflow, I do not mean a chat transcript attached to a ticket.
+
+I mean the system should preserve the operational shape of the work:
+
+- what the user asked for
+- what systems and data sources were queried
+- what evidence was collected
+- what assumptions were made
+- what tools were available
+- what tools were actually called
+- what permissions were used
+- what action was proposed
+- what risk or blast radius was identified
+- who approved the next step, if approval was required
+- what happened after the action
+
+That is the difference between "the agent answered" and "the workflow can be trusted."
+
+The first is a model interaction. The second is an operating system for AI-assisted work.
+
+This is also where enterprise AI starts to look less like prompt engineering and more like product engineering, DevOps, security engineering, and governance.
+
+## The Signals Are Already Here
+
+Recent platform direction is pointing toward the same conclusion.
+
+Google Cloud's Gemini Enterprise Agent Platform release notes now include generally available capabilities around [Agent Gateway, Agent Observability, Agent Registry, Model Armor for Agent Gateway, and AI security findings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes). Different product names, same architectural signal: once agents become connected to real systems, teams need gateways, registries, observability, and security controls around them.
+
+Google Cloud's security writing on [AI Threat Defense](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-the-4-lessons-that-guided-ai-threat-defense) also reinforces the need for context-rich workflows, prioritization, remediation paths, and active monitoring rather than isolated AI responses.
+
+Kubernetes has been moving in a similar direction from the infrastructure side. The graduation of [fine-grained kubelet API authorization](https://kubernetes.io/blog/2026/04/24/kubernetes-v1-36-fine-grained-kubelet-authorization-ga/) reduces the need for broad `nodes/proxy` access and gives platform teams a more precise authorization surface.
+
+These are not all the same topic, but they rhyme.
+
+Enterprise systems are moving toward more connected AI workflows, and connected workflows need control planes.
+
+## The Practical Architecture
+
+For an AI workflow to be reviewable, I would expect five things to exist before it is trusted in production.
+
+First, evidence should be explicit.
+
+The workflow should not only produce a recommendation. It should show the logs, metrics, tickets, code references, policy rules, incidents, documents, or external sources that shaped the recommendation.
+
+Second, access should be least-privileged.
+
+The agent should not inherit broad human access by default. It should receive the minimum scoped access needed for the task, with tool boundaries that make sense for the workflow.
+
+Third, tool calls should be observable.
+
+Every important call should leave a trace: tool name, input, output summary, timing, identity, and permission context. This is boring until it is the only way to debug a bad action.
+
+Fourth, human review should be designed into the path.
+
+Not every step needs approval, but the workflow should know which steps do. Reading documentation is not the same as changing infrastructure. Summarizing an alert is not the same as restarting a production service.
+
+Fifth, outcomes should feed back into the system.
+
+If a recommendation was wrong, if an approval was rejected, or if the action created a new issue, the workflow should make that visible. Otherwise the same mistake becomes repeatable automation.
+
+## A Concrete Example
+
+Take an AI-assisted incident workflow.
+
+A weak version receives an alert, summarizes it, and suggests generic next steps.
+
+A stronger version gathers evidence first:
+
+- which service is affected
+- what changed recently
+- which deployment, commit, feature flag, or configuration update correlates with the alert
+- which logs and metrics support the hypothesis
+- who owns the service
+- which customer or internal system is affected
+- what similar incidents happened before
+- which tools the agent is allowed to use
+- what action would change production state
+
+Then it proposes a path:
+
+- likely cause
+- supporting evidence
+- confidence level
+- risk
+- recommended next step
+- approval requirement
+- rollback or mitigation option
+
+That workflow may still use the same model underneath. But operationally, it is a different product.
+
+It helps a responder think faster without hiding the chain of reasoning, access, or action behind a black box.
+
+## Why This Matters For Builders
+
+I keep coming back to this because it is the practical difference between AI as a demo and AI as infrastructure.
+
+Enterprise buyers do not only need AI systems that can complete tasks. They need systems their teams can inspect, govern, and operate.
+
+That is especially true in DevOps, SRE, cloud operations, security operations, customer support, and internal business workflows where mistakes do not stay inside a chat window.
+
+The durable enterprise feature is not "the AI did it without asking."
+
+The durable feature is:
+
+- here is the request
+- here is the evidence
+- here is the access boundary
+- here is the proposed action
+- here is the risk
+- here is the approval point
+- here is the audit trail
+
+That may sound less magical than full autonomy, but it is much more useful.
+
+Magic is hard to run in production. Reviewable systems are how teams actually build trust.
+
+## My Takeaway
+
+My view is that enterprise AI will become more autonomous over time, but the winners will not be the systems that hide the most.
+
+They will be the systems that make work inspectable.
+
+The more an agent can see, decide, or do, the more important it becomes to preserve evidence, access boundaries, review points, and audit trails.
+
+That is why I think reviewable AI workflows are the real enterprise feature.
+
+Autonomy may be the interface people notice first. Reviewability is what makes it usable inside serious organizations.
