@@ -63,6 +63,20 @@ The first is a model interaction. The second is an operating system for AI-assis
 
 This is also where enterprise AI starts to look less like prompt engineering and more like product engineering, DevOps, security engineering, and governance.
 
+## Where This Showed Up In My Own Work
+
+This is not only a market observation for me. It has been showing up directly in the OpsRabbit work I have been doing over the last few weeks.
+
+As we have been shaping AI-assisted incident investigation and runbook-oriented workflows, the useful question has not been "can the agent summarize the alert?" That part is table stakes.
+
+The more practical question has been: can the workflow help an engineer move from a noisy operational signal to a reviewable next step?
+
+That means connecting the alert to service ownership, recent deploys, logs, infrastructure state, similar incidents, runbook guidance, and the action boundary before recommending anything. In an SRE or CloudOps context, a confident answer without that chain of evidence is not very helpful. It can even be dangerous.
+
+The same pattern also connects back to earlier product work such as 7Targets and document AI workflows: AI becomes useful when it sits inside the user's operating path, preserves context, and improves follow-through. But incident response makes the requirement sharper because the cost of a wrong action is higher.
+
+That is why I keep separating "autonomous" from "production-ready." In OpsRabbit terms, faster time-to-context matters, but only if the resulting path is inspectable enough for an engineer to trust, approve, reject, or improve it.
+
 ## The Signals Are Already Here
 
 Recent platform direction is pointing toward the same conclusion.

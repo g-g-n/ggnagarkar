@@ -3,6 +3,7 @@
 ## Findings Summary
 
 - Continued the owned-site narrative from operational context into reviewable enterprise AI workflows.
+- Added a concrete founder-work angle from recent OpsRabbit incident-investigation and runbook workflow thinking.
 - Strongest new founder/operator angle: autonomy is less important than whether an AI workflow exposes evidence, access boundaries, approval points, and audit trails.
 - Recent platform signals support the point: agent gateways, observability, registries, AI security findings, Model Armor, and finer-grained Kubernetes authorization all point toward control planes for connected AI systems.
 - The recurring pattern this week: enterprise AI is becoming operational infrastructure, not just an interface layer.
@@ -39,6 +40,10 @@ Can it complete the workflow without a human?
 
 Those questions matter, but they are not the first questions I would ask before trusting an AI system inside a real business.
 
+This has been showing up directly in my recent OpsRabbit work around AI-assisted incident investigation.
+
+In an SRE or CloudOps workflow, summarizing an alert is table stakes. The more useful product question is whether the system can connect the alert to service ownership, recent deploys, logs, infrastructure state, similar incidents, runbook guidance, and the action boundary before recommending a next step.
+
 The better question:
 
 Can the workflow be reviewed?
@@ -69,7 +74,9 @@ Owned note:
 
 Enterprise AI is still too focused on autonomy.
 
-The better question is whether the workflow is reviewable:
+This is showing up in my OpsRabbit work too: alert summaries are table stakes; the useful workflow connects ownership, deploys, logs, infra state, runbooks, and action boundaries.
+
+The better question is whether the path is reviewable:
 
 - evidence
 - access boundary
@@ -87,4 +94,4 @@ Reviewability is the enterprise feature.
 
 ## Newsletter Snippet
 
-This week I continued the operating thesis from live context into reviewable AI workflows. The more an AI agent can see, decide, or do, the more important it becomes to preserve evidence, access boundaries, approval points, and audit trails. Autonomy may be the interface people notice first, but reviewability is what makes enterprise AI usable inside serious organizations.
+This week I continued the operating thesis from live context into reviewable AI workflows, with a more concrete angle from recent OpsRabbit work around AI-assisted incident investigation. Alert summaries are useful, but the stronger workflow connects ownership, deploys, logs, infrastructure state, similar incidents, runbooks, and action boundaries before proposing a next step. The more an AI agent can see, decide, or do, the more important it becomes to preserve evidence, access boundaries, approval points, and audit trails. Autonomy may be the interface people notice first, but reviewability is what makes enterprise AI usable inside serious organizations.
