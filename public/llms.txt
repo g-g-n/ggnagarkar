@@ -15,6 +15,8 @@ Core pages:
 - /built/{slug}: individual build notes focused on one system, architecture ownership, scale, and lessons learned
 - /patents: patent portfolio and filing status
 - /writing: categorized writing and public activity archive
+- /writing/reviewable-ai-workflows-are-the-real-enterprise-feature: first-party article about reviewable enterprise AI workflows, evidence, access boundaries, human approval, and audit trails
+- /writing/ai-agents-need-operational-context-before-more-autonomy: first-party article about operational context, constrained access, and reviewable execution for enterprise AI agents
 - /writing/why-i-am-moving-my-professional-content-to-my-own-website: first-party article about making this website the primary professional home
 - /contact: direct contact links
 

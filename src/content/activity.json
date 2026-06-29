@@ -1,5 +1,15 @@
 [
   {
+    "title": "Reviewable AI Workflows Are The Real Enterprise Feature",
+    "type": "blog",
+    "date": "2026-06-29",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why enterprise AI systems need evidence, least-privilege access, human review, and audit trails more than autonomy theater.",
+    "url": "/writing/reviewable-ai-workflows-are-the-real-enterprise-feature",
+    "image": "/images/writing/reviewable-ai-workflows.svg",
+    "tags": ["AI Agents", "Enterprise AI", "AI Security", "DevOps", "Founder Writing"]
+  },
+  {
     "title": "AI Agents Need Operational Context Before More Autonomy",
     "type": "blog",
     "date": "2026-06-22",
