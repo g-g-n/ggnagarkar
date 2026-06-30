@@ -84,12 +84,30 @@ function renderInline(value: string) {
     .replace(/@@CODE(\d+)@@/g, (_match, index: string) => codeSegments[Number(index)] ?? '')
 }
 
+function renderImageBlock(value: string) {
+  const image = value.match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]+)")?\)$/);
+  if (!image) {
+    return null;
+  }
+
+  const [, alt, src, caption] = image;
+  const safeAlt = escapeHtml(alt);
+  const safeSrc = escapeHtml(src);
+  const figcaption = caption ? `<figcaption>${renderInline(caption)}</figcaption>` : '';
+
+  return `<figure><img src="${safeSrc}" alt="${safeAlt}" loading="lazy" />${figcaption}</figure>`;
+}
+
 function renderMarkdown(markdown: string) {
   const blocks = markdown.split(/\n{2,}/);
 
   return blocks
     .map((block) => {
       const trimmed = block.trim();
+      const imageBlock = renderImageBlock(trimmed);
+      if (imageBlock) {
+        return imageBlock;
+      }
       if (trimmed.startsWith('## ')) {
         return `<h2>${renderInline(trimmed.slice(3))}</h2>`;
       }

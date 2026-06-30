@@ -71,8 +71,30 @@ a {
 }
 
 .article-body p,
-.article-body ul {
+.article-body ul,
+.article-body figure {
   margin-top: 1rem;
+}
+
+.article-body figure {
+  overflow: hidden;
+  border: 1px solid #dbe3eb;
+  border-radius: 0.5rem;
+  background: #f8fafc;
+}
+
+.article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.article-body figcaption {
+  border-top: 1px solid #dbe3eb;
+  padding: 0.75rem 1rem;
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .article-body ul {
