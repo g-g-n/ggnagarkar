@@ -1,5 +1,15 @@
 [
   {
+    "title": "Shared Investigation State Is The AI Ops Cost Control Layer",
+    "type": "blog",
+    "date": "2026-06-30",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why AI-assisted incident response needs reusable investigation context, a service knowledge graph, and centralized LLM usage controls to reduce repeated discovery work.",
+    "url": "/writing/shared-investigation-state-is-the-ai-ops-cost-control-layer",
+    "image": "/images/writing/shared-investigation-cost-control.svg",
+    "tags": ["AI Agents", "AIOps", "SRE", "DevOps", "Founder Writing"]
+  },
+  {
     "title": "Reviewable AI Workflows Are The Real Enterprise Feature",
     "type": "blog",
     "date": "2026-06-29",

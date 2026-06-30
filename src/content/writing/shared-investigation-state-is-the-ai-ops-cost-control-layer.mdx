@@ -1,0 +1,200 @@
+---
+title: "Shared Investigation State Is The AI Ops Cost Control Layer"
+metaTitle: "Shared Investigation State | AI Ops Cost Control"
+description: "Why AI-assisted incident response needs reusable investigation context, a service knowledge graph, and centralized LLM usage controls to reduce repeated discovery work."
+date: "2026-06-30"
+author: "GG Nagarkar"
+tags: ["ai-agents", "aiops", "sre", "devops", "founder-writing"]
+image: "/images/writing/shared-investigation-cost-control.svg"
+imageAlt: "Editorial diagram showing shared investigation state connected to alerts, service knowledge graph, SRE teams, LLM usage, and centralized cost controls."
+---
+
+The cost problem in AI-assisted operations is not only model pricing.
+
+It is repeated discovery.
+
+Every incident investigation starts with the same expensive questions: what fired, which service is affected, who owns it, what changed, which logs matter, which dashboards are relevant, which runbook applies, and what has already been checked.
+
+If five SREs investigate the same issue in separate AI sessions, the organization may pay for the same discovery work five times.
+
+That is wasteful in tokens. More importantly, it is wasteful in time and attention.
+
+This is the angle I care about more now: AI Ops needs shared investigation state, not just smarter individual chats.
+
+## The Hidden Cost Of Separate AI Sessions
+
+A lot of AI incident response demos assume a single user and a single conversation.
+
+An alert comes in. An engineer asks the assistant for help. The assistant gathers context, reviews logs, checks metrics, reads deploy history, and produces a recommendation.
+
+That can be useful, but real operations are messier.
+
+Multiple people may join the investigation. Someone from the platform team checks infrastructure. A service owner checks deploys. A support lead asks whether customers are affected. A manager wants the current status. A second SRE joins after handoff.
+
+If each person starts a new AI thread, the system repeats the same expensive setup work:
+
+- re-reading the alert
+- re-discovering the affected service
+- re-fetching logs and metrics
+- re-checking deploys and ownership
+- re-summarizing the same evidence
+- re-building the same operational picture
+
+That pattern is bad engineering.
+
+It turns the LLM into a private scratchpad for each responder instead of a shared operational system.
+
+## Reuse The Infrastructure Context
+
+The better pattern is to separate investigation discovery from individual conversation.
+
+In OpsRabbit terms, that means building reusable operational context around the incident:
+
+- alert details
+- service ownership
+- dependencies
+- deploy history
+- infrastructure state
+- log and metric evidence
+- runbook links
+- prior incidents
+- actions already attempted
+- current hypothesis and confidence
+
+Some of that belongs in a service knowledge graph. Some of it belongs in the investigation record. Some of it belongs in the audit trail.
+
+The exact storage design matters less than the operating principle: once the system has assembled useful context, it should not force every responder to pay for assembling it again.
+
+The next SRE should be able to continue from the shared investigation state.
+
+The next workflow should be able to reuse the same service context.
+
+The next executive summary should be generated from the same evidence trail, not from another round of discovery.
+
+That is where cost and control start to meet.
+
+## Shared Context Reduces LLM Spend
+
+LLM cost is easy to underestimate because the unit cost looks small.
+
+The operational pattern is what makes it add up.
+
+An incident investigation may include alert details, logs, deployment metadata, infrastructure snapshots, service ownership, previous incidents, runbooks, chat updates, and generated summaries. Even if each single interaction is affordable, repeating the same context gathering across people and workflows creates unnecessary token spend.
+
+OpsRabbit's [cost calculator](https://opsrabbit.io/calculator) makes this visible by treating AI investigation cost as something teams should estimate and tune, not hand-wave away. It exposes the relationship between alert volume, investigations, token defaults, deployment shape, and monthly cost.
+
+That is the right conversation.
+
+But the bigger product question is not only "which model is cheaper?"
+
+It is:
+
+- how many times does the system rediscover the same facts?
+- how much context can be reused safely?
+- which evidence should become durable incident state?
+- which summaries should be generated once and then updated?
+- where can cached or structured context replace another full LLM pass?
+
+If the infrastructure context and investigation output are shared, cost reduction is not just a pricing exercise. It becomes an architecture choice.
+
+## Shared Context Also Improves Control
+
+Cost is only half the story.
+
+Centralized investigation state also improves governance.
+
+When every responder uses a separate AI account or an isolated chat, control fragments quickly. It becomes harder to answer basic operational questions:
+
+- Which model was used?
+- How many tokens did this investigation consume?
+- Which data sources were included?
+- Who asked for which action?
+- Which recommendation was generated from which evidence?
+- Did anyone expose sensitive logs or customer data to the wrong tool?
+
+A single managed LLM account, or at least a centrally governed AI usage layer, gives the organization a better control surface.
+
+It can track token usage and cost by incident, workflow, team, service, or customer.
+
+It can apply policy around which data sources are allowed.
+
+It can preserve the relationship between evidence, recommendation, approval, and outcome.
+
+It can also make the cost conversation factual instead of political.
+
+Without that layer, each team may optimize its own AI usage locally while the organization loses visibility globally.
+
+## The Service Knowledge Graph Is The Multiplier
+
+The service knowledge graph is what makes reuse practical.
+
+Incident response depends on relationships:
+
+- service to owner
+- service to dependency
+- alert to runbook
+- deployment to service
+- error to customer impact
+- namespace to workload
+- previous incident to current symptom
+- permission boundary to safe action
+
+If the AI workflow has to infer those relationships from scratch every time, the system is slower, more expensive, and less reliable.
+
+If those relationships are already represented in a service knowledge graph, the LLM can spend less time discovering the map and more time reasoning over the current evidence.
+
+That matters for both cost and quality.
+
+The model does not need to reread every possible source for every question. It can be given a structured operating picture: affected service, owner, dependencies, recent changes, known runbooks, relevant observability links, and prior incident patterns.
+
+That is a better input.
+
+Better inputs reduce waste.
+
+## What This Means For AI Ops Builders
+
+The next phase of AI Ops should not be a pile of isolated assistants.
+
+It should look more like an operating layer:
+
+- shared service context
+- shared investigation records
+- reusable evidence summaries
+- centralized model usage and cost accounting
+- policy-aware data access
+- team-visible status and handoff
+- durable audit trails
+
+This is less glamorous than saying "the agent fixed the incident."
+
+It is also more useful.
+
+In production operations, the hard part is not generating one impressive answer. The hard part is helping a team coordinate around changing evidence without wasting time, losing context, or creating uncontrolled AI spend.
+
+The best AI Ops systems will reduce repeated discovery.
+
+They will make the current investigation state visible to every responder.
+
+They will let teams understand where tokens and dollars are going.
+
+They will keep LLM usage under a controlled account instead of spreading it across untracked individual sessions.
+
+That is how AI becomes part of the operations fabric instead of another cost center hiding inside chat windows.
+
+## My Takeaway
+
+I still care about context, reviewability, and safe action boundaries. But the cost and control angle deserves its own focus.
+
+If every SRE has to rerun discovery for the same issue, AI assistance becomes expensive coordination theater.
+
+If the system builds shared investigation state on top of reusable infrastructure context and a service knowledge graph, the economics change.
+
+Teams save time because responders do not restart from zero.
+
+They save tokens because the system does not repeatedly rebuild the same picture.
+
+They gain control because LLM usage, cost, evidence, and recommendations can be governed centrally.
+
+That is the practical OpsRabbit thesis I would bet on: shared investigation output is not just a collaboration feature.
+
+It is the cost and control layer for AI-assisted operations.
