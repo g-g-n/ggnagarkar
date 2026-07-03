@@ -14,6 +14,7 @@ const jsonLd = {
   mainEntity: {
     '@type': 'Person',
     name: profile.name,
+    alternateName: profile.alternateNames,
     email: profile.email,
     sameAs: activeLinks.map((link) => link.url)
   }
@@ -21,7 +22,7 @@ const jsonLd = {
 ---
 <Layout
   title="Contact | GG Nagarkar"
-  description="Contact GG Nagarkar for consulting, product collaboration, speaking, startup mentorship, technical validation, advisory, and professional inquiries."
+  description="Contact GG Nagarkar, also known as Gunanand Nagarkar, for consulting, product collaboration, speaking, startup mentorship, technical validation, advisory, and professional inquiries."
   canonicalPath="/contact"
   jsonLd={jsonLd}
   breadcrumbs={[

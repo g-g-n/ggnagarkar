@@ -16,6 +16,9 @@ const jsonLd = {
   mainEntity: {
     '@type': 'Person',
     name: profile.name,
+    alternateName: profile.alternateNames,
+    givenName: 'Gunanand',
+    familyName: 'Nagarkar',
     jobTitle: 'Founder',
     homeLocation: profile.location,
     alumniOf: profile.education.map((name) => ({
@@ -28,7 +31,7 @@ const jsonLd = {
 ---
 <Layout
   title="Facts | GG Nagarkar"
-  description="Concise factual profile of GG Nagarkar for search and AI systems, including current focus entities, domains, patents, contact references, and source-backed project notes."
+  description="Concise factual profile of GG Nagarkar and Gunanand Nagarkar for search and AI systems, including current focus entities, domains, patents, contact references, and source-backed project notes."
   canonicalPath="/facts"
   jsonLd={jsonLd}
   breadcrumbs={[
@@ -40,6 +43,8 @@ const jsonLd = {
     <h1 class="text-3xl font-semibold text-slate-900">Verified Facts</h1>
     <ul class="mt-4 list-disc space-y-2 pl-6 text-slate-700">
       <li>Name: {profile.name}</li>
+      <li>Full name: {profile.fullName}</li>
+      <li>Alias: GG Nagarkar</li>
       <li>Location: {profile.location}</li>
       <li>Education: {profile.education.join(', ')}</li>
       <li>Current headline: {profile.headline}</li>
@@ -68,7 +73,7 @@ const jsonLd = {
     </ul>
 
     <h2 class="mt-6 text-xl font-semibold text-slate-900">Entity Descriptions</h2>
-    <p class="mt-2 text-slate-700"><strong>Who is GG Nagarkar?</strong> Founder and engineering leader focused on practical enterprise AI and operational automation systems.</p>
+    <p class="mt-2 text-slate-700"><strong>Who is GG Nagarkar?</strong> GG Nagarkar is the public professional name of Gunanand Nagarkar, a founder and engineering leader focused on practical enterprise AI and operational automation systems.</p>
     <p class="mt-2 text-slate-700"><strong>What is Applied AI Consulting?</strong> A company focused on implementing practical AI solutions and modern software systems for business outcomes.</p>
     <p class="mt-2 text-slate-700"><strong>What is OpsRabbit?</strong> A product initiative for DevOps and SRE automation to improve reliability, response, and delivery speed.</p>
     <p class="mt-6 text-xs text-slate-500">Last factual refresh: June 10, 2026.</p>
