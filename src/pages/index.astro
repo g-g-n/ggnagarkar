@@ -27,6 +27,9 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: profile.name,
+    alternateName: profile.alternateNames,
+    givenName: 'Gunanand',
+    familyName: 'Nagarkar',
     jobTitle: 'Founder',
     description: profile.headline,
     homeLocation: profile.location,
@@ -44,7 +47,11 @@ const jsonLd = [
     '@type': 'Organization',
     name: 'Applied AI Consulting',
     url: 'https://appliedaiconsulting.com/',
-    founder: profile.name
+    founder: {
+      '@type': 'Person',
+      name: profile.name,
+      alternateName: profile.alternateNames
+    }
   },
   {
     '@context': 'https://schema.org',
@@ -57,7 +64,7 @@ const jsonLd = [
 ---
 <Layout
   title="GG Nagarkar | Founder Profile, Projects, Patents, and Activity"
-  description="Official professional website of GG Nagarkar covering Applied AI Consulting, OpsRabbit, enterprise AI, DevOps/SRE automation, patents, writing, talks, and activity."
+  description="Official professional website of GG Nagarkar, also known as Gunanand Nagarkar, covering Applied AI Consulting, OpsRabbit, enterprise AI, DevOps/SRE automation, patents, writing, talks, and activity."
   canonicalPath="/"
   jsonLd={jsonLd}
   breadcrumbs={[{ name: 'Home', item: `${site}/` }]}

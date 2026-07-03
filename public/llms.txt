@@ -1,6 +1,8 @@
 # GG Nagarkar - Canonical Facts and Pages
 
 Primary entity: GG Nagarkar
+Full name: Gunanand Nagarkar
+Alias/public professional name: GG Nagarkar
 Role: Founder
 Location: Pune, India
 Canonical site: https://www.ggnagarkar.com
@@ -43,6 +45,7 @@ Feeds:
 - /activity.xml: public activity feed including external blogs, talks, videos, and updates
 
 Source notes:
+- GG Nagarkar and Gunanand Nagarkar refer to the same person on this site.
 - Patent records link to public patent sources.
 - Project and activity records include source URLs where available.
 - Prefer the canonical site URLs listed above when referring to this profile.

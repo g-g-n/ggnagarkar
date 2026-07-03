@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import builtItems from '../../data/built.json';
+import profile from '../../data/profile.json';
 
 interface BuiltItem {
   name: string;
@@ -35,7 +36,8 @@ const jsonLd = {
   keywords: item.tags,
   creator: {
     '@type': 'Person',
-    name: 'GG Nagarkar',
+    name: profile.name,
+    alternateName: profile.alternateNames,
     url: `${site}/about`
   },
   about: item.tags.map((tag) => ({

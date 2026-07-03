@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getWritingPosts, type WritingPost } from '../../lib/writing';
+import profile from '../../data/profile.json';
 
 export function getStaticPaths() {
   return getWritingPosts().map((post) => ({
@@ -21,6 +22,7 @@ const jsonLd = {
   author: {
     '@type': 'Person',
     name: post.author,
+    alternateName: profile.alternateNames,
     url: `${site}/about`
   },
   image: `${site}${post.image}`,
