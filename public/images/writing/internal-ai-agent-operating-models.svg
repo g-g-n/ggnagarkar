@@ -1,0 +1,43 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Internal AI agents need operating models</title>
+  <desc id="desc">Editorial diagram showing two internal AI agents connected to lifecycle rules, ownership, review loops, and operating context.</desc>
+  <rect width="1200" height="630" fill="#F7F4EE"/>
+  <rect x="72" y="72" width="1056" height="486" rx="28" fill="#FFFFFF" stroke="#D8D1C4" stroke-width="2"/>
+  <rect x="112" y="112" width="298" height="406" rx="18" fill="#20343A"/>
+  <text x="144" y="170" fill="#F7F4EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Internal AI</text>
+  <text x="144" y="212" fill="#F7F4EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">agents need</text>
+  <text x="144" y="254" fill="#F7F4EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">operating</text>
+  <text x="144" y="296" fill="#F7F4EE" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">models</text>
+  <text x="144" y="366" fill="#B9D7D0" font-family="Inter, Arial, sans-serif" font-size="20">Lifecycle rules</text>
+  <text x="144" y="400" fill="#B9D7D0" font-family="Inter, Arial, sans-serif" font-size="20">Ownership</text>
+  <text x="144" y="434" fill="#B9D7D0" font-family="Inter, Arial, sans-serif" font-size="20">Review loops</text>
+  <text x="144" y="468" fill="#B9D7D0" font-family="Inter, Arial, sans-serif" font-size="20">Operating context</text>
+
+  <rect x="480" y="116" width="260" height="156" rx="16" fill="#E7F1EF" stroke="#7AA79E" stroke-width="2"/>
+  <text x="512" y="164" fill="#20343A" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Resource planning</text>
+  <text x="512" y="200" fill="#415A60" font-family="Inter, Arial, sans-serif" font-size="18">Bench visibility</text>
+  <text x="512" y="228" fill="#415A60" font-family="Inter, Arial, sans-serif" font-size="18">Upskill paths</text>
+
+  <rect x="480" y="358" width="260" height="156" rx="16" fill="#FFF0D8" stroke="#D39B3D" stroke-width="2"/>
+  <text x="512" y="406" fill="#20343A" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Pilot manager</text>
+  <text x="512" y="442" fill="#6B5430" font-family="Inter, Arial, sans-serif" font-size="18">Stage and blocker</text>
+  <text x="512" y="470" fill="#6B5430" font-family="Inter, Arial, sans-serif" font-size="18">Owner and next step</text>
+
+  <rect x="828" y="116" width="246" height="88" rx="14" fill="#F4F7FA" stroke="#B9C5CC" stroke-width="2"/>
+  <text x="858" y="169" fill="#20343A" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Source of truth</text>
+  <rect x="828" y="238" width="246" height="88" rx="14" fill="#F4F7FA" stroke="#B9C5CC" stroke-width="2"/>
+  <text x="858" y="291" fill="#20343A" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Lifecycle states</text>
+  <rect x="828" y="360" width="246" height="88" rx="14" fill="#F4F7FA" stroke="#B9C5CC" stroke-width="2"/>
+  <text x="858" y="413" fill="#20343A" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Review points</text>
+  <rect x="828" y="482" width="246" height="36" rx="18" fill="#20343A"/>
+  <text x="874" y="507" fill="#F7F4EE" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Managed work</text>
+
+  <path d="M410 194H480" stroke="#7AA79E" stroke-width="5" stroke-linecap="round"/>
+  <path d="M410 436H480" stroke="#D39B3D" stroke-width="5" stroke-linecap="round"/>
+  <path d="M740 194C792 194 792 160 828 160" stroke="#7AA79E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 194C796 194 796 282 828 282" stroke="#7AA79E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M740 436C792 436 792 404 828 404" stroke="#D39B3D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M951 448V480" stroke="#20343A" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="442" cy="194" r="9" fill="#7AA79E"/>
+  <circle cx="442" cy="436" r="9" fill="#D39B3D"/>
+</svg>

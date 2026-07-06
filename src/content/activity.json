@@ -1,5 +1,15 @@
 [
   {
+    "title": "Internal AI Agents Need Operating Models, Not Just Workflows",
+    "type": "blog",
+    "date": "2026-07-06",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why useful internal AI agents need lifecycle rules, ownership, exceptions, review loops, and operating context around the workflow.",
+    "url": "/writing/internal-ai-agents-need-operating-models-not-just-workflows",
+    "image": "/images/writing/internal-ai-agent-operating-models.png",
+    "tags": ["AI Agents", "Enterprise AI", "Operations", "Product Engineering", "Founder Writing"]
+  },
+  {
     "title": "Shared Investigation State Is The AI Ops Cost Control Layer",
     "type": "blog",
     "date": "2026-06-30",
