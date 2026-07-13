@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">AI agents need an inbound architecture</title>
+  <desc id="desc">A structured editorial illustration showing Slack, Teams, Jira, ServiceNow, WhatsApp, alarms, and reports flowing into one normalized AI agent architecture.</desc>
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  <rect x="72" y="72" width="1056" height="486" rx="20" fill="#FFFFFF" stroke="#1F2937" stroke-width="3"/>
+  <text x="112" y="138" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">AI Agents Need</text>
+  <text x="112" y="190" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="800">An Inbound Architecture</text>
+  <text x="116" y="238" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports</text>
+
+  <g transform="translate(108 306)">
+    <rect width="154" height="102" rx="12" fill="#E0F2FE" stroke="#0369A1" stroke-width="3"/>
+    <circle cx="38" cy="38" r="17" fill="#0284C7"/>
+    <rect x="64" y="27" width="58" height="10" rx="5" fill="#0369A1"/>
+    <rect x="30" y="66" width="94" height="10" rx="5" fill="#38BDF8"/>
+    <text x="18" y="132" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Sources</text>
+  </g>
+
+  <path d="M282 356H386" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
+  <path d="M372 342L386 356L372 370" stroke="#1F2937" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(410 306)">
+    <rect width="154" height="102" rx="12" fill="#FEF3C7" stroke="#B45309" stroke-width="3"/>
+    <rect x="32" y="24" width="90" height="16" rx="8" fill="#F59E0B"/>
+    <rect x="32" y="54" width="56" height="12" rx="6" fill="#FBBF24"/>
+    <rect x="32" y="76" width="78" height="12" rx="6" fill="#FDE68A"/>
+    <text x="18" y="132" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Normalize</text>
+  </g>
+
+  <path d="M584 356H688" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
+  <path d="M674 342L688 356L674 370" stroke="#1F2937" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(712 306)">
+    <rect width="154" height="102" rx="12" fill="#DCFCE7" stroke="#15803D" stroke-width="3"/>
+    <rect x="28" y="24" width="98" height="16" rx="8" fill="#16A34A"/>
+    <rect x="28" y="52" width="98" height="12" rx="6" fill="#86EFAC"/>
+    <rect x="28" y="74" width="62" height="12" rx="6" fill="#BBF7D0"/>
+    <text x="26" y="132" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Agent Core</text>
+  </g>
+
+  <path d="M886 356H990" stroke="#1F2937" stroke-width="4" stroke-linecap="round"/>
+  <path d="M976 342L990 356L976 370" stroke="#1F2937" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(1014 306)">
+    <rect width="86" height="102" rx="12" fill="#EDE9FE" stroke="#6D28D9" stroke-width="3"/>
+    <circle cx="43" cy="34" r="16" fill="#7C3AED"/>
+    <path d="M24 72H62" stroke="#6D28D9" stroke-width="8" stroke-linecap="round"/>
+    <text x="-10" y="132" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Delivery</text>
+  </g>
+
+  <g transform="translate(368 468)">
+    <rect width="462" height="48" rx="24" fill="#111827"/>
+    <text x="28" y="31" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700">source -> identity -> object -> state -> action</text>
+  </g>
+</svg>
