@@ -3,15 +3,15 @@
 ## Findings Summary
 
 - Strongest recent-work thread: AI agents need a consistent inbound architecture across many sources, not just more connectors.
-- Easentic example: Slack and Teams both look like chat surfaces, but recent work showed different install flows, identity models, channel scopes, action payloads, setup states, follow-up routing, and Jira source-of-truth rules.
-- Easentic product-detail lesson: Slack onboarding, Slack DM project selection, Teams Home, Teams marketplace setup, Jira scope filters, channel ingestion, and report delivery all need a normalized internal contract.
+- B2B collaboration-product example: Slack and Teams both look like chat surfaces, but recent work showed different identity models, scopes, action patterns, setup states, and source-of-truth rules.
+- Collaboration-product lesson: onboarding, project selection, channel ingestion, scope controls, follow-up routing, and report delivery all need a normalized internal contract.
 - OpsRabbit example: incident work receives alarms, tickets, logs, metrics, traces, code, infra state, ownership data, ServiceNow-style incidents, Slack/Teams actions, and WhatsApp/Twilio-flavored customer context.
 - Best public framing: the useful agent is not the one with the longest integration list; it is the one that turns many inbound sources into one coherent operating model.
 
 ## Ranked Content Opportunities
 
 1. Blog article: AI agents need an inbound architecture.
-   Why: specific, grounded in Easentic + OpsRabbit, and sharper than the previous framing.
+   Why: specific, grounded in collaboration-product work and OpsRabbit, and sharper than the previous framing.
 2. Technical note: connectors are not architecture.
    Why: durable lesson from Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, and reports entering the system differently.
 3. Founder insight: normalize early, preserve source detail.
@@ -42,7 +42,7 @@ That is a connector list.
 
 The architecture question is: how do all these sources become one consistent operating model?
 
-Recent Easentic work made this concrete across Slack onboarding, Slack DMs, Teams marketplace setup, Teams Home, project selection, channel ingestion, Jira scope filters, and report delivery.
+Recent work on a B2B collaboration and workflow product made this concrete across onboarding, project selection, channel ingestion, scope controls, follow-up routing, and report delivery.
 
 Recent OpsRabbit work made it concrete on the incident side: normalize alarms, collect logs/metrics/traces/code/infra/health/ownership, handle Slack/Teams actions, and preserve ticketing/customer context without letting every source become a special case.
 
@@ -87,4 +87,4 @@ https://www.ggnagarkar.com/writing/ai-agents-need-an-inbound-architecture
 
 ## Newsletter Snippet
 
-This week I moved the content angle toward a more concrete architecture lesson from Easentic and OpsRabbit: serious AI agents need a consistent inbound architecture. Easentic made this visible through Slack onboarding, Slack DMs, Teams marketplace setup, Teams Home, channel ingestion, Jira scope filters, follow-up routing, and report delivery. OpsRabbit made it visible through alarm normalization, collectors for logs/metrics/traces/code/infra/health/ownership, Slack/Teams action surfaces, ServiceNow-style incident sources, and WhatsApp/Twilio-flavored customer context. The takeaway is simple: connectors get signals through the door, but the product becomes reliable only when those signals flow into a consistent contract for source, identity, object, state, permission, evidence, action, and delivery.
+This week I moved the content angle toward a more concrete architecture lesson from a B2B collaboration and workflow product and OpsRabbit: serious AI agents need a consistent inbound architecture. The collaboration-product work made this visible through onboarding, project selection, channel ingestion, scope controls, follow-up routing, and report delivery. OpsRabbit made it visible through alarm normalization, operational context collectors, collaboration actions, ticketing sources, and customer communication context. The takeaway is simple: connectors get signals through the door, but the product becomes reliable only when those signals flow into a consistent contract for source, identity, object, state, permission, evidence, action, and delivery.

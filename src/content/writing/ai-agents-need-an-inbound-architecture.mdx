@@ -5,13 +5,13 @@ description: "A founder-engineering note on why AI agents need a consistent inbo
 date: "2026-07-13"
 author: "GG Nagarkar"
 tags: ["ai-agents", "enterprise-ai", "architecture", "product-engineering", "opsrabbit", "founder-writing"]
-image: "/images/writing/ai-inbound-architecture.svg"
+image: "/images/writing/ai-inbound-architecture.png"
 imageAlt: "Editorial illustration showing Slack, Teams, ServiceNow, WhatsApp, Jira, alarms, and reports flowing into one normalized AI agent architecture."
 ---
 
-The more AI agents move into real enterprise work, the less the problem looks like a prompt problem.
+The more AI agents move into real enterprise work, the more important their inbound architecture becomes.
 
-It starts looking like an inbound architecture problem.
+It is not the whole problem. Reliable agents also need clear operating models, workflow rules, ownership, security boundaries, and review loops. In [Internal AI Agents Need Operating Models, Not Just Workflows](https://www.ggnagarkar.com/writing/internal-ai-agents-need-operating-models-not-just-workflows), I wrote about that broader operating layer. This note focuses on the complementary question: how work enters the agent in the first place.
 
 An agent does not live inside one clean chat box. It receives messages from Slack, actions from Microsoft Teams, updates from Jira, incidents from ServiceNow, alerts from observability tools, customer messages from WhatsApp, meeting summaries, reports, files, webhooks, background jobs, and people correcting it after the fact.
 
@@ -19,7 +19,7 @@ Each source has its own payload shape, identity model, permissions, threading ru
 
 If every connector pushes directly into the agent as a special case, the product becomes brittle quickly.
 
-That has been the practical lesson from recent work across Easentic and OpsRabbit.
+That has been the practical lesson from recent work across a B2B collaboration and workflow product and OpsRabbit.
 
 Different products. Different users. Same shape of problem.
 
@@ -52,11 +52,11 @@ The agent may still answer, but the product will be inconsistent.
 
 The model is downstream of that mess. It cannot fix an architecture that gives it unclear identity, mixed context, wrong state, or the wrong source of truth.
 
-## What Easentic Made Concrete
+## What A Collaboration Product Made Concrete
 
-Easentic has been a good reminder that inbound architecture is not abstract theory. It shows up in small product details.
+Recent work on a B2B collaboration and workflow product has been a good reminder that inbound architecture is not abstract theory. It shows up in small product details.
 
-Over the last few weeks, the work touched Slack onboarding, Slack DMs, channel ingestion, Jira scope filters, Teams marketplace onboarding, Teams Home, Teams personal chat, follow-up routing, setup cards, install callbacks, project selection, report delivery, and issue links.
+Over the last few weeks, the work covered onboarding and follow-up flows across collaboration tools, project selection and scoping, channel ingestion, and report delivery.
 
 The visible product surface was chat.
 
@@ -64,12 +64,10 @@ The real architecture work was source normalization.
 
 Some examples:
 
-- Slack onboarding needed live Jira validation because the workspace was still being connected.
-- Later Slack DM project selection needed existing integrated project records because the workspace was already configured.
-- Slack channel ingestion needed an internal listener fanout so messages could become durable evidence instead of one-off chat events.
-- Jira scope filters had to apply consistently to follow-up reads, ingestion paths, and create paths so shared boards did not leak context.
-- Teams onboarding had to reach parity with Slack while respecting Teams-specific concepts: Home tabs, setup cards, channel restore behavior, personal chat routing, Graph channel listing, and invoke responses.
-- Teams and Slack both needed project selection, follow-up routing, confirmation checkpoints, and delivery context, but they could not be implemented as copy-paste variants of the same UI.
+- The source of truth during onboarding can differ from the source of truth during everyday use.
+- Conversation input needs to become durable evidence rather than remain a one-off chat event.
+- Scope controls need to apply wherever the system reads or creates work, not only in one UI flow.
+- Different collaboration platforms should provide comparable outcomes without copying their interfaces or behavior blindly.
 
 That is the point.
 
@@ -97,7 +95,7 @@ The product architecture already reflects that reality:
 - generic integration storage for platform-specific connection metadata
 - alarm normalization that converts heterogeneous alert payloads into fields such as alarm name, service, environment, severity, source, detected time, metadata, raw payload, and content hash
 - ticketing/source tests that include ServiceNow-style incidents
-- 7Targets operational knowledge inside the workspace that includes WhatsApp Business, Twilio, and webhook-based communication paths
+- communication context from WhatsApp Business, Twilio, and webhook-based paths
 
 This is not just a feature list.
 
@@ -217,7 +215,7 @@ They need an inbound architecture.
 
 The core job is to make many sources feel like one coherent operating system without losing the details that make each source useful.
 
-That is what recent Easentic and OpsRabbit work made clear to me.
+That is what recent work on a B2B collaboration and workflow product, alongside OpsRabbit, made clear to me.
 
 Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports, and background jobs are not just channels. They are different ways work enters the system.
 

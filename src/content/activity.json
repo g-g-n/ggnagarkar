@@ -6,7 +6,7 @@
     "source": "GG Nagarkar",
     "summary": "A founder-engineering note on why AI agents need a consistent inbound architecture across Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports, and operational systems.",
     "url": "/writing/ai-agents-need-an-inbound-architecture",
-    "image": "/images/writing/ai-inbound-architecture.svg",
+    "image": "/images/writing/ai-inbound-architecture.png",
     "tags": ["AI Agents", "Enterprise AI", "Architecture", "Product Engineering", "OpsRabbit", "Founder Writing"]
   },
   {
