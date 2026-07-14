@@ -1,0 +1,226 @@
+---
+title: "AI Agents Need An Inbound Architecture"
+metaTitle: "AI Agents Need An Inbound Architecture | GG Nagarkar"
+description: "A founder-engineering note on why AI agents need a consistent inbound architecture across Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports, and operational systems."
+date: "2026-07-13"
+author: "GG Nagarkar"
+tags: ["ai-agents", "enterprise-ai", "architecture", "product-engineering", "opsrabbit", "founder-writing"]
+image: "/images/writing/ai-inbound-architecture.png"
+imageAlt: "Editorial illustration showing Slack, Teams, ServiceNow, WhatsApp, Jira, alarms, and reports flowing into one normalized AI agent architecture."
+---
+
+The more AI agents move into real enterprise work, the more important their inbound architecture becomes.
+
+It is not the whole problem. Reliable agents also need clear operating models, workflow rules, ownership, security boundaries, and review loops. In [Internal AI Agents Need Operating Models, Not Just Workflows](https://www.ggnagarkar.com/writing/internal-ai-agents-need-operating-models-not-just-workflows), I wrote about that broader operating layer. This note focuses on the complementary question: how work enters the agent in the first place.
+
+An agent does not live inside one clean chat box. It receives messages from Slack, actions from Microsoft Teams, updates from Jira, incidents from ServiceNow, alerts from observability tools, customer messages from WhatsApp, meeting summaries, reports, files, webhooks, background jobs, and people correcting it after the fact.
+
+Each source has its own payload shape, identity model, permissions, threading rules, latency expectation, retry behavior, and idea of what "the same thing" means.
+
+If every connector pushes directly into the agent as a special case, the product becomes brittle quickly.
+
+That has been the practical lesson from recent work across a B2B collaboration and workflow product and OpsRabbit.
+
+Different products. Different users. Same shape of problem.
+
+The useful agent is not the one with the longest list of integrations. It is the one that can turn many messy inbound sources into a consistent operating model.
+
+## Connectors Are Not The Architecture
+
+It is tempting to describe this as "we integrated Slack, Teams, Jira, ServiceNow, WhatsApp, and alerts."
+
+That is not enough.
+
+A connector only gets the signal through the door. The architecture decides what happens next.
+
+For an agent to behave reliably, every inbound source needs to be translated into a common contract:
+
+- who sent this
+- where it came from
+- what object it refers to
+- what workspace, customer, tenant, project, or service it belongs to
+- what permissions apply
+- whether it is a command, evidence, notification, correction, or state change
+- whether it should trigger work immediately or wait for review
+- how the response should be delivered back
+
+Without that contract, every source becomes its own miniature product.
+
+Slack needs one path. Teams needs another. Jira needs another. ServiceNow needs another. WhatsApp needs another. Alarms need another. Reports need another.
+
+The agent may still answer, but the product will be inconsistent.
+
+The model is downstream of that mess. It cannot fix an architecture that gives it unclear identity, mixed context, wrong state, or the wrong source of truth.
+
+## What A Collaboration Product Made Concrete
+
+Recent work on a B2B collaboration and workflow product has been a good reminder that inbound architecture is not abstract theory. It shows up in small product details.
+
+Over the last few weeks, the work covered onboarding and follow-up flows across collaboration tools, project selection and scoping, channel ingestion, and report delivery.
+
+The visible product surface was chat.
+
+The real architecture work was source normalization.
+
+Some examples:
+
+- The source of truth during onboarding can differ from the source of truth during everyday use.
+- Conversation input needs to become durable evidence rather than remain a one-off chat event.
+- Scope controls need to apply wherever the system reads or creates work, not only in one UI flow.
+- Different collaboration platforms should provide comparable outcomes without copying their interfaces or behavior blindly.
+
+That is the point.
+
+Slack and Teams look similar if you only say "chat integration."
+
+They are not similar enough if you are building a product people rely on.
+
+They differ in identity, installation flow, channel discovery, action payloads, thread behavior, app surfaces, and the moment when a user expects feedback.
+
+The architecture has to preserve those differences at the edge, then normalize them before the agent reasons over the work.
+
+## What OpsRabbit Made Concrete
+
+OpsRabbit adds the operations side of the same problem.
+
+An incident agent does not receive only nice chat prompts.
+
+It receives alarms, logs, metrics, traces, code references, infrastructure state, health checks, feature flag state, ownership information, ticketing context, runbook fragments, deployment history, and human updates from collaboration channels.
+
+The product architecture already reflects that reality:
+
+- a data collection layer for logs, metrics, traces, code, infrastructure, health checks, feature flags, and team ownership
+- a source registry instead of hardwiring every collector into the agent path
+- Slack and Teams action surfaces for where engineers already collaborate
+- generic integration storage for platform-specific connection metadata
+- alarm normalization that converts heterogeneous alert payloads into fields such as alarm name, service, environment, severity, source, detected time, metadata, raw payload, and content hash
+- ticketing/source tests that include ServiceNow-style incidents
+- communication context from WhatsApp Business, Twilio, and webhook-based paths
+
+This is not just a feature list.
+
+It is a design constraint.
+
+If an alert arrives from CloudWatch, a ticket arrives from ServiceNow, a question arrives in Slack, a Teams action requests follow-up, and a WhatsApp thread contains customer context, the agent should not receive five unrelated worlds.
+
+It should receive normalized events that can be tied to the same service, incident, customer, owner, severity, time window, and response policy.
+
+That is how an agent stops being a chat wrapper and starts becoming an operations system.
+
+## The Inbound Contract I Keep Coming Back To
+
+When I look at this now, I think every serious AI agent needs an inbound contract before it needs more tools.
+
+The contract does not have to be complicated, but it needs to be explicit.
+
+At minimum, I want the architecture to answer these questions before the model gets involved:
+
+- What is the source?
+- What is the canonical object?
+- Which tenant, workspace, project, customer, service, or incident does it belong to?
+- Which user or system identity produced it?
+- What permissions and trust level apply?
+- Is this new evidence, a command, a correction, a workflow transition, or a delivery receipt?
+- What previous context should be attached?
+- What should be deduplicated?
+- What needs synchronous response, and what can run in the background?
+- Where should the output go back?
+
+This is where many AI products get quietly expensive.
+
+Every missing answer becomes a special case later.
+
+One Slack modal blocks too long because background work was placed in the submit path.
+
+One Teams follow-up replies to the wrong scope because thread, channel, and personal chat context were not separated cleanly.
+
+One Jira action uses the wrong board context because source filters were not enforced throughout the read and create paths.
+
+One incident investigation misses context because alarms, tickets, logs, and collaboration updates were not tied to the same canonical incident.
+
+The model will not explain those failures. The architecture has to prevent them.
+
+## Normalize Early, Preserve Source Detail
+
+There is a balance here.
+
+You do not want to flatten every source so aggressively that useful detail disappears.
+
+Slack thread timestamps, Teams conversation IDs, Jira issue keys, ServiceNow incident numbers, WhatsApp message IDs, alert fingerprints, customer IDs, service IDs, and content hashes all matter.
+
+But you also do not want the core agent logic full of source-specific branching.
+
+The edge should preserve native metadata.
+
+The middle should normalize.
+
+The agent should reason over the normalized contract.
+
+The response layer should translate back into the source where the user expects the answer.
+
+That pattern showed up repeatedly:
+
+- capture Slack/Teams-specific action payloads at the edge
+- normalize the work into project, issue, thread, user, channel, and capability context
+- attach Jira evidence with scope rules
+- let the agent work on the canonical context
+- deliver back through the right channel without blocking the wrong user interaction
+
+The same applies to operations:
+
+- capture native alarm, ticket, log, metric, and incident payloads
+- normalize service, environment, severity, time, source, and metadata
+- enrich with topology, ownership, history, and runbook context
+- let the agent investigate over a coherent case
+- publish the result into Slack, Teams, a ticket, a report, or an API depending on the workflow
+
+This is slower to design than a connector demo.
+
+It is also the difference between something impressive in a meeting and something reliable in production.
+
+## Consistency Is A Product Feature
+
+Users do not care that Slack and Teams have different APIs.
+
+They care that the agent behaves consistently.
+
+If they select a project in Slack, ask a follow-up in Teams, inspect a Jira link, receive a daily report, or review an incident from ServiceNow, they expect the same underlying understanding.
+
+That does not happen by accident.
+
+It requires product decisions:
+
+- What is the canonical project?
+- What is the canonical incident?
+- What is the canonical customer or workspace?
+- What does "configured" mean?
+- What is the source of truth during onboarding?
+- What is the source of truth during normal use?
+- What corrections become durable rules?
+- Which fields are required before work can proceed?
+- Which actions require approval?
+- Which reports should be generated without another prompt?
+
+Those decisions look boring compared to model selection.
+
+They are not boring when the product is live.
+
+They decide whether the agent can be trusted across channels.
+
+## My Takeaway
+
+AI agents need more than integrations.
+
+They need an inbound architecture.
+
+The core job is to make many sources feel like one coherent operating system without losing the details that make each source useful.
+
+That is what recent work on a B2B collaboration and workflow product, alongside OpsRabbit, made clear to me.
+
+Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports, and background jobs are not just channels. They are different ways work enters the system.
+
+The product becomes reliable when those entrances flow into a consistent contract: source, identity, object, state, permission, evidence, action, and delivery.
+
+The agent is only as good as the world it is given.
+
+Inbound architecture is how you give it that world without turning every new source into another fragile exception.
