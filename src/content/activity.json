@@ -1,5 +1,15 @@
 [
   {
+    "title": "AI Agents Need An Execution Boundary",
+    "type": "blog",
+    "date": "2026-07-20",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why enterprise AI agents need explicit execution boundaries across approvals, permissions, synchronous work, background jobs, and response routing.",
+    "url": "/writing/ai-agents-need-an-execution-boundary",
+    "image": "/images/writing/ai-agent-execution-boundary.svg",
+    "tags": ["AI Agents", "Enterprise AI", "Architecture", "Product Engineering", "OpsRabbit", "Founder Writing"]
+  },
+  {
     "title": "AI Agents Need An Inbound Architecture",
     "type": "blog",
     "date": "2026-07-13",
