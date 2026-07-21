@@ -1,212 +1,152 @@
 ---
-title: "AI Agents Need An Execution Boundary"
-metaTitle: "AI Agents Need An Execution Boundary | GG Nagarkar"
-description: "A founder-engineering note on why enterprise AI agents need explicit execution boundaries across approvals, permissions, synchronous work, background jobs, and response routing."
+title: "What Recent Agent Work Taught Me About Execution Boundaries"
+metaTitle: "AI Agent Execution Boundaries: Lessons From Recent Work"
+description: "Lessons from recent hands-on AI agent work across Slack, Teams, Jira, reports, and incident investigations: identity, latency, jobs, permissions, and routing."
 date: "2026-07-20"
 author: "GG Nagarkar"
-tags: ["ai-agents", "enterprise-ai", "architecture", "product-engineering", "opsrabbit", "founder-writing"]
-image: "/images/writing/ai-agent-execution-boundary.svg"
-imageAlt: "Editorial diagram showing an AI agent routing actions through approvals, permissions, background jobs, audit logs, and response destinations."
+tags: ["ai-agents", "enterprise-ai", "architecture", "ai-security", "product-engineering", "opsrabbit"]
+image: "/images/writing/ai-agent-execution-boundary.png"
+imageAlt: "Architecture diagram showing agent reasoning passing through identity, policy, approval, runtime, audit, and routing checks before tools act."
 ---
 
-Inbound architecture gets work into the agent.
+Over the last two weeks, I worked through the execution side of two agent systems: one for an enterprise collaboration and workflow product, and another for incident investigation in OpsRabbit.
 
-Execution boundaries decide what the agent is allowed to do after that.
+I am leaving the customer name out, but the engineering lessons are worth sharing. The work crossed Slack and Microsoft Teams actions, Jira-scoped data, onboarding and project selection, report delivery, alerts, operational evidence, and background investigations.
 
-That distinction matters more every time an AI agent moves from answering questions to taking action. A Slack message, Teams action, Jira update, ServiceNow incident, WhatsApp thread, alert, report, or webhook may all enter through a normalized contract. But the moment the agent can change a ticket, trigger a workflow, summarize an incident, notify a customer, update a record, or start a background investigation, the product needs another layer.
+The recurring problem was not whether the model could call a tool. It was deciding what should happen between the model proposing an action and the product actually doing it.
 
-It needs a boundary between reasoning and execution.
+That layer is the execution boundary.
 
-Without that boundary, the agent becomes unpredictable in the exact places where enterprise users need it to be boring: approvals, identity, permissions, latency, auditability, and delivery.
+## Where This Showed Up in the Work
 
-## Action Is Not One Thing
+The collaboration product initially looked like a familiar integration problem: receive a request from Slack or Teams, gather the right project context, let the agent work, and return an answer.
 
-It is tempting to talk about "letting the agent act" as if action is a single product capability.
+The real work was in the differences hidden behind that sentence:
 
-It is not.
+- a Slack modal needs a quick acknowledgement even when the requested work takes longer
+- a Teams action can come from a personal, channel, or conversation context that changes where the response belongs
+- a Jira read or create path has to preserve the selected project and scope filters throughout the workflow
+- an onboarding or project-selection action changes what the user is authorized to see next
+- a report is a durable output, while a chat reply is usually a conversational view of that output
 
-In a real enterprise system, action has many shapes:
+At the same time, the OpsRabbit work made the runtime problem much larger. An incident investigation can collect alerts, logs, metrics, traces, deploy history, infrastructure state, health checks, ownership, runbooks, code references, and ticket context. That cannot be treated as one long chat callback.
 
-- reply in the same Slack thread
-- send a Teams adaptive card
-- create or update a Jira issue
-- add evidence to a ServiceNow incident
-- start a background investigation
-- run a cloud or Kubernetes read-only diagnostic
-- write a summary into a report
-- escalate to an owner
-- ask a human to approve a risky step
-- notify a customer through a configured channel
+Working across both products made the same architectural gap visible: [inbound architecture](/writing/ai-agents-need-an-inbound-architecture) gets a normalized request into the agent, but it does not decide how a proposed action is allowed to run.
 
-Those actions do not have the same risk, latency, permissions, or user expectation.
+## Lesson 1: A Chat Callback Is Not a Job Runner
 
-Some are safe to complete immediately.
+One of the sharpest lessons came from interactive actions. The source surface expects a response quickly, while useful agent work may need several data sources and multiple failure paths.
 
-Some should be queued.
+If I keep the whole investigation inside a modal submission or action callback, the interaction waits on work it was never designed to own. Even when the investigation eventually succeeds, the user experiences a stalled or failed interaction.
 
-Some need a human review step.
+The design I found more reliable separates three things:
 
-Some should never be available from a chat surface at all.
+- acknowledge the source interaction
+- create a durable unit of work with the source and destination attached
+- deliver progress or the final result through the correct follow-up path
 
-That is why the execution boundary has to be explicit. The agent should not discover action policy at the moment it is about to act. The product should already know the contract.
+This changed how I thought about synchronous versus asynchronous execution. It is not simply a performance choice. It is part of the product contract. The source callback owns acknowledgement; the job owns the investigation; the delivery layer owns the result.
 
-## The Boundary Starts With Identity
+## Lesson 2: Identity and Scope Must Survive the Entire Path
 
-The first question is not "can the model do this?"
+The collaboration work also exposed how easily scope can drift.
 
-The first question is "who is asking, and under what authority?"
+A user may choose a project during onboarding, invoke an action from a channel, follow up from another surface, and expect the agent to stay inside the same workspace and project boundary. Jira adds another scope that must be enforced when reading issues, following links, or creating new work.
 
-Slack, Teams, Jira, ServiceNow, WhatsApp, email, alerts, reports, and APIs all bring different ideas of identity. A user may be present in one workspace, absent from another, mapped to a tenant account, acting inside a channel, submitting a modal, or represented by a system event.
+It is not enough to check scope when the request first arrives. I had to treat identity and scope as data carried through every stage:
 
-If the execution layer treats those inputs as equivalent, permissions will drift.
+- who initiated the request
+- which tenant or workspace they belong to
+- which project or operational object is in scope
+- which source conversation started the work
+- which service identity will access the downstream system
+- which audience may receive the result
 
-A reliable agent needs to carry identity through the whole path:
+If any of that is reconstructed late from a prompt or an incomplete callback payload, the product can read the wrong data, create work in the wrong place, or post a correct answer to the wrong audience.
 
-- human identity
-- workspace or tenant identity
-- source identity
-- service account identity
-- delegated authority
-- group or role membership
-- action-specific permission
+That made permissions feel less like a security checklist and more like core product design.
 
-That identity should be checked before the action is planned, before the tool is invoked, and before the result is delivered back.
+## Lesson 3: Background Work Needs Visible State
 
-Otherwise, the product ends up with a dangerous gap: the agent can reason with context that the user should not be allowed to act on, or it can deliver a result into a place that should not receive it.
+In the incident workflow, “running in the background” was too vague to be useful.
 
-## Synchronous UX Has A Budget
+An investigation may be collecting evidence from several sources. One collector may be retrying, another may lack access, and a third may return no useful data. The agent may be able to draft a finding while still waiting for one source. Those are different states, and users need to know which one they are seeing.
 
-Chat products hide one of the most important execution constraints: time.
+The useful lifecycle became more explicit:
 
-A Slack slash command, modal submit, Teams action, web request, ticket transition, and customer message do not all give the agent the same amount of time to respond.
-
-Some actions need an immediate acknowledgement.
-
-Some can return a short preview and continue in the background.
-
-Some should create a durable job and deliver the answer later.
-
-This is not only a backend concern. It is product behavior.
-
-If an agent blocks a modal while it investigates logs, traces, infrastructure state, deployment history, ownership, runbooks, and tickets, the product will feel broken even if the eventual answer is good.
-
-If it replies instantly with a shallow answer when the workflow required deep investigation, the product will feel impressive once and unreliable later.
-
-The boundary should decide:
-
-- what must complete inside the source interaction
-- what should become a background job
-- what progress updates are visible
-- who can cancel or approve the work
-- where the final result should land
-
-That is the difference between "AI in chat" and a workflow users can depend on.
-
-## Background Work Needs Ownership
-
-Once work leaves the immediate request path, it needs a real lifecycle.
-
-Background jobs cannot just be hidden promises.
-
-They need ownership, state, retries, idempotency, timeout handling, cancellation, evidence capture, and a clear delivery destination.
-
-This becomes especially important in operational products like OpsRabbit. An incident investigation may need to collect alerts, logs, metrics, traces, deploys, infrastructure state, code references, health checks, feature flags, ownership data, ticket history, and collaboration context. That work should not be jammed into a single chat callback.
-
-It should be an execution plan with observable state.
-
-The user should be able to tell whether the agent is:
-
-- waiting for approval
+- accepted
 - collecting evidence
 - blocked by access
+- waiting for approval
 - retrying a source
-- producing a draft
+- preparing a draft
 - ready for review
 - delivered
 - failed with a reason
 
-The execution boundary is where that state becomes part of the product instead of a backend implementation detail.
+This is also why I now treat [shared investigation state](/writing/shared-investigation-state-is-the-ai-ops-cost-control-layer) as a product object, not temporary model context. It gives retries, evidence, review, delivery, and later reuse something durable to attach to.
 
-## Permissions Are Product Design
+## Lesson 4: The Result Has More Than One Destination
 
-Permission design is often treated as a security requirement that arrives late.
+Response routing looked like a final notification step until I had to make it work across collaboration surfaces, tickets, and reports.
 
-For AI agents, it has to arrive early.
+The result of one execution may need several representations:
 
-Every action-capable agent needs a product vocabulary for permissions:
+- a short acknowledgement in the originating interaction
+- progress in the same thread or conversation
+- evidence attached to the canonical ticket or incident
+- a durable report for later review
+- a concise summary for the person who requested the work
 
-- read-only evidence gathering
-- low-risk updates
-- customer-visible communication
-- production-affecting action
-- cross-tenant or cross-project access
-- admin configuration
-- irreversible change
+These destinations are not interchangeable. They have different audiences, retention, formatting, and permission rules.
 
-Those categories should map to review behavior.
+The practical change was to store the response contract with the job instead of asking the agent to infer a destination at the end. That contract includes the source interaction, canonical object, allowed audience, durable destination, human-facing destination, and fallback when delivery fails.
 
-Some actions can be automatic.
+The tool returning successfully is not the end of the action. The action is complete when the authorized result reaches the right place.
 
-Some should require review every time.
+## Lesson 5: The Model Should Propose; the Product Should Decide
 
-Some should require a stronger role.
+The more actions I connected, the less comfortable I became with putting execution policy in prompts.
 
-Some should be disabled until explicitly configured.
+The model is useful for deciding which evidence matters, forming a hypothesis, drafting an update, or recommending a next step. It should not be the final authority on whether a user can access a project, whether a customer-visible message can be sent, or whether an operational action needs approval.
 
-This is where enterprise users care less about autonomy and more about trust. They want to know what the agent can do, what it cannot do, what it tried to do, who approved it, and what evidence it used.
+I now separate proposed action from executable action. Before a tool receives authority, the product checks:
 
-The boundary makes that visible.
+- identity and scope
+- action type and risk
+- required permission or approval
+- synchronous or background runtime
+- credentials available to the tool
+- evidence and audit requirements
+- authorized response destinations
 
-## Response Routing Is Part Of Execution
+This is the execution boundary in practical terms. It is not one screen or one permission check. It is the controlled path from a model proposal to a reviewable outcome.
 
-The action is not done when the tool finishes.
+## The Contract I Am Using Now
 
-It is done when the right answer reaches the right place with the right context.
+The contract that emerged from this work is straightforward:
 
-That sounds simple until the agent receives work from multiple sources. A user might trigger work in Slack, attach Jira evidence, involve a ServiceNow incident, collect OpsRabbit diagnostic context, and expect the summary to appear in a thread, ticket, report, or direct message depending on the workflow.
+- requester: who or what initiated the work
+- scope: tenant, workspace, project, service, ticket, or incident
+- source: the interaction that needs acknowledgement
+- action: what the agent proposes to do
+- policy: allow, deny, or require approval
+- runtime: synchronous step or durable background job
+- evidence: what must be collected and retained
+- state: allowed transitions, retry, timeout, and cancellation behavior
+- audit: proposal, approval, tool use, result, and failure reason
+- delivery: durable record, human-facing response, audience, and fallback
 
-If response routing is implicit, the product will eventually leak context, spam the wrong channel, or bury important output where nobody looks.
+This contract has helped me separate failures cleanly. A denied action is a policy outcome. Missing Jira or infrastructure access is an access failure. An expired callback is an interaction failure. A timed-out collector is a runtime failure. Posting to the wrong conversation is a routing failure. Calling all of them “the AI failed” would hide the engineering work needed to fix them.
 
-The execution boundary should preserve the response contract:
+## What I Would Do Earlier Next Time
 
-- source interaction to acknowledge
-- canonical object to update
-- audience allowed to see the result
-- destination for the durable record
-- destination for the human-facing summary
-- fallback path when delivery fails
+If I were starting the same integrations again, I would define the execution contract before adding more action surfaces.
 
-Delivery is not a notification afterthought. It is part of the action.
+I would decide early which work must return inside the source interaction, which work becomes a job, which identifiers and permissions travel with it, what users can observe, and where every class of result is allowed to land.
 
-## A Practical Execution Contract
+I would also design the review states alongside the happy path. Enterprise users do not only need the agent’s answer. They need to understand what it used, what it tried, what was blocked, and what requires their decision. That is why [reviewable AI workflows](/writing/reviewable-ai-workflows-are-the-real-enterprise-feature) matter more than broad claims of autonomy.
 
-The execution contract I keep coming back to is straightforward:
+My takeaway from these two weeks is simple: connectors and tools make an agent look capable, but the execution boundary makes it operable.
 
-- who requested this
-- what object or case it belongs to
-- what action is being attempted
-- what permission policy applies
-- what evidence is required
-- whether the work is synchronous or background
-- what needs approval
-- what state transitions are allowed
-- what audit record is written
-- where the result is delivered
-
-That contract should exist before the model chooses tools.
-
-The model can help decide what evidence is relevant, how to summarize findings, and which next step to recommend. But the system should own the boundary around whether that next step can run, how it runs, and how it becomes reviewable.
-
-## My Takeaway
-
-The last layer was inbound architecture: normalize the many ways work enters an AI agent.
-
-The next layer is execution boundary: make the many ways an agent can act explicit, reviewable, and predictable.
-
-The hard enterprise AI question is not whether an agent can call tools. It is whether the product knows when the agent should act, when it should wait, what identity it acts under, what evidence it must capture, and where the result belongs.
-
-That is where reliability comes from.
-
-Not from giving the model more freedom.
-
-From giving the system a better boundary.
+The model can propose. The product must decide how the work runs, what authority it receives, what evidence it leaves behind, and where the result belongs.

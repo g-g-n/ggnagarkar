@@ -55,14 +55,6 @@ function escapeHtml(value: string) {
     .replaceAll('"', '&quot;');
 }
 
-function renderMarkdownLinks(value: string) {
-  return value.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, (_match, label: string, href: string) => {
-    const safeLabel = escapeHtml(label);
-    const safeHref = escapeHtml(href);
-    return `<a href="${safeHref}" target="_blank" rel="noreferrer">${safeLabel}</a>`;
-  });
-}
-
 function renderInline(value: string) {
   const codeSegments: string[] = [];
   const withoutCode = value.replace(/`([^`]+)`/g, (_match, code: string) => {
@@ -70,10 +62,13 @@ function renderInline(value: string) {
     return `@@CODE${index}@@`;
   });
   const linkSegments: string[] = [];
-  const withoutLinks = renderMarkdownLinks(withoutCode).replace(
-    /<a href="[^"]+" target="_blank" rel="noreferrer">[^<]+<\/a>/g,
-    (link: string) => {
-      const index = linkSegments.push(link) - 1;
+  const withoutLinks = withoutCode.replace(
+    /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)\s]+)\)/g,
+    (_match, label: string, href: string) => {
+      const safeLabel = escapeHtml(label);
+      const safeHref = escapeHtml(href);
+      const externalAttributes = href.startsWith('/') ? '' : ' target="_blank" rel="noreferrer"';
+      const index = linkSegments.push(`<a href="${safeHref}"${externalAttributes}>${safeLabel}</a>`) - 1;
       return `@@LINK${index}@@`;
     }
   );
