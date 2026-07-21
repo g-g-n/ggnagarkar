@@ -1,5 +1,15 @@
 [
   {
+    "title": "What Recent Agent Work Taught Me About Execution Boundaries",
+    "type": "blog",
+    "date": "2026-07-20",
+    "source": "GG Nagarkar",
+    "summary": "Lessons from recent hands-on AI agent work across Slack, Teams, Jira, reports, and incident investigations: identity, latency, jobs, permissions, and routing.",
+    "url": "/writing/ai-agents-need-an-execution-boundary",
+    "image": "/images/writing/ai-agent-execution-boundary.png",
+    "tags": ["AI Agents", "Enterprise AI", "Architecture", "AI Security", "Product Engineering", "OpsRabbit"]
+  },
+  {
     "title": "AI Agents Need An Inbound Architecture",
     "type": "blog",
     "date": "2026-07-13",

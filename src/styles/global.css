@@ -110,6 +110,18 @@ a {
   color: #0f172a;
 }
 
+.article-body a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.article-body a:hover {
+  text-decoration-thickness: 2px;
+}
+
 .article-body code {
   border-radius: 0.25rem;
   background: #f1f5f9;
