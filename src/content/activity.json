@@ -1,5 +1,95 @@
 [
   {
+    "title": "Data Insight Provider Capability for Plugins",
+    "type": "post",
+    "date": "2026-07-30",
+    "source": "OpsRabbit Plugin Platform",
+    "summary": "Added SDK support for plugins to declare Data Insight provider capability, unblocking manifest validation for plugin-backed saved queries and dashboard rendering.",
+    "url": "https://github.com/Ops-Rabbit/plugin-platform/pull/27",
+    "image": "",
+    "tags": ["OpsRabbit", "Plugin Platform", "Data Insights", "SDK", "Enterprise AI"]
+  },
+  {
+    "title": "Source-Backed Plugin Training Course",
+    "type": "post",
+    "date": "2026-07-28",
+    "source": "OpsRabbit Plugin Platform",
+    "summary": "Added an instructor-ready plugin training course grounded in the live SDK contracts, validators, schemas, starters, tests, and a Field Inspection Hub capstone.",
+    "url": "https://github.com/Ops-Rabbit/plugin-platform/pull/26",
+    "image": "",
+    "tags": ["OpsRabbit", "Plugin Platform", "Developer Education", "SDK", "Enterprise AI"]
+  },
+  {
+    "title": "Computed Read-Only Fields for Plugin Forms",
+    "type": "post",
+    "date": "2026-07-26",
+    "source": "OpsRabbit Plugin Platform",
+    "summary": "Shipped declarative read-only form fields, plugin-route value sources with explicit dependencies, and documented authorization and persistence boundaries.",
+    "url": "https://github.com/Ops-Rabbit/plugin-platform/pull/25",
+    "image": "",
+    "tags": ["OpsRabbit", "Plugin Platform", "Forms", "Authorization", "Product Engineering"]
+  },
+  {
+    "title": "Plugin-Defined Navigation Icon Catalog",
+    "type": "post",
+    "date": "2026-07-26",
+    "source": "OpsRabbit Plugin Platform",
+    "summary": "Expanded the trusted plugin navigation icon catalog while keeping arbitrary markup and asset paths out of the host rendering boundary.",
+    "url": "https://github.com/Ops-Rabbit/plugin-platform/pull/24",
+    "image": "",
+    "tags": ["OpsRabbit", "Plugin Platform", "UI Architecture", "SDK", "Security"]
+  },
+  {
+    "title": "Why Model Evaluation Pipelines Are Now an Incident Response Surface",
+    "type": "blog",
+    "date": "2026-07-25",
+    "source": "OpsRabbit Blog",
+    "summary": "Model evaluation environments stop being harmless labs when they touch datasets, credentials, registries, production-adjacent services, and automated promotion paths.",
+    "url": "https://opsrabbit.io/blog/why-model-evaluation-pipelines-are-now-an-incident-response-surface",
+    "image": "",
+    "tags": ["OpsRabbit", "Model Evaluation", "Incident Response", "AI Security", "MLOps"]
+  },
+  {
+    "title": "Plugin User Workflows Documentation",
+    "type": "post",
+    "date": "2026-07-22",
+    "source": "OpsRabbit Plugin Platform",
+    "summary": "Documented plugin user workflows across starter republishing, API-token ingress, Insights, object evidence, and generated-plugin guidance.",
+    "url": "https://github.com/Ops-Rabbit/plugin-platform/pull/22",
+    "image": "",
+    "tags": ["OpsRabbit", "Plugin Platform", "Documentation", "User Workflows", "Enterprise AI"]
+  },
+  {
+    "title": "Why Least Privilege for AI Agents Needs an Ops Workflow",
+    "type": "blog",
+    "date": "2026-07-22",
+    "source": "OpsRabbit Blog",
+    "summary": "Least privilege for agents fails when teams stop at IAM and ignore ownership, tool scope, auditability, exception handling, and revocation workflows.",
+    "url": "https://opsrabbit.io/blog/why-least-privilege-for-ai-agents-needs-an-ops-workflow",
+    "image": "",
+    "tags": ["OpsRabbit", "Least Privilege", "AI Agents", "Security Operations", "DevOps"]
+  },
+  {
+    "title": "Latest Stable OpsRabbit Vision Agent Installer",
+    "type": "post",
+    "date": "2026-07-21",
+    "source": "OpsRabbit Vision Agent Installer",
+    "summary": "Updated the installer to resolve the latest stable Vision Agent release by default, verify downloads, preserve existing config, and support explicit pinning for rollouts and rollback.",
+    "url": "https://github.com/applied-ai-consulting/opsrabbit-vision-agent-installer/pull/4",
+    "image": "",
+    "tags": ["OpsRabbit", "Vision Agent", "Installer", "Release Engineering", "Edge AI"]
+  },
+  {
+    "title": "Why Repository Ownership Is Now an Incident-Response Control",
+    "type": "blog",
+    "date": "2026-07-21",
+    "source": "OpsRabbit Blog",
+    "summary": "Repository ownership metadata is not admin trivia; it determines whether incident response can route remediation to the right people fast enough.",
+    "url": "https://opsrabbit.io/blog/why-repository-ownership-is-now-an-incident-response-control",
+    "image": "",
+    "tags": ["OpsRabbit", "Incident Response", "Repository Ownership", "DevOps", "SRE"]
+  },
+  {
     "title": "What Recent Agent Work Taught Me About Execution Boundaries",
     "type": "blog",
     "date": "2026-07-20",
