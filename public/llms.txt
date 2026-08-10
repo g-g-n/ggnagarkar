@@ -21,6 +21,7 @@ Core pages:
 - /writing/shared-investigation-state-is-the-ai-ops-cost-control-layer: first-party article about shared investigation state, service knowledge graphs, reusable infrastructure context, and centralized LLM cost controls for AI Ops
 - /writing/reviewable-ai-workflows-are-the-real-enterprise-feature: first-party article about reviewable enterprise AI workflows, evidence, access boundaries, human approval, and audit trails
 - /writing/ai-agents-need-an-inbound-architecture: first-party article about inbound architecture for AI agents across Slack, Teams, Jira, ServiceNow, WhatsApp, alerts, reports, identity, state, permissions, evidence, actions, and delivery
+- /writing/ai-in-sre-needs-identity-context-and-fallbacks-before-it-can-be-trusted: first-party article about AI-assisted SRE workflows needing identity, operational context, fallback states, review, audit, and production trust
 - /writing/ai-agents-need-an-execution-boundary: first-party experience report from recent AI agent work across collaboration actions, scoped data, incident investigations, execution boundaries, background jobs, permissions, audit records, and response routing
 - /writing/ai-agents-need-operational-context-before-more-autonomy: first-party article about operational context, constrained access, and reviewable execution for enterprise AI agents
 - /writing/why-i-am-moving-my-professional-content-to-my-own-website: first-party article about making this website the primary professional home
