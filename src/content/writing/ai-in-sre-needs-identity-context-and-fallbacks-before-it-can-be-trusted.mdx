@@ -1,0 +1,114 @@
+---
+title: "AI in SRE Needs Identity, Context, and Fallbacks Before It Can Be Trusted"
+metaTitle: "AI in SRE Needs Identity, Context, and Fallbacks"
+description: "A founder-engineering note on why AI-assisted SRE workflows need identity, operational context, and fallback paths before they can be trusted in production."
+date: "2026-08-10"
+author: "GG Nagarkar"
+tags: ["ai-agents", "sre", "aiops", "enterprise-ai", "incident-response", "opsrabbit"]
+image: "/images/writing/ai-sre-identity-context-fallbacks.svg"
+imageAlt: "Architecture diagram showing an SRE AI workflow guarded by identity, context, and fallback controls before production actions are trusted."
+---
+
+AI in SRE gets interesting after the demo.
+
+It is easy to show an agent summarizing alerts, proposing a root cause, or drafting an incident update. That is useful, but it is not the hard part. The hard part is whether the system can be trusted when production is noisy, access is uneven, evidence is incomplete, and the next step may affect real users.
+
+That is where the design moves from model fluency to operational trust.
+
+The three pieces I keep coming back to are identity, context, and fallbacks.
+
+## Identity Is The First Reliability Primitive
+
+In incident work, identity is not just a login detail. It shapes what the agent is allowed to see, what it may do, and where the result can be shared.
+
+An SRE agent needs to know:
+
+- who initiated the investigation
+- which team, tenant, workspace, service, or incident is in scope
+- what user permissions apply
+- what service identity is being used for downstream systems
+- what actions require approval
+- what audit trail must be written
+
+Without that, the agent may still produce a confident answer, but the product cannot prove whether the answer came from the right authority or stayed inside the right boundary.
+
+This is the same lesson I saw while working through [execution boundaries](/writing/ai-agents-need-an-execution-boundary). A model can propose an action, but the product has to decide whether the action is allowed, which identity applies, and whether it should run at all.
+
+For SRE, that decision is not optional. Production systems already have team boundaries, environment boundaries, customer boundaries, incident roles, and escalation paths. AI has to fit into those boundaries instead of bypassing them.
+
+## Context Has To Be Operational, Not Decorative
+
+The second trust problem is context.
+
+Most incident investigations do not fail because no one can write a plausible explanation. They fail because the explanation is missing one operational fact:
+
+- the deploy that happened 17 minutes before the alert
+- the ownership boundary between two services
+- a noisy dependency that is already degraded
+- a feature flag that changed the traffic path
+- a runbook warning that only applies in production
+- a ticket showing this is a recurring class of incident
+- a metric that contradicts the first hypothesis
+
+An SRE agent needs more than a transcript. It needs live operational context from alerts, logs, metrics, traces, deploy history, infrastructure state, service ownership, runbooks, tickets, and prior investigations.
+
+That does not mean dumping everything into a prompt. It means designing the investigation state so evidence is collected, labeled, reused, challenged, and reviewed. The agent should know which evidence it has, which source failed, which source returned nothing useful, and which finding is still provisional.
+
+This is why [shared investigation state](/writing/shared-investigation-state-is-the-ai-ops-cost-control-layer) matters. Context is not only a token-window problem. It is a product object that should survive retries, handoffs, review, and later incidents.
+
+## Fallbacks Are Where Trust Shows Up
+
+The third piece is the one that gets skipped most often: fallbacks.
+
+AI incident workflows need clear behavior when reality is messy:
+
+- the logs source is unavailable
+- the metrics query times out
+- the user lacks access to a service
+- the agent has partial evidence
+- two sources disagree
+- the proposed action is risky
+- the incident is customer-facing
+- the correct destination for the update is not available
+
+If the product only has a happy path, the agent will either overstate certainty or fail in ways users cannot act on.
+
+The better pattern is to make fallback states explicit:
+
+- blocked by access
+- waiting for approval
+- evidence incomplete
+- source unavailable
+- retrying collection
+- needs human review
+- safe summary only
+- escalation recommended
+
+These states are not friction. They are part of the trust contract. A useful SRE agent should be able to say, "I can summarize what I know, but I cannot inspect the database logs," or "This remediation touches production and needs approval," or "The deploy signal points one way, but traces are inconclusive."
+
+That is much better than pretending uncertainty does not exist.
+
+## The SRE Agent Contract
+
+The contract I want around AI-assisted SRE work is simple:
+
+- identity: who is asking, what scope applies, and what authority the agent has
+- context: which operational evidence has been collected, retained, and reviewed
+- fallbacks: what happens when evidence, access, tools, or confidence are incomplete
+- execution: what can run automatically and what requires approval
+- audit: what was proposed, used, skipped, approved, denied, and delivered
+- delivery: where the result belongs and who is allowed to see it
+
+This contract makes the system more honest. It separates a policy denial from a tool failure, a missing permission from a missing signal, and a weak hypothesis from a reviewed finding.
+
+That distinction matters in production. If everything is labeled "the AI failed," the team learns nothing useful. If the workflow says "Datadog query timed out," "Jira access missing," or "restart recommendation needs approval," the team can fix the system around the agent.
+
+## From Demo To Operable Workflow
+
+The useful future of AI in SRE is not an agent that sounds more certain during an incident.
+
+It is an agent that starts investigations faster, collects the right evidence, respects identity and scope, exposes uncertainty, routes work through review when needed, and leaves behind a record that operators can trust.
+
+That is the difference between an AI demo and an operable incident workflow.
+
+The model can help form hypotheses. The product has to carry identity, context, and fallback behavior all the way through production reality.

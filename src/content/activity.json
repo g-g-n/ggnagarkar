@@ -1,5 +1,15 @@
 [
   {
+    "title": "AI in SRE Needs Identity, Context, and Fallbacks Before It Can Be Trusted",
+    "type": "blog",
+    "date": "2026-08-10",
+    "source": "GG Nagarkar",
+    "summary": "A founder-engineering note on why AI-assisted SRE workflows need identity, operational context, and fallback paths before they can be trusted in production.",
+    "url": "/writing/ai-in-sre-needs-identity-context-and-fallbacks-before-it-can-be-trusted",
+    "image": "/images/writing/ai-sre-identity-context-fallbacks.svg",
+    "tags": ["AI Agents", "SRE", "AIOps", "Enterprise AI", "Incident Response", "OpsRabbit"]
+  },
+  {
     "title": "What Recent Agent Work Taught Me About Execution Boundaries",
     "type": "blog",
     "date": "2026-07-20",
