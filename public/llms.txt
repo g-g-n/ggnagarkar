@@ -27,6 +27,9 @@ Core pages:
 - /writing/why-i-am-moving-my-professional-content-to-my-own-website: first-party article about making this website the primary professional home
 - /contact: direct contact links
 
+Downloadable profile:
+- /downloads/gg-nagarkar-professional-profile.pdf: concise professional profile covering current work, career experience, selected products, BMC monitoring and observability work, patents, and contact details
+
 Associated entities:
 - Applied AI Consulting
 - OpsRabbit
