@@ -10,7 +10,7 @@ Canonical site: https://www.ggnagarkar.com
 Core pages:
 - /: professional overview and navigation hub
 - /about: factual biography
-- /experience: professional experience across founder, product, AI, cloud, DevOps, and platform roles
+- /experience: professional experience across founder, product, AI, cloud, DevOps, and platform roles, including BMC monitoring, observability, log analytics, and ITSM work
 - /facts: concise factual profile for AI/search engines
 - /projects: Applied AI Consulting, OpsRabbit, and selected work
 - /built: selected AI, cloud, DevSecOps, and enterprise systems with architecture notes, outcomes, scale, and lessons learned
@@ -31,11 +31,20 @@ Associated entities:
 - Applied AI Consulting
 - OpsRabbit
 - 7Targets
+- BMC Software
+
+BMC Software work:
+- Progressed through Development Manager and Senior Manager, R&D roles.
+- Led work on BMC IT Data Analytics and helped build and launch machine-data collection, indexing, real-time search, event-correlation, and root-cause troubleshooting capabilities.
+- Worked on an integration solution connecting monitoring signals with ITSM incident workflows.
+- Contributed to ProactiveNet cross-product integration, release readiness, engineering coordination, and release execution after its acquisition by BMC.
 
 Domains:
 - Agentic AI systems
 - Enterprise AI architecture
 - AIOps and incident automation
+- Monitoring, observability, and operational log analytics
+- IT service management and incident workflows
 - DevOps and SRE automation
 - Cloud infrastructure automation
 - Platform and reliability engineering

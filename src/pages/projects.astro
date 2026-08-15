@@ -8,7 +8,7 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Projects and Products by GG Nagarkar',
-  description: 'Applied AI Consulting, OpsRabbit, 7Targets, REAN Cloud, OpexSoftware, patents, and selected product work.',
+  description: 'Products and projects across enterprise AI, AIOps, cloud automation, and BMC monitoring, log analytics, observability, and ITSM integration.',
   url: `${site}/projects`,
   hasPart: projects.map((project) => ({
     '@type': 'CreativeWork',
@@ -30,7 +30,7 @@ const jsonLd = {
 >
   <h1 class="mb-4 text-3xl font-semibold text-slate-900">Projects</h1>
   <p class="mb-5 max-w-3xl text-slate-700">
-    For deeper architecture notes, outcomes, scale, and lessons learned, see <a href="/built" class="underline">Things I've Built</a>.
+    Work spans enterprise AI and cloud automation as well as earlier BMC product work in monitoring, observability, operational log analytics, and ITSM-connected incident workflows. For deeper architecture notes, outcomes, scale, and lessons learned, see <a href="/built" class="underline">Things I've Built</a>.
   </p>
   <div class="grid gap-4 md:grid-cols-2">
     {projects.map((project) => <ProjectCard project={project} />)}

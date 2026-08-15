@@ -80,12 +80,12 @@
   },
   {
     "company": "BMC Software",
-    "role": "Engineering",
+    "role": "Development Manager / Senior Manager, R&D",
     "startDate": "2004-01",
     "endDate": "2012-12",
     "location": "India",
-    "summary": "Worked in enterprise software engineering roles focused on systems, tooling, and product delivery. This period built a strong foundation in large-scale software development, IT operations concepts, customer-facing engineering, and the practices that later shaped DevOps and platform automation work.",
-    "skills": ["Enterprise Software", "Engineering", "ITSM/DevOps Foundations"],
+    "summary": "Progressed through Development Manager and Senior Manager, R&D roles while working across monitoring, observability, operational log analytics, and IT service management integrations. Led work on BMC IT Data Analytics, including machine-data collection, indexing, search-driven troubleshooting, event correlation, and root-cause investigation. Also connected monitoring signals with incident-management workflows and contributed to ProactiveNet integration, release readiness, and cross-product engineering execution after its acquisition by BMC.",
+    "skills": ["Monitoring", "Observability", "Log Analytics", "ITSM", "Incident Management", "Engineering Management", "Release Management", "Product Engineering"],
     "sourceUrls": [
       "https://wellfound.com/company/7targets-ai-assistants/people",
       "https://7targets.ai/blog/why-important-help-smaller-companies-succeed-sanju-burkule-rashmi-mishra-story/",

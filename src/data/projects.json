@@ -199,10 +199,13 @@
     "status": "launched product",
     "role": "Lead",
     "period": "BMC Software era",
-    "summary": "Led work on BMC IT Data Analytics, separate from the later Helix branding. Helped build and launch the product, focusing on operational log analytics, search-driven troubleshooting, and practical visibility for IT operations teams.",
-    "tags": ["BMC Software", "IT Data Analytics", "IT Operations", "Product Launch"],
+    "summary": "Led work on BMC IT Data Analytics, separate from the later Helix branding. Helped build and launch capabilities for collecting and indexing machine data, real-time search across operational logs, event correlation, anomaly investigation, and root-cause troubleshooting for IT operations teams.",
+    "tags": ["BMC Software", "IT Data Analytics", "Log Analytics", "Event Correlation", "Root Cause Analysis", "Product Launch"],
     "featured": false,
-    "sourceUrls": []
+    "sourceUrls": [
+      "https://docs.bmc.com/xwiki/bin/view/IT-Operations-Management/Operations-Management/BMC-TrueSight-IT-Data-Analytics/bmcitda10/",
+      "https://www.bmc.com/content/dam/bmc/migration/pdf/BMC_IT_Enablement_Case_Study1.pdf"
+    ]
   },
   {
     "name": "Monitoring and ITSM Integration Solution",
@@ -223,10 +226,12 @@
     "status": "completed",
     "role": "Release and Integration Lead",
     "period": "BMC Software era",
-    "summary": "Contributed to ProactiveNet integration work after its acquisition by BMC and helped manage product releases afterward. The work involved coordinating integration, release readiness, engineering execution, and operational quality across product teams.",
-    "tags": ["ProactiveNet", "BMC Software", "Release Management", "Product Integration"],
+    "summary": "Contributed to ProactiveNet integration work after its acquisition by BMC and helped manage subsequent product releases. The work included cross-product integration, release readiness, engineering coordination, and operational quality for a platform spanning performance monitoring, events, metrics, analytics, diagnostics, and impact management.",
+    "tags": ["ProactiveNet", "BMC Software", "Performance Monitoring", "Event Management", "Release Management", "Product Integration"],
     "featured": false,
-    "sourceUrls": []
+    "sourceUrls": [
+      "https://docs.bmc.com/xwiki/bin/view/Automation-DevSecOps/Network-Automation/BMC-ProactiveNet/proactivenet96/Integrating/BMC-product-integrations/Integrating-with-BMC-TrueSight-IT-Data-Analytics/"
+    ]
   },
   {
     "name": "United Nations Customer Project (TCS)",
