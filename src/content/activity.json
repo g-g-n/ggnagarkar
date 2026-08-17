@@ -1,5 +1,15 @@
 [
   {
+    "title": "Updated Professional Profile and Field Note on Coding-Agent Fundamentals",
+    "type": "post",
+    "date": "2026-08-17",
+    "source": "GG Nagarkar",
+    "summary": "A weekly personal-brand update connecting recent site work on the downloadable profile, BMC monitoring and observability experience, and a field observation: coding agents help most when developers still bring software engineering fundamentals, decomposition, review discipline, and deployment judgment.",
+    "url": "/writing",
+    "image": "",
+    "tags": ["AI Agents", "Software Engineering", "Product Engineering", "DevOps", "Architecture", "Founder Writing"]
+  },
+  {
     "title": "AI in SRE Needs Identity, Context, and Fallbacks Before It Can Be Trusted",
     "type": "blog",
     "date": "2026-08-10",
