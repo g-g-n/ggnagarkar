@@ -30,6 +30,9 @@ Core pages:
 Downloadable profile:
 - /downloads/gg-nagarkar-professional-profile.pdf: concise professional profile covering current work, career experience, selected products, BMC monitoring and observability work, patents, and contact details
 
+Recent activity:
+- 2026-08-17: weekly personal-brand activity update connecting the downloadable profile, expanded BMC monitoring/observability experience, and GG's field observation that coding-agent leverage still depends on software engineering fundamentals, architecture/design judgment, decomposition, review discipline, testing, and deployment understanding.
+
 Associated entities:
 - Applied AI Consulting
 - OpsRabbit
