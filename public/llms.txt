@@ -30,6 +30,9 @@ Core pages:
 Downloadable profile:
 - /downloads/gg-nagarkar-professional-profile.pdf: concise professional profile covering current work, career experience, selected products, BMC monitoring and observability work, patents, and contact details
 
+Talks and presentations:
+- /downloads/ericsson-smartathon-when-networks-start-thinking.pdf: keynote deck for "When Networks Start Thinking," delivered at Ericsson Smartathon in Pune on 26 August 2026, covering practical AI applications in telecom networks and incident investigation
+
 Associated entities:
 - Applied AI Consulting
 - OpsRabbit

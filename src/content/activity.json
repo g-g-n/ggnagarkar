@@ -1,5 +1,15 @@
 [
   {
+    "title": "Keynote: When Networks Start Thinking",
+    "type": "talk",
+    "date": "2026-08-26",
+    "source": "Ericsson Smartathon",
+    "summary": "Keynote delivered at Ericsson Smartathon in Pune on practical AI for telecom networks, from prediction and adaptive radio decisions to alarm correlation and human-guided incident investigation.",
+    "url": "/downloads/ericsson-smartathon-when-networks-start-thinking.pdf",
+    "image": "",
+    "tags": ["Ericsson", "Telecom", "AI", "AIOps", "Incident Response", "Talk"]
+  },
+  {
     "title": "AI in SRE Needs Identity, Context, and Fallbacks Before It Can Be Trusted",
     "type": "blog",
     "date": "2026-08-10",
