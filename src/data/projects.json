@@ -102,7 +102,7 @@
     "status": "platform product",
     "role": "Engineering and Product Leadership",
     "period": "2016 - 2019",
-    "summary": "Deployment acceleration product initiative aligned with cloud automation, release reliability, and enterprise-scale delivery workflows.",
+    "summary": "Deployment acceleration product that originated in OpexSoftware and evolved as part of the REAN Cloud platform, aligned with cloud automation, release reliability, and enterprise-scale delivery workflows.",
     "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
     "tags": ["REAN Cloud", "DeployNow", "Cloud Automation", "DevOps"],
     "featured": true,
@@ -110,7 +110,8 @@
       "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
       "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
       "https://www.slideshare.net/slideshow/what-is-devops-what-is-devops-coe/48029624",
-      "https://www.youtube.com/watch?v=jR_EL0pyNDE"
+      "https://www.youtube.com/watch?v=jR_EL0pyNDE",
+      "https://www.youtube.com/watch?v=Q68qQxWt6U8"
     ]
   },
   {
@@ -120,7 +121,7 @@
     "status": "platform product",
     "role": "Engineering and Product Leadership",
     "period": "2016 - 2019",
-    "summary": "Testing acceleration product initiative for enterprise cloud delivery with stronger validation coverage and faster release cycles.",
+    "summary": "Testing acceleration product that originated in OpexSoftware and evolved as part of the REAN Cloud platform, supporting stronger validation coverage and faster enterprise release cycles.",
     "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
     "tags": ["REAN Cloud", "TestNow", "QA Automation", "DevOps"],
     "featured": true,
@@ -128,22 +129,26 @@
       "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
       "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
       "https://www.slideshare.net/slideshow/what-is-devops-what-is-devops-coe/48029624",
-      "https://www.youtube.com/watch?v=jR_EL0pyNDE"
+      "https://www.youtube.com/watch?v=jR_EL0pyNDE",
+      "https://www.youtube.com/watch?v=Q68qQxWt6U8"
     ]
   },
   {
-    "name": "REAN Cloud Platform Products",
+    "name": "OpexSoftware / REAN Cloud Platform Products",
     "slug": "rean-cloud-platform-products",
     "type": "project",
     "status": "platform suite",
     "role": "Engineering and Product Leadership",
     "period": "2016 - 2019",
-    "summary": "Platform product portfolio including DeployNow, TestNow, and related cloud/DevOps accelerators for enterprise software delivery.",
+    "summary": "Platform product portfolio—including DeployNow, TestNow, HealNow, AssessNow, and related cloud/DevOps accelerators—built at OpexSoftware and evolved into the REAN Cloud product platform after the acquisition. Related cloud testing and infrastructure automation inventions are covered by two granted US patents.",
     "url": "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
-    "tags": ["REAN Cloud", "Platform Products", "Enterprise DevOps", "Cloud"],
+    "tags": ["OpexSoftware", "REAN Cloud", "DeployNow", "TestNow", "HealNow", "AssessNow", "Enterprise DevOps", "Patents"],
     "featured": true,
     "sourceUrls": [
-      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/"
+      "https://insights.eletsonline.com/2019/01/gunanand-nagarkar-vice-president-engineer-products-rean-cloud/",
+      "https://www.youtube.com/watch?v=Q68qQxWt6U8",
+      "https://patents.google.com/patent/US11074165B2/en",
+      "https://patents.google.com/patent/US11099976B2/en"
     ]
   },
   {

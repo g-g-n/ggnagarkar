@@ -110,6 +110,16 @@
     "tags": ["DevOps", "SlideShare", "OpexSoftware", "Talk"]
   },
   {
+    "title": "Join Us to Explore DevOps on AWS with REAN Cloud",
+    "type": "video",
+    "date": "2017-02-07",
+    "source": "Amazon Web Services / YouTube",
+    "summary": "AWS video featuring REAN Cloud's DevOps platform context. The product portfolio—including DeployNow, TestNow, HealNow, and AssessNow—originated in OpexSoftware and evolved at REAN Cloud after the acquisition.",
+    "url": "https://www.youtube.com/watch?v=Q68qQxWt6U8",
+    "image": "",
+    "tags": ["AWS", "REAN Cloud", "OpexSoftware", "DevOps", "Platform Products", "Video"]
+  },
+  {
     "title": "Publication Mention: eGov March 2019 Issue",
     "type": "post",
     "date": "2019-03-01",
