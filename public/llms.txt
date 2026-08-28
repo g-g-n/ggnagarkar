@@ -38,6 +38,15 @@ Associated entities:
 - OpsRabbit
 - 7Targets
 - BMC Software
+- OpexSoftware
+- REAN Cloud
+
+OpexSoftware and REAN Cloud platform work:
+- Built a platform product portfolio including DeployNow, TestNow, HealNow, AssessNow, and related cloud and DevOps accelerators at OpexSoftware.
+- The portfolio evolved into the REAN Cloud product platform after REAN Cloud acquired OpexSoftware in 2016.
+- Related inventions in cloud testing infrastructure and cloud infrastructure deployment-code generation are listed on /patents as US11074165B2 and US11099976B2.
+- REAN Cloud DevOps Accelerators presentation: https://www.slideshare.net/slideshow/rean-cloud-devops-accelerators/70105571
+- AWS video reference: https://www.youtube.com/watch?v=Q68qQxWt6U8
 
 BMC Software work:
 - Progressed through Development Manager and Senior Manager, R&D roles.
