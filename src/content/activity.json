@@ -120,6 +120,16 @@
     "tags": ["AWS", "REAN Cloud", "OpexSoftware", "DevOps", "Platform Products", "Video"]
   },
   {
+    "title": "REAN Cloud DevOps Accelerators",
+    "type": "talk",
+    "date": "2016-12-13",
+    "source": "REAN Cloud / SlideShare",
+    "summary": "Presentation describing the REAN Cloud DevOps accelerator suite across automated assessment, migration, deployment, testing, documentation, operations, dashboards, and self-healing.",
+    "url": "https://www.slideshare.net/slideshow/rean-cloud-devops-accelerators/70105571",
+    "image": "",
+    "tags": ["REAN Cloud", "OpexSoftware", "DevOps", "Cloud Automation", "Platform Products", "SlideShare"]
+  },
+  {
     "title": "Publication Mention: eGov March 2019 Issue",
     "type": "post",
     "date": "2019-03-01",
