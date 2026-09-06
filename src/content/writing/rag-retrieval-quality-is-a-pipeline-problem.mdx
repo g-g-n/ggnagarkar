@@ -1,0 +1,268 @@
+---
+title: "RAG Retrieval Quality Is A Pipeline Problem"
+metaTitle: "RAG Retrieval Quality Is A Pipeline Problem | GG Nagarkar"
+description: "A technical field note on improving RAG with staged lexical and vector retrieval, bounded query expansion, rank fusion, reranking, thresholds, diagnostics, and citations."
+date: "2026-09-06"
+author: "GG Nagarkar"
+tags: ["rag", "retrieval", "enterprise-ai", "search", "ai-architecture", "founder-writing"]
+image: "/images/writing/rag-retrieval-pipeline.png"
+imageAlt: "Editorial technical diagram showing a query moving through parallel lexical and vector retrieval paths, rank fusion, reranking, and cited evidence."
+---
+
+When a retrieval-augmented generation system gives a weak answer, the model is often blamed first.
+
+That is understandable. The generated response is the visible failure. But in recent hands-on work improving a production knowledge-search path, the more important question was earlier in the pipeline:
+
+**Did the right evidence ever reach the model?**
+
+If retrieval misses the relevant passage, generation cannot recover it. If ranking buries it below weaker candidates, a better prompt will not help. If a relevance threshold compares scores that do not mean the same thing, useful evidence can disappear before reranking. If citations are lost during a handoff, even a correct answer becomes difficult to trust.
+
+The practical lesson was that RAG quality is not one model choice. It is the behavior of a complete retrieval pipeline.
+
+## The Failure Case That Changed The Design
+
+The difficult queries were not simple keyword lookups. They looked more like real technical-support questions: long, natural-language descriptions containing a product name, an acronym, a symptom, a measurement, and several ordinary words.
+
+A strict full-text query can become too restrictive in that situation. A document may contain the decisive concepts but not every term in the user's phrasing. Dense retrieval helps with paraphrases, but it can also promote passages that are semantically related while missing the exact technical constraint.
+
+This creates a familiar failure mode:
+
+1. Strict lexical retrieval returns too little.
+2. Vector retrieval returns broadly related material.
+3. Fusion gives the semantic candidates enough weight to look plausible.
+4. The answer is fluent, relevant to the general topic, and wrong for the specific question.
+
+The fix was not to replace lexical search with embeddings, or embeddings with a larger model. It was to give each retrieval signal a precise job and combine them without confusing their score scales.
+
+## A Better Retrieval Pipeline
+
+The retrieval path that emerged has several stages:
+
+1. Run the original query through lexical and vector retrieval.
+2. Detect exact title or phrase matches.
+3. Fuse candidate rankings across retrieval arms.
+4. Decide whether the evidence is already sufficient.
+5. If it is insufficient, create a small number of bounded query variants.
+6. Retrieve again and deduplicate at the chunk level.
+7. Apply one final reranking pass.
+8. Filter weak evidence using a score with a defined meaning.
+9. Return bounded context with stable citations and diagnostics.
+
+The order matters. Expansion should not happen on every query. Reranking should not run separately on disconnected candidate sets. A minimum score should not be applied blindly to unrelated raw scores. Every additional stage needs a clear reason to exist.
+
+## Keep Strict Lexical Retrieval, Then Add A Relaxed Arm
+
+Lexical search is still valuable in technical domains. Error codes, product names, configuration keys, protocol names, versions, and numeric limits are often more important than general semantic similarity.
+
+The problem is not lexical search itself. The problem is asking one lexical query to provide both precision and recall.
+
+I now prefer two bounded lexical arms:
+
+- A strict arm preserves the user's original intent and rewards passages that satisfy the full query structure.
+- A relaxed arm removes common glue words, deduplicates meaningful terms, caps their number, and searches for them with OR-style recall.
+
+For example, a long question about a recommended OCR character height below a particular DPI contains several important concepts. The strict arm may require too much of the sentence to be present. The relaxed arm can preserve `OCR`, `character`, `height`, `pixels`, and `DPI` without allowing a very long query to grow into an expensive, noisy expression.
+
+The relaxed arm should be weaker by design. Its purpose is to introduce candidates, not to overrule a strong exact match.
+
+## Do Not Compare Lexical And Vector Scores Directly
+
+A full-text rank and a cosine similarity are not interchangeable measurements. Even two embedding profiles may produce score distributions that behave differently.
+
+Normalizing both into a convenient-looking decimal does not automatically make them comparable.
+
+Rank fusion is a cleaner boundary. Each retrieval arm contributes according to where a candidate ranked in that arm. A weighted reciprocal-rank contribution can be represented as:
+
+`contribution = weight / (k + rank)`
+
+The exact constant matters less than the contract:
+
+- lexical and vector retrieval keep their own raw quality signals
+- fusion decides ordering from rank positions
+- the original query receives more weight than expanded variants
+- duplicate chunks accumulate evidence across arms
+- raw scores remain available for diagnostics
+
+This separation prevents a high-looking score from one modality from dominating simply because its numeric scale is different.
+
+## Exact Matches Deserve Their Own Signal
+
+Hybrid retrieval can still understate the value of an exact phrase.
+
+If a document title matches the normalized query, or a chunk contains the exact phrase, that is useful evidence which should not be diluted into a general semantic score. An explicit exact-match signal gives the fusion stage a principled way to promote it.
+
+This is especially important for:
+
+- error messages
+- knowledge-base article titles
+- configuration names
+- identifiers
+- product capabilities
+- measurable technical limits
+
+Exact matching is not a replacement for hybrid retrieval. It is a high-precision signal inside it.
+
+## Expand Only After A Sufficiency Gate
+
+Query expansion improves recall, but it also adds latency, cost, and more opportunities for irrelevant candidates.
+
+The system should first ask whether the original retrieval is already good enough. A practical sufficiency gate can look for either:
+
+- an eligible exact match, or
+- enough eligible candidates with evidence from both lexical and vector retrieval
+
+Only when that test fails should the system reformulate the query.
+
+This keeps easy questions fast and makes the more expensive path conditional on an observable retrieval gap.
+
+## Deterministic And Model-Assisted Expansion Have Different Jobs
+
+Deterministic expansion is a useful baseline. Remove common stop words, keep distinctive technical terms, and create a small leading and trailing concept view. It is predictable, fast, and available even when no model provider is configured.
+
+Model-assisted expansion can help when the user's vocabulary differs from the source material. It may add an expanded acronym, a product term, a symptom-oriented variant, or capability-and-limitation wording.
+
+But the model must be treated as an untrusted query generator, not an answer generator.
+
+In the recent implementation, that meant:
+
+- requesting queries rather than an answer
+- accepting only a strict JSON shape
+- limiting the number and length of variants
+- rejecting the original query repeated as a variant
+- deduplicating normalized variants
+- applying a short deadline
+- respecting provider rate limits
+- failing open to deterministic retrieval when the model is unavailable
+- never treating generated query text as evidence
+
+The query itself must also be treated as untrusted input. Instructions embedded in a document title or user question must not become authority to change retrieval scope.
+
+## Rerank Once, After Candidate Generation Is Complete
+
+Reranking is most useful when it sees the best combined candidate pool.
+
+If every retrieval arm reranks independently, the system spends more compute and makes the final merge harder to reason about. Instead, gather candidates from the original query and any bounded variants, deduplicate them, fuse them, and run one final reranking pass over a configured budget.
+
+The candidate budget is an important operational control. A reranker that examines everything may become the dominant latency cost. A reranker that examines too little may never see the decisive passage.
+
+There is another subtle issue: candidates outside the reranker budget should not silently disappear. They should remain eligible under the fallback quality calculation, while successfully reranked candidates stay in a clearly preferred tier.
+
+That distinction prevents an unreranked candidate with a high fusion value from jumping ahead of candidates that the reranker actually evaluated.
+
+## Minimum Score Needs A Defined Semantic Meaning
+
+An administrator-facing "minimum score" looks simple, but it is easy to implement incorrectly.
+
+The threshold should not be applied to raw full-text rank in one path and cosine similarity in another. Those numbers answer different questions.
+
+A more defensible contract is:
+
+- if reranking succeeds, use the reranker's common relevance score
+- if reranking is disabled, unavailable, or did not cover a candidate, use a documented fallback quality derived from the available lexical and vector signals
+- use reciprocal-rank fusion for ordering, not as a substitute for absolute quality
+
+This separates two decisions:
+
+- **Ordering:** which candidate should appear first?
+- **Eligibility:** is this candidate strong enough to show at all?
+
+Turning the threshold upward may improve precision, but it will reduce recall. The right value cannot be chosen from intuition alone. It needs representative queries and expected evidence.
+
+## Embedding Models Matter, But Reindexing Matters Too
+
+Embedding choice changes how documents and queries are represented.
+
+A small English retrieval model may handle English paraphrases well. A multilingual model may be the better choice when documents and questions cross languages. A deterministic legacy representation may be fast and operationally simple but much weaker at semantic similarity.
+
+Changing the configured model is not only a runtime switch. Existing documents were embedded in the previous vector space. They need to be rebuilt into a new index generation before the new model can be evaluated correctly.
+
+A production-safe rebuild should preserve the currently active generation while the replacement is being created. The new generation should become searchable only when its embedding configuration, chunk layout, and stored vectors are complete and internally consistent.
+
+This is where RAG stops being a demo and becomes an operational system: indexing has lifecycle, admission, rollback, and observability concerns of its own.
+
+## Retrieval Must Preserve Authorization
+
+Every additional query variant is still the same authorized search.
+
+Expansion must not broaden tenant boundaries, assigned sources, active index generations, document visibility, or processor revisions. Candidate generation may change, but the resource scope must remain invariant.
+
+This is particularly important in enterprise systems where two users can ask identical questions and be entitled to different evidence.
+
+Authorization belongs inside every retrieval arm, not as a filter applied after a global search.
+
+## Citations Are Part Of Retrieval Quality
+
+A passage without a stable source reference is incomplete evidence.
+
+Citations need to survive:
+
+- chunk extraction
+- candidate fusion
+- reranking
+- context expansion
+- subagent handoffs
+- persisted conversations
+- later continuation turns
+
+This is why I do not treat citation rendering as a frontend detail. The citation identity must travel with the evidence throughout the pipeline. If it is reconstructed loosely at the end, links become unreliable and users cannot inspect the basis of the answer.
+
+For enterprise RAG, a slightly less polished answer with inspectable evidence is often more useful than a fluent answer whose sources cannot be opened.
+
+## Diagnostics Make Retrieval Tunable
+
+When the final result is empty or weak, the system should be able to explain the retrieval path without exposing private content.
+
+Useful diagnostics include:
+
+- how many query variants were attempted
+- whether reformulation ran
+- whether model expansion degraded or timed out
+- whether the reranker degraded
+- which fusion strategy was used
+- whether the outcome produced matches or exhausted the pipeline
+- how many sources and active index generations were searched
+
+These signals turn "RAG did not work" into a testable engineering question.
+
+Did strict lexical search return nothing? Did relaxed retrieval find the right chunk? Did vector search swamp the pool with broad matches? Did the sufficiency gate stop expansion too early? Did the minimum score remove the correct candidate? Did the reranker never receive it?
+
+Without diagnostics, teams tune RAG by anecdote. With diagnostics, they can build holdout cases and measure changes.
+
+## Evaluate The Whole Path
+
+The most useful RAG test set is not a collection of generic questions. It contains difficult, representative failures:
+
+- long questions with several technical terms
+- exact error messages surrounded by natural language
+- questions using different vocabulary from the source
+- similar documents with one decisive numeric constraint
+- multilingual or acronym-heavy queries
+- sources the current user must not be allowed to retrieve
+- queries that should correctly return no supported answer
+
+For each case, record the expected document or passage, not only an expected final sentence. That makes it possible to separate retrieval recall, ranking quality, grounding, and generation quality.
+
+The regression that matters most is often simple: did the known relevant chunk appear ahead of the plausible but unrelated ones?
+
+## What I Would Keep As The Design Contract
+
+After working through these details, my RAG design contract is now:
+
+1. Preserve the original query as the strongest retrieval intent.
+2. Combine strict lexical, relaxed lexical, semantic, and exact-match signals.
+3. Fuse rankings without pretending raw modality scores are comparable.
+4. Expand only after the first retrieval is demonstrably insufficient.
+5. Bound every expansion path by count, length, time, and authorization.
+6. Deduplicate evidence before one final reranking pass.
+7. Separate candidate ordering from minimum-quality filtering.
+8. Keep unreranked candidates visible under a documented fallback rule.
+9. Preserve citations as part of the evidence object.
+10. Emit enough diagnostics to explain and evaluate retrieval behavior.
+
+The generator still matters. The embedding model still matters. Chunking still matters.
+
+But none of them, alone, is "the RAG system."
+
+The RAG system is the pipeline that decides which evidence is allowed in, which evidence is found, which evidence survives ranking, and whether the final answer can show where it came from.
+
+That is where most of the hard engineering work is—and where a large share of the quality gains are still available.
