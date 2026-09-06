@@ -1,5 +1,15 @@
 [
   {
+    "title": "RAG Retrieval Quality Is A Pipeline Problem",
+    "type": "blog",
+    "date": "2026-09-06",
+    "source": "GG Nagarkar",
+    "summary": "A technical field note on staged lexical and vector retrieval, exact-match signals, bounded query expansion, rank fusion, reranking, score thresholds, diagnostics, authorization, and citations in production RAG.",
+    "url": "/writing/rag-retrieval-quality-is-a-pipeline-problem",
+    "image": "/images/writing/rag-retrieval-pipeline.png",
+    "tags": ["RAG", "Retrieval", "Enterprise AI", "Search", "AI Architecture", "Founder Writing"]
+  },
+  {
     "title": "Keynote: When Networks Start Thinking",
     "type": "talk",
     "date": "2026-08-26",
