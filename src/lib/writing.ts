@@ -117,6 +117,14 @@ function renderMarkdown(markdown: string) {
           .join('');
         return `<ul>${items}</ul>`;
       }
+      if (/^\d+\.\s/u.test(trimmed)) {
+        const items = trimmed
+          .split('\n')
+          .filter((line) => /^\d+\.\s/u.test(line))
+          .map((line) => `<li>${renderInline(line.replace(/^\d+\.\s/u, ''))}</li>`)
+          .join('');
+        return `<ol>${items}</ol>`;
+      }
       return `<p>${renderInline(trimmed.replace(/\n/g, ' '))}</p>`;
     })
     .join('\n');
