@@ -6,6 +6,7 @@ Alias/public professional name: GG Nagarkar
 Role: Founder
 Location: Pune, India
 Canonical site: https://www.ggnagarkar.com
+Advisory availability: Open to part-time technology advisor roles with startups and investment funds that back startups.
 
 Core pages:
 - /: professional overview and navigation hub
@@ -15,6 +16,7 @@ Core pages:
 - /projects: Applied AI Consulting, OpsRabbit, and selected work
 - /built: selected AI, cloud, DevSecOps, and enterprise systems with architecture notes, outcomes, scale, and lessons learned
 - /built/{slug}: individual build notes focused on one system, architecture ownership, scale, and lessons learned
+- /built/opexsoftware-cloud-devops-product-suite: OpexSoftware-era DeployNow, TestNow, HealNow, AssessNow, and related cloud and DevOps accelerators that later evolved within REAN Cloud
 - /patents: patent portfolio and filing status
 - /writing: categorized writing and public activity archive
 - /writing/internal-ai-agents-need-operating-models-not-just-workflows: first-party article about internal AI agents, operating models, resource planning, upskilling, pilot management, lifecycle rules, ownership, and review loops
