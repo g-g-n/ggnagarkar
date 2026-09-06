@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ShareLinks from '../../components/ShareLinks.astro';
 import { getWritingPosts, type WritingPost } from '../../lib/writing';
 import profile from '../../data/profile.json';
 
@@ -61,6 +62,7 @@ const jsonLd = {
           <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">#{tag}</span>
         ))}
       </div>
+      <ShareLinks title={post.title} url={`${site}${post.canonicalPath}`} />
       <div class="article-body mt-8 max-w-3xl" set:html={post.html} />
     </div>
   </article>

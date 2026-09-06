@@ -72,6 +72,7 @@ a {
 
 .article-body p,
 .article-body ul,
+.article-body ol,
 .article-body figure {
   margin-top: 1rem;
 }
@@ -100,6 +101,11 @@ a {
 .article-body ul {
   list-style: disc;
   padding-left: 1.5rem;
+}
+
+.article-body ol {
+  list-style: decimal;
+  padding-left: 1.75rem;
 }
 
 .article-body li + li {
