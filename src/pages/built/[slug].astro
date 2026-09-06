@@ -15,6 +15,7 @@ interface BuiltItem {
   scale: string;
   lessons: string[];
   tags: string[];
+  sourceUrls?: string[];
 }
 
 export function getStaticPaths() {
@@ -101,5 +102,16 @@ const jsonLd = {
         {item.lessons.map((lesson) => <li>{lesson}</li>)}
       </ul>
     </section>
+
+    {item.sourceUrls && item.sourceUrls.length > 0 && (
+      <section class="card p-5">
+        <h2 class="text-xl font-semibold text-slate-900">Public References</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
+          {item.sourceUrls.map((url, index) => (
+            <li><a href={url} class="underline" target="_blank" rel="noreferrer">Reference {index + 1}</a></li>
+          ))}
+        </ul>
+      </section>
+    )}
   </article>
 </Layout>

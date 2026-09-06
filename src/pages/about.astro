@@ -63,6 +63,11 @@ const personJson = {
       {currentOrgs.map((org) => <li>{org}</li>)}
     </ul>
 
+    <h2 class="mt-7 text-xl font-semibold text-slate-900">Advisory Availability</h2>
+    <p class="mt-3 text-slate-700">
+      {profile.advisoryAvailability} For a conversation about fit and scope, use the <a href="/contact" class="underline">contact page</a>.
+    </p>
+
     <h2 class="mt-7 text-xl font-semibold text-slate-900">Core Domains</h2>
     <div class="mt-3 flex flex-wrap gap-2">
       {profile.interests.map((domain) => (
@@ -96,7 +101,7 @@ const personJson = {
 
     <h2 class="mt-7 text-xl font-semibold text-slate-900">How To Reach GG</h2>
     <p class="mt-3 text-slate-700">
-      For consulting, product collaboration, advisory, or speaking opportunities, use the <a href="/contact" class="underline">contact page</a>.
+      For part-time technology advisory roles, consulting, product collaboration, or speaking opportunities, use the <a href="/contact" class="underline">contact page</a>.
     </p>
 
   </article>

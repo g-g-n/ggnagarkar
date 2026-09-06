@@ -66,6 +66,35 @@
     "tags": ["Document AI", "OCR", "Data Extraction", "Redaction", "AI Product"]
   },
   {
+    "name": "OpexSoftware Cloud and DevOps Product Suite",
+    "slug": "opexsoftware-cloud-devops-product-suite",
+    "category": "Cloud and DevOps Platform",
+    "phase": "Founder-Built Products",
+    "period": "2013-2016",
+    "context": "Productized cloud and DevOps accelerators built at OpexSoftware before the company was acquired by REAN Cloud.",
+    "outcome": "Co-founded OpexSoftware and helped build a platform portfolio that included DeployNow, TestNow, HealNow, AssessNow, and related enterprise cloud and DevOps accelerators. The portfolio continued to evolve as part of the REAN Cloud product platform after the 2016 acquisition.",
+    "architecture": [
+      "Built DeployNow to accelerate repeatable cloud deployment and release workflows.",
+      "Built TestNow to automate application and infrastructure validation as part of enterprise delivery pipelines.",
+      "Developed HealNow and related operational automation for monitoring, remediation, and cloud operations workflows.",
+      "Developed AssessNow and related assessment accelerators to structure cloud adoption and modernization planning.",
+      "Connected the product suite through reusable cloud automation, infrastructure-as-code, continuous delivery, and operational-readiness patterns."
+    ],
+    "scale": "Built as an enterprise platform portfolio at OpexSoftware and expanded within REAN Cloud for cloud adoption, DevOps automation, and delivery programs, including regulated and large-scale customer environments.",
+    "lessons": [
+      "Enterprise DevOps becomes repeatable when assessment, deployment, testing, and operations are treated as connected platform capabilities rather than isolated projects.",
+      "Productized accelerators need configurable workflows and reusable automation so they can support different customer environments without becoming bespoke implementations.",
+      "Infrastructure automation creates more durable value when delivery speed, validation, operational readiness, and recovery are designed together.",
+      "A services organization can turn recurring delivery patterns into a product platform when engineering teams deliberately capture and standardize what they learn."
+    ],
+    "tags": ["OpexSoftware", "DeployNow", "TestNow", "HealNow", "AssessNow", "Cloud Automation", "DevOps"],
+    "sourceUrls": [
+      "https://devops.com/rean-cloud-acquires-opex-software-strengthen-devsecops-practice/",
+      "https://www.slideshare.net/slideshow/rean-cloud-devops-accelerators/70105571",
+      "https://www.youtube.com/watch?v=Q68qQxWt6U8"
+    ]
+  },
+  {
     "name": "B2B Customer Service Voice Bot 2.0",
     "slug": "b2b-customer-service-voice-bot",
     "category": "Agentic AI",

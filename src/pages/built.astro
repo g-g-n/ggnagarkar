@@ -14,6 +14,7 @@ interface BuiltItem {
   scale: string;
   lessons: string[];
   tags: string[];
+  sourceUrls?: string[];
 }
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
