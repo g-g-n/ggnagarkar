@@ -19,6 +19,7 @@ Core pages:
 - /built/opexsoftware-cloud-devops-product-suite: OpexSoftware-era DeployNow, TestNow, HealNow, AssessNow, and related cloud and DevOps accelerators that later evolved within REAN Cloud
 - /patents: patent portfolio and filing status
 - /writing: categorized writing and public activity archive
+- /writing/how-ai-coding-agents-changed-my-interviewing-approach: first-party article about the evolution of engineering interviews from puzzles and coding exercises to system design, lived experience, and evaluating how candidates direct, review, and verify work with AI coding agents
 - /writing/rag-retrieval-quality-is-a-pipeline-problem: first-party technical field note about staged lexical and vector retrieval, exact-match signals, bounded query expansion, reciprocal-rank fusion, reranking, score thresholds, diagnostics, authorization, and citations in production RAG
 - /writing/internal-ai-agents-need-operating-models-not-just-workflows: first-party article about internal AI agents, operating models, resource planning, upskilling, pilot management, lifecycle rules, ownership, and review loops
 - /writing/shared-investigation-state-is-the-ai-ops-cost-control-layer: first-party article about shared investigation state, service knowledge graphs, reusable infrastructure context, and centralized LLM cost controls for AI Ops
