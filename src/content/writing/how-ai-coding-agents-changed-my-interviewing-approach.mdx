@@ -1,0 +1,134 @@
+---
+title: "How AI Coding Agents Changed My Interviewing Approach"
+metaTitle: "How AI Coding Agents Changed My Engineering Interviews"
+description: "My engineering interviews evolved from puzzles and coding exercises to system design, lived experience, and now the judgment required to work well with AI coding agents."
+date: "2026-09-07"
+author: "GG Nagarkar"
+tags: ["engineering-leadership", "interviewing", "ai-coding-agents", "software-engineering", "system-design", "hiring"]
+image: "/images/writing/interviewing-with-ai-coding-agents.png"
+imageAlt: "Editorial illustration showing software engineering interviews evolving from coding puzzles to system design and thoughtful collaboration with an AI coding agent."
+---
+
+My approach to interviewing software engineers has changed several times over the years. Each change followed the same question: **what evidence actually tells me that this person can do the job well?**
+
+Early in my career, I placed a lot of weight on problem-solving ability and smart, clean code. I would ask candidates to work through puzzles, explore different use cases, and then write code for a specific problem.
+
+There was value in that. A live problem shows how someone breaks ambiguity into smaller parts, chooses data structures, handles edge cases, and explains a line of reasoning. But it also has limits. A person can be good at rehearsed puzzles without being effective at building and maintaining a real system. Another person can be an excellent engineer and still underperform in an artificial, time-boxed exercise.
+
+Over time, my interviews moved closer to the work itself.
+
+## From Puzzles To Evidence Of Real Work
+
+One question remained especially useful. It is a question associated with Elon Musk's interviewing approach, and I usually frame it like this:
+
+> Tell me the story of a difficult problem you faced recently, how you solved it, and why you are proud of the outcome.
+
+The important word is **story**.
+
+I am not looking for a polished list of technologies. I want to understand the situation as it unfolded. What made the problem difficult? What did the candidate notice first? Which assumptions turned out to be wrong? What alternatives did they consider? Who disagreed? What did they personally own? What failed? What tradeoff did they accept? What would they do differently now?
+
+People who have genuinely done difficult work can usually travel through the details. They remember the constraints, the false starts, and the consequences of their decisions. Their answers become more precise when questioned. They do not need to pretend that the result was perfect.
+
+This question also reveals something puzzles rarely do: the candidate's relationship with responsibility. Do they take ownership without claiming everyone else's work? Can they give credit? Can they distinguish a team outcome from their own contribution? Can they learn from a decision that was reasonable at the time but later proved incomplete?
+
+## From Coding Exercises To Building A Small System
+
+My practical exercise also evolved. Instead of asking only for an algorithm, I started asking candidates to build a small REST API using a framework of their choice.
+
+The API itself was not the real test. I was interested in the decisions around it:
+
+- How did they model the data?
+- What assumptions did they make about the use cases?
+- Where did they place validation and business rules?
+- Could another engineer extend the system without rewriting it?
+- How did they think about failure, testing, security, observability, and maintenance?
+- Could they explain why the design was appropriate for this problem rather than simply calling it a best practice?
+
+Giving candidates a framework of their choice removed some irrelevant friction. The exercise became a way to discuss engineering judgment through an artifact. Good code still mattered, but code was now one part of a larger system.
+
+The conversation mattered as much as the implementation. I wanted to see whether the person was thinking, whether they could make tradeoffs explicit, and whether their design changed when new information arrived.
+
+![Three-stage diagram showing the interview focus moving from solving a bounded problem, to designing a maintainable system, to directing and reviewing work with an AI coding agent, all resting on a foundation of fundamentals and experience.](/images/writing/interviewing-evolution-framework.svg)
+
+## Coding Agents Changed The Available Evidence
+
+Claude, Codex, and other coding agents have changed software development enough that pretending they do not exist would make an interview less realistic.
+
+A candidate can now generate a REST API, tests, documentation, and deployment configuration in a short time. That does not make the exercise useless. It changes what the exercise can reveal.
+
+I now pay close attention to how the candidate works with the agent:
+
+- How do they describe the problem before asking for code?
+- Do they give the agent enough context about constraints and intended behavior?
+- Can they break a large task into useful steps?
+- Do they inspect the output or accept it because it looks complete?
+- Can they spot a weak data model, a security problem, a missing edge case, or an unnecessary abstraction?
+- When the agent goes in the wrong direction, can they diagnose why and recover?
+- Can they test the result and explain what they now trust—and what they still do not?
+
+This is not primarily a test of prompt tricks. A clever prompt copied from somewhere is not the same as engineering judgment.
+
+The useful skill is sustained collaboration: giving clear instructions, reading patiently, asking better follow-up questions, comparing the output with the actual requirement, and taking responsibility for the result.
+
+## The Surprising Part Is How Personal The Interface Has Become
+
+People are finding their own ways to work with coding agents. Some use their native language because it helps them describe a problem more naturally. Some speak to the agent instead of typing. Some begin with a rough idea and refine it through conversation. Others prepare a detailed specification before the first request.
+
+These differences are interesting because the interface is no longer only code. It is language, dialogue, review, and iteration.
+
+That creates new signals in an interview. Does the candidate know what context is missing? Can they move between a high-level goal and precise technical instructions? Are they comfortable saying that an answer is plausible but unverified? Do they notice when an agent confidently invents an API or silently changes a requirement?
+
+I am often more interested in those moments than in how quickly the first version appears.
+
+## Fundamentals Matter More, Not Less
+
+Coding agents have not reduced the value of computer science fundamentals, design principles, or experience building systems. They have made those foundations easier to see.
+
+If a candidate does not understand data structures, concurrency, transactions, security boundaries, distributed failure, or basic system design, they may not recognize when generated code is subtly wrong. If they have never maintained a system, they may optimize for code that looks elegant today while creating operational problems for the next team.
+
+The agent can produce options. The engineer still has to judge them.
+
+That judgment comes from a combination of knowledge and experience:
+
+- knowing the fundamentals well enough to question the output
+- understanding design principles without applying them mechanically
+- recognizing failure modes from systems that have operated at scale
+- choosing an appropriate level of complexity
+- reading code and documentation with care
+- verifying behavior rather than trusting presentation
+- communicating decisions so that other people can review and maintain the work
+
+In an AI-assisted environment, speed without judgment can create more code and more risk at the same time.
+
+## What I Look For Now
+
+My current interview approach combines the strongest parts of each stage.
+
+I still ask for the story of a real problem. It gives me evidence of depth, ownership, resilience, and learning.
+
+I still use a practical build-and-design exercise. It creates an artifact around which we can discuss data models, interfaces, extensibility, testing, operations, and tradeoffs.
+
+And now I allow—and want to observe—the use of coding agents. I want to see how the candidate frames the task, works through ambiguity, reads the output, challenges it, tests it, and improves it.
+
+The evaluation is not "Did the AI produce working code?" It is closer to:
+
+1. Did the candidate understand the problem?
+2. Did they create a sound approach?
+3. Did they use the agent deliberately?
+4. Did they recognize weak or incorrect output?
+5. Did they verify the important behavior?
+6. Can they explain and own the final system?
+
+I also like changing a requirement after the first implementation. Real engineering rarely ends with the first prompt. A new constraint reveals whether the candidate and their tools produced something understandable and adaptable—or only something that happened to work once.
+
+## The Interview Is Becoming A Review Of Judgment
+
+The old interview question was often: **Can this person write the solution?**
+
+The better question became: **Can this person design and build a maintainable solution?**
+
+Now I ask something broader: **Can this person use powerful tools to produce a trustworthy outcome, while knowing what to question and what they remain responsible for?**
+
+This is not a lower bar for engineering. It is a more realistic one.
+
+The best candidates are not necessarily those who type fastest or generate the most code. They are the ones who understand the problem, use the available tools fluently, notice what is missing, and can defend the decisions that remain after the agent has finished talking.
