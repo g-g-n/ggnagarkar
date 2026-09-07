@@ -8,6 +8,7 @@ export interface WritingPost {
   tags: string[];
   image: string;
   imageAlt: string;
+  imageDisplay?: 'compact';
   canonicalPath: string;
   body: string;
   html: string;
@@ -146,6 +147,7 @@ export function getWritingPosts(): WritingPost[] {
         tags: frontmatter.tags as string[],
         image: String(frontmatter.image),
         imageAlt: String(frontmatter.imageAlt),
+        imageDisplay: (frontmatter.imageDisplay === 'compact' ? 'compact' : undefined) as WritingPost['imageDisplay'],
         canonicalPath: `/writing/${slug}`,
         body,
         html: renderMarkdown(body)
