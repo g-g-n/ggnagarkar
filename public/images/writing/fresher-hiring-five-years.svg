@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Five years of fresher hiring at TCS and Infosys</title>
+  <desc id="desc">Reported company-wide fresher hires for fiscal years 2022 to 2026. TCS: over 110,000, over 44,000, no comparable figure reported, 42,000, and over 44,000. Infosys global: 84,782, about 50,000, about 11,900, 15,288, and over 20,000.</desc>
+  <rect width="1200" height="780" fill="#f8fafc"/>
+  <text x="50" y="62" fill="#0f172a" font-family="Arial, sans-serif" font-size="33" font-weight="700">Five years of fresher hiring</text>
+  <text x="50" y="100" fill="#475569" font-family="Arial, sans-serif" font-size="23">Reported company-wide hires; fiscal years end in March</text>
+  <rect x="50" y="122" width="23" height="23" rx="3" fill="#1e3a5f"/>
+  <text x="85" y="142" fill="#334155" font-family="Arial, sans-serif" font-size="23">TCS</text>
+  <rect x="185" y="122" width="23" height="23" rx="3" fill="#0d9488"/>
+  <text x="220" y="142" fill="#334155" font-family="Arial, sans-serif" font-size="23">Infosys (global)</text>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="200" y1="183" x2="200" y2="680"/>
+    <line x1="460" y1="183" x2="460" y2="680"/>
+    <line x1="720" y1="183" x2="720" y2="680"/>
+    <line x1="980" y1="183" x2="980" y2="680"/>
+  </g>
+  <g fill="#64748b" font-family="Arial, sans-serif" font-size="20">
+    <text x="200" y="178" text-anchor="middle">0</text>
+    <text x="460" y="178" text-anchor="middle">40k</text>
+    <text x="720" y="178" text-anchor="middle">80k</text>
+    <text x="980" y="178" text-anchor="middle">120k</text>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#0f172a">
+    <text x="50" y="255">FY2022</text><text x="50" y="355">FY2023</text><text x="50" y="455">FY2024</text><text x="50" y="555">FY2025</text><text x="50" y="655">FY2026</text>
+  </g>
+  <g fill="#1e3a5f">
+    <rect x="200" y="212" width="715" height="25" rx="4"/>
+    <rect x="200" y="312" width="286" height="25" rx="4"/>
+    <rect x="200" y="512" width="273" height="25" rx="4"/>
+    <rect x="200" y="612" width="286" height="25" rx="4"/>
+  </g>
+  <g fill="#0d9488">
+    <rect x="200" y="246" width="551" height="25" rx="4"/>
+    <rect x="200" y="346" width="325" height="25" rx="4"/>
+    <rect x="200" y="446" width="77" height="25" rx="4"/>
+    <rect x="200" y="546" width="99" height="25" rx="4"/>
+    <rect x="200" y="646" width="130" height="25" rx="4"/>
+  </g>
+  <g fill="#1e3a5f" font-family="Arial, sans-serif" font-size="22" font-weight="700">
+    <text x="927" y="233">110k+</text>
+    <text x="498" y="333">44k+</text>
+    <text x="209" y="433" fill="#64748b" font-weight="400">Not reported</text>
+    <text x="485" y="533">42k</text>
+    <text x="498" y="633">44k+</text>
+  </g>
+  <g fill="#0f766e" font-family="Arial, sans-serif" font-size="22" font-weight="700">
+    <text x="763" y="267">84.8k</text>
+    <text x="537" y="367">~50k</text>
+    <text x="289" y="467">~11.9k</text>
+    <text x="311" y="567">15.3k</text>
+    <text x="342" y="667">20k+</text>
+  </g>
+  <line x1="50" y1="701" x2="1150" y2="701" stroke="#cbd5e1"/>
+  <text x="50" y="736" fill="#475569" font-family="Arial, sans-serif" font-size="20">Bars use rounded reported figures. “+” means more than; “~” means approximately.</text>
+  <text x="50" y="763" fill="#475569" font-family="Arial, sans-serif" font-size="20">These are not India-only campus placements or software-developer hires.</text>
+</svg>
