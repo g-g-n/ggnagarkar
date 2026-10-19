@@ -1,0 +1,28 @@
+---
+import CoachLayout from '../../layouts/CoachLayout.astro';
+import profile from '../../data/profile.json';
+---
+<CoachLayout title="Communication Coach Support" path="/communication-coach/support" description="Get help with Communication Coach prompts, exercise feedback, voice practice, progress summaries, and plugin availability.">
+  <p>Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). For help or feedback, email <a href={`mailto:${profile.email}?subject=Communication%20Coach%20support`}>{profile.email}</a>. Support is handled by email; there is no guaranteed response time.</p>
+  <h2>What to include</h2>
+  <ul>
+    <li>The exercise name and whether you used the copyable prompt or the ChatGPT plugin.</li>
+    <li>Your AI service, app or browser, and whether you used chat or voice.</li>
+    <li>A short description of what happened and what you expected.</li>
+    <li>An optional anonymised excerpt. Remove names, credentials, customer details, and confidential workplace information.</li>
+  </ul>
+  <p>Do not send passwords, login codes, payment details, full private conversations, or sensitive recordings. Sending an excerpt is optional; a description is enough to start.</p>
+  <h2>Can anyone install the plugin?</h2>
+  <p>The plugin is currently private. Use the complete prompts on the <a href="/communication-coach">coach page</a> now. Public availability will be shown there once verified. A private plugin link is not a public installation link.</p>
+  <h2>Why does an example change?</h2>
+  <p>“New example” requests a fresh situation with different facts and constraints. “Try again” keeps the same situation for a meaningful revision. In a new chat, paste your previous summary to help avoid earlier examples. The coach cannot guarantee it knows examples from other conversations.</p>
+  <h2>Where is my progress?</h2>
+  <p>It is in the conversation and any summary you keep. Ask for a carry-forward summary before ending a session, then continue that chat or paste the summary into your next one. This version has no publisher-run progress database or team dashboard.</p>
+  <h2>Voice, copying, and reminders</h2>
+  <p>For voice setup and account limits, use the official <a href="https://learn.chatgpt.com/docs/features/voice">ChatGPT</a> or <a href="https://support.claude.com/en/articles/11101966-use-voice-mode">Claude</a> documentation. If automatic copying fails, select the prompt text and copy it manually. If voice is unavailable, practise in chat.</p>
+  <p>Reminders are optional and separate. Use a calendar or <a href="https://learn.chatgpt.com/docs/automations">ChatGPT scheduled tasks</a> where supported. The coach cannot promise notifications without a successfully configured scheduling feature.</p>
+  <h2>Incorrect or unhelpful feedback</h2>
+  <p>Compare feedback with the original brief. Ask the AI to cite the exact passage or your actual words supporting a correction. Report misleading instructions or recurring problems by email. This is an informal practice tool, not a validated assessment.</p>
+  <h2>Privacy requests</h2>
+  <p>For information you sent to support, contact the email above and describe your request. For AI conversations, recordings, account access, or billing, contact your AI provider. GG Nagarkar cannot access or delete your provider-held chat history through this plugin. See the <a href="/communication-coach/privacy">privacy notice</a> and <a href="/communication-coach/terms">terms</a>.</p>
+</CoachLayout>
