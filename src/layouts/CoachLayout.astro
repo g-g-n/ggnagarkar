@@ -1,0 +1,23 @@
+---
+import Layout from './Layout.astro';
+interface Props { title: string; description: string; path: string; }
+const { title, description, path } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.ggnagarkar.com';
+const links = [
+  ['Coach', '/communication-coach'], ['Support', '/communication-coach/support'],
+  ['Privacy', '/communication-coach/privacy'], ['Terms', '/communication-coach/terms']
+];
+---
+<Layout title={`${title} | GG Nagarkar`} description={description} canonicalPath={path}
+  jsonLd={{ '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: `${site}${path}`, author: { '@type': 'Person', name: 'GG Nagarkar', url: `${site}/about` } }}
+  breadcrumbs={[{ name: 'Home', item: `${site}/` }, { name: 'Communication Coach', item: `${site}/communication-coach` }, ...(path === '/communication-coach' ? [] : [{ name: title, item: `${site}${path}` }])]}
+>
+  <article class="card p-5 md:p-8">
+    <nav aria-label="Communication Coach" class="mb-6 flex flex-wrap gap-x-5 gap-y-3 border-b border-slate-200 pb-4 text-sm">
+      {links.map(([label, href]) => <a href={href} aria-current={path === href ? 'page' : undefined} class:list={['underline underline-offset-4', { 'font-bold text-slate-950': path === href }]}>{label}</a>)}
+    </nav>
+    <h1 class="max-w-3xl text-3xl font-semibold leading-tight text-slate-950 md:text-4xl">{title}</h1>
+    <p class="mt-3 max-w-3xl leading-7 text-slate-700">{description}</p>
+    <div class="article-body max-w-3xl"><slot /></div>
+  </article>
+</Layout>

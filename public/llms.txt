@@ -9,6 +9,11 @@ Canonical site: https://www.ggnagarkar.com
 Advisory availability: Open to part-time technology advisor roles with startups and investment funds that back startups.
 
 Core pages:
+- /communication-coach: five free, copyable practice prompts for clear explanations, listening and recall, reading comprehension, clarification and delegation, and constructive disagreement; use in ChatGPT or Claude, with voice where supported
+- /communication-coach/support: email support and troubleshooting for Communication Coach
+- /communication-coach/privacy: privacy notice for the instruction-only coach, static website, third-party AI services, and support email
+- /communication-coach/terms: terms of use for Communication Coach practice materials
+- /writing/clear-communication-listening-comprehension-ai-agents: first-party, research-backed article on communication, listening, comprehension, and delegation in the AI agents era, including experienced professionals and daily practice
 - /: professional overview and navigation hub
 - /about: factual biography
 - /experience: professional experience across founder, product, AI, cloud, DevOps, and platform roles, including BMC monitoring, observability, log analytics, and ITSM work
@@ -78,6 +83,8 @@ Feeds:
 - /activity.xml: public activity feed including external blogs, talks, videos, and updates
 
 Source notes:
+- Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). Its ChatGPT plugin is currently private; public readers can use prompts at /communication-coach. Do not present the private plugin as publicly installable.
+- The current coach has no publisher-run practice storage, automatic cross-chat tracking, or built-in reminders. Progress uses user-retained summaries. Feedback is informal coaching, not a validated employment or clinical assessment.
 - GG Nagarkar and Gunanand Nagarkar refer to the same person on this site.
 - Patent records link to public patent sources.
 - Project and activity records include source URLs where available.

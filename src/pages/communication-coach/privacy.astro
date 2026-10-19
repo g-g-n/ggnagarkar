@@ -1,0 +1,23 @@
+---
+import CoachLayout from '../../layouts/CoachLayout.astro';
+import profile from '../../data/profile.json';
+---
+<CoachLayout title="Communication Coach Privacy Notice" path="/communication-coach/privacy" description="How the instruction-only Communication Coach, its website, AI providers, and support email handle information.">
+  <p>Last updated: 19 October 2026. This notice covers Communication Coach and its pages on ggnagarkar.com. Publisher and privacy contact: GG Nagarkar (Gunanand Nagarkar), Pune, India, at <a href={`mailto:${profile.email}`}>{profile.email}</a>.</p>
+  <h2>Practice conversations</h2>
+  <p>The current coach consists of instructions and prompts. It has no publisher-run backend, account system, progress database, payment system, or analytics integration. It does not send your practice answers, recordings, transcripts, or progress summaries to a server operated by GG Nagarkar.</p>
+  <p>When you use a prompt or the plugin in an AI service, that service processes your conversation. The plugin does not give its publisher access to your conversations. If you choose to send an excerpt to support, the publisher receives that excerpt as explained below.</p>
+  <h2>Your AI provider</h2>
+  <p>ChatGPT, Claude, and any other service you choose have their own account, recording, retention, training, security, and deletion policies. Those settings are not controlled by this coach. Employer-managed accounts may also be subject to your organisation’s policies.</p>
+  <p>Review <a href="https://openai.com/policies/privacy-policy/">OpenAI’s privacy policy</a>, <a href="https://privacy.claude.com/en/">Anthropic’s Privacy Center</a>, and the settings applicable to your account. Use the provider’s controls for chat-history or recording deletion. Deleting a local progress summary does not delete a provider’s copy.</p>
+  <h2>This website</h2>
+  <p>The coach pages are static pages hosted on GitHub Pages. They do not contain a practice submission form or publisher-added advertising, analytics, tracking cookies, or local-storage progress tracking. The copy button writes the selected prompt to your clipboard only after you click it; it does not read your clipboard.</p>
+  <p>Hosting and delivery providers may process technical request information such as IP addresses and browser details to serve and secure the site. Those records are governed by their policies; the absence of publisher-added analytics does not mean no technical data is processed. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p>
+  <h2>Support messages</h2>
+  <p>If you email support, GG Nagarkar receives your email address, message, and any attachments you choose to send. These are used to reply, investigate the reported issue, and handle your request. Email providers process delivery and storage under their own terms and settings. Support messages are separate from the AI practice session.</p>
+  <p>Send only the information needed to explain the issue, preferably a fictional or anonymised example. For access, correction, or deletion requests concerning support messages, email the contact above. There is no fixed deletion schedule stated for support correspondence; ask about a specific message if you need its retention clarified. Applicable legal obligations and email-provider copies may affect deletion. The publisher cannot delete records held independently by your AI or hosting provider.</p>
+  <h2>Sharing and your choices</h2>
+  <p>This version has no publisher-run practice dataset to sell, publish, or share with employers. Keeping a progress summary, sending support excerpts, and sharing practice results with someone else are your choices. Do not put credentials, private customer information, sensitive personal information, or confidential company material into exercises.</p>
+  <h2>Changes</h2>
+  <p>If the coach adds publisher-run storage, analytics, accounts, or integrations, this notice will need to describe those practices before they are introduced. Check the date above when returning to the page. For questions, use <a href="/communication-coach/support">support</a>. See also the <a href="/communication-coach/terms">terms of use</a>.</p>
+</CoachLayout>

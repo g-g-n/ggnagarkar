@@ -1,0 +1,63 @@
+---
+import CoachLayout from '../../layouts/CoachLayout.astro';
+import { coach, exercises } from '../../data/communication-coach';
+---
+<CoachLayout title="Communication Coach" path={coach.path} description="Five guided exercises to practise clear explanations, listening, reading comprehension, clarification, and constructive disagreement in ChatGPT or Claude.">
+  <p>Created by <a href="/about">GG Nagarkar</a> for working professionals at any career stage. Practise for five or ten minutes, get specific feedback, and try again.</p>
+  <section aria-labelledby="start-heading">
+    <h2 id="start-heading">Start practising</h2>
+    {coach.publicPluginUrl ? <p><a href={coach.publicPluginUrl}>Open Communication Coach in ChatGPT</a>. Install the plugin if prompted, then ask for five-minute practice.</p> : <p><strong>The ChatGPT plugin is currently private.</strong> You can practise now using the complete prompts below. A public plugin link will appear here once public access has been verified.</p>}
+    <ol>
+      <li>Choose an exercise below and copy its prompt.</li>
+      <li>Open <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT</a> or <a href="https://claude.ai/" target="_blank" rel="noreferrer">Claude</a>, paste the prompt into a new chat, and send it.</li>
+      <li>Respond in chat, or use your app’s voice feature when available. Ask for a retry before looking at a suggested answer.</li>
+    </ol>
+    <p>For spoken practice, see the official <a href="https://learn.chatgpt.com/docs/features/voice">ChatGPT Voice guide</a> or <a href="https://support.claude.com/en/articles/11101966-use-voice-mode">Claude voice guide</a>. Availability and limits depend on the service, account, and platform. In text-only use, the listening exercise becomes reading and recall practice.</p>
+    <p>The prompts are free to use. Your AI provider may require an account or paid plan for some features. This page does not connect to your account or submit your answers.</p>
+  </section>
+  <section aria-labelledby="exercises-heading">
+    <h2 id="exercises-heading">Choose an exercise</h2>
+    <p><strong>“New example”</strong> changes the scenario. <strong>“Try again”</strong> keeps the facts the same so you can improve your answer. Carry your progress summary into a new chat to help avoid repeating earlier examples; uniqueness across all past sessions is not guaranteed.</p>
+    <div class="mt-5 divide-y divide-slate-200">
+      {exercises.map((exercise, index) => <details id={exercise.id} class="py-4">
+        <summary class="cursor-pointer rounded-lg py-1 font-semibold text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{index + 1}. {exercise.name}</summary>
+        <p>{exercise.skill}</p>
+        <label for={`prompt-${exercise.id}`} class="mt-4 block text-sm font-medium text-slate-700">Copy this prompt into ChatGPT or Claude</label>
+        <textarea id={`prompt-${exercise.id}`} readonly rows={10} class="mt-2 block w-full resize-y rounded-lg border border-slate-300 bg-slate-50 p-3 text-sm leading-6 text-slate-800">{exercise.prompt}</textarea>
+        <button type="button" data-copy-prompt={`prompt-${exercise.id}`} class="mt-3 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Copy prompt</button>
+      </details>)}
+    </div>
+    <p id="copy-status" role="status" aria-live="polite" class="min-h-7 text-sm text-slate-600"></p>
+  </section>
+  <h2>A ten-minute daily routine</h2>
+  <ol>
+    <li>Spend two minutes reading, listening, or preparing the situation.</li>
+    <li>Use three minutes to respond without looking at an answer.</li>
+    <li>Review the feedback against the original for two minutes.</li>
+    <li>Repeat for three minutes with one deliberate improvement.</li>
+  </ol>
+  <h2>Keep your progress</h2>
+  <p>At the end, ask: <strong>“Give me a short carry-forward summary with today’s exercise, scenario, one strength, one priority, and the next exercise to try.”</strong> Continue the same conversation or paste that summary into your next one.</p>
+  <p>The current coach has no publisher-run database, automatic cross-chat tracking, team dashboard, or built-in reminders. If you want a reminder, set one separately in your calendar or in ChatGPT’s <a href="https://learn.chatgpt.com/docs/automations">scheduled tasks</a> where supported. Installing the plugin does not create a schedule.</p>
+  <h2>What the feedback means</h2>
+  <p>Look for an explicit request, accurate recall of constraints, useful clarification, and fewer unsupported assumptions. AI feedback can be mistaken: compare it with your original brief. Ratings are informal coaching judgments, not validated assessments or evidence for hiring and promotion decisions.</p>
+  <p>Use fictional or anonymised situations. Your chat is handled by the AI service you choose under its policies. <a href="/communication-coach/privacy">Read the privacy notice</a> and <a href="/communication-coach/terms">terms of use</a>.</p>
+  <p>For the research, examples, and management perspective, read <a href={coach.articlePath}>why communication, listening, and comprehension matter in the AI agents era</a>. For help, visit <a href="/communication-coach/support">support</a>.</p>
+</CoachLayout>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-prompt]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const field = document.getElementById(button.dataset.copyPrompt ?? '') as HTMLTextAreaElement | null;
+      const status = document.getElementById('copy-status');
+      if (!field || !status) return;
+      try {
+        await navigator.clipboard.writeText(field.value);
+        status.textContent = 'Prompt copied. Paste it into your AI chat to begin.';
+      } catch {
+        field.focus();
+        field.select();
+        status.textContent = 'Automatic copy is unavailable. The prompt is selected; copy it using your browser or keyboard.';
+      }
+    });
+  });
+</script>
