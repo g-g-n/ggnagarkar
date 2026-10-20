@@ -1,0 +1,23 @@
+---
+import { exercises, practiceUrl } from '../data/communication-coach';
+---
+<section id="quick-practice-links" aria-label="Quick practice links" class="mt-8">
+  <h2>Quick practice links</h2>
+  <p>Choose an exercise below. Review the prompt on the <a href="/communication-coach#exercises-heading">coach page</a> if you wish, then open your chosen service. Send the prompt if it is still in the message box, start voice when available, and say <strong>“Ready”</strong>. For chat, type “Ready”.</p>
+  <div class="mt-4 overflow-x-auto rounded-lg border border-slate-200">
+    <table class="w-full border-collapse text-left text-sm leading-6">
+      <caption class="sr-only">Five communication exercises with direct ChatGPT and Claude practice links</caption>
+      <thead class="bg-slate-50 text-slate-900">
+        <tr><th scope="col" class="px-3 py-3">Exercise</th><th scope="col" class="px-3 py-3">ChatGPT</th><th scope="col" class="px-3 py-3">Claude</th></tr>
+      </thead>
+      <tbody class="divide-y divide-slate-200">
+        {exercises.map((exercise) => <tr>
+          <th scope="row" class="px-3 py-3 font-medium text-slate-800">{exercise.name}</th>
+          <td class="px-3 py-3"><a href={practiceUrl('chatgpt', exercise.prompt)} target="_blank" rel="noopener noreferrer" aria-label={`Practise ${exercise.name} in ChatGPT (opens a new tab)`}>Practise</a></td>
+          <td class="px-3 py-3"><a href={practiceUrl('claude', exercise.prompt)} target="_blank" rel="noopener noreferrer" aria-label={`Practise ${exercise.name} in Claude (opens a new tab)`}>Practise</a></td>
+        </tr>)}
+      </tbody>
+    </table>
+  </div>
+  <p>Links pass the public instructions to the chosen service, which may send them automatically. They do not start voice. If sign-in loses the prompt, use <a href="/communication-coach#exercises-heading">Copy prompt on the coach page</a>.</p>
+</section>

@@ -1,6 +1,7 @@
 ---
 import CoachLayout from '../../layouts/CoachLayout.astro';
-import { coach, exercises } from '../../data/communication-coach';
+import { coach, exercises, practiceUrl } from '../../data/communication-coach';
+import CoachPracticeLinks from '../../components/CoachPracticeLinks.astro';
 ---
 <CoachLayout title="Communication Coach" path={coach.path} description="Five guided exercises to practise clear explanations, listening, reading comprehension, clarification, and constructive disagreement in ChatGPT or Claude.">
   <p>Created by <a href="/about">GG Nagarkar</a> for working professionals at any career stage. Practise for five or ten minutes, get specific feedback, and try again.</p>
@@ -8,12 +9,13 @@ import { coach, exercises } from '../../data/communication-coach';
     <h2 id="start-heading">Start practising</h2>
     {coach.publicPluginUrl ? <p><a href={coach.publicPluginUrl}>Open Communication Coach in ChatGPT</a>. Install the plugin if prompted, then ask for five-minute practice.</p> : <p><strong>The ChatGPT plugin is currently private.</strong> You can practise now using the complete prompts below. A public plugin link will appear here once public access has been verified.</p>}
     <ol>
-      <li>Choose an exercise below and copy its prompt.</li>
-      <li>Open <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT</a> or <a href="https://claude.ai/" target="_blank" rel="noreferrer">Claude</a>, paste the prompt into a new chat, and send it.</li>
-      <li>Respond in chat, or use your app’s voice feature when available. Ask for a retry before looking at a suggested answer.</li>
+      <li>Review an exercise prompt below, then select <strong>Practise in ChatGPT</strong> or <strong>Practise in Claude</strong> to open it in a new tab.</li>
+      <li>If the prompt is still in the message box, press Send. Start voice mode when available and say <strong>“Ready”</strong>. The prompt asks the coach to wait before beginning. For text-only practice, type “Ready” instead.</li>
+      <li>If the prompt is missing after sign-in or opening an app, use <strong>Copy prompt</strong> below, paste it into your chat, and send it.</li>
     </ol>
     <p>For spoken practice, see the official <a href="https://learn.chatgpt.com/docs/features/voice">ChatGPT Voice guide</a> or <a href="https://support.claude.com/en/articles/11101966-use-voice-mode">Claude voice guide</a>. Availability and limits depend on the service, account, and platform. In text-only use, the listening exercise becomes reading and recall practice.</p>
-    <p>The prompts are free to use. Your AI provider may require an account or paid plan for some features. This page does not connect to your account or submit your answers.</p>
+    <p>The buttons pass the public prompt to your chosen service. It may fill the message box or send it automatically, depending on the service and session. The links do not start voice. Your service may show a caution about externally supplied prompts.</p>
+    <p>The prompts are free to use. Your AI provider may require an account or paid plan for some features. The link passes the public exercise instructions to your chosen service. This page does not connect to your account or submit your answers.</p>
   </section>
   <section aria-labelledby="exercises-heading">
     <h2 id="exercises-heading">Choose an exercise</h2>
@@ -22,7 +24,11 @@ import { coach, exercises } from '../../data/communication-coach';
       {exercises.map((exercise, index) => <details id={exercise.id} class="py-4">
         <summary class="cursor-pointer rounded-lg py-1 font-semibold text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">{index + 1}. {exercise.name}</summary>
         <p>{exercise.skill}</p>
-        <label for={`prompt-${exercise.id}`} class="mt-4 block text-sm font-medium text-slate-700">Copy this prompt into ChatGPT or Claude</label>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href={practiceUrl('chatgpt', exercise.prompt)} target="_blank" rel="noopener noreferrer" aria-label={`Practise ${exercise.name} in ChatGPT (opens a new tab)`} class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold !text-white !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Practise in ChatGPT</a>
+          <a href={practiceUrl('claude', exercise.prompt)} target="_blank" rel="noopener noreferrer" aria-label={`Practise ${exercise.name} in Claude (opens a new tab)`} class="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold !text-slate-900 !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Practise in Claude</a>
+        </div>
+        <label for={`prompt-${exercise.id}`} class="mt-4 block text-sm font-medium text-slate-700">Review the prompt or copy it as a fallback</label>
         <textarea id={`prompt-${exercise.id}`} readonly rows={10} class="mt-2 block w-full resize-y rounded-lg border border-slate-300 bg-slate-50 p-3 text-sm leading-6 text-slate-800">{exercise.prompt}</textarea>
         <button type="button" data-copy-prompt={`prompt-${exercise.id}`} class="mt-3 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Copy prompt</button>
       </details>)}
@@ -43,6 +49,7 @@ import { coach, exercises } from '../../data/communication-coach';
   <p>Look for an explicit request, accurate recall of constraints, useful clarification, and fewer unsupported assumptions. AI feedback can be mistaken: compare it with your original brief. Ratings are informal coaching judgments, not validated assessments or evidence for hiring and promotion decisions.</p>
   <p>Use fictional or anonymised situations. Your chat is handled by the AI service you choose under its policies. <a href="/communication-coach/privacy">Read the privacy notice</a> and <a href="/communication-coach/terms">terms of use</a>.</p>
   <p>For the research, examples, and management perspective, read <a href={coach.articlePath}>why communication, listening, and comprehension matter in the AI agents era</a>. For help, visit <a href="/communication-coach/support">support</a>.</p>
+  <CoachPracticeLinks />
 </CoachLayout>
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-copy-prompt]').forEach((button) => {
