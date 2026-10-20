@@ -3,10 +3,12 @@ import CoachLayout from '../../layouts/CoachLayout.astro';
 import profile from '../../data/profile.json';
 ---
 <CoachLayout title="Communication Coach Privacy Notice" path="/communication-coach/privacy" description="How the instruction-only Communication Coach, its website, AI providers, and support email handle information.">
-  <p>Last updated: 19 October 2026. This notice covers Communication Coach and its pages on ggnagarkar.com. Publisher and privacy contact: GG Nagarkar (Gunanand Nagarkar), Pune, India, at <a href={`mailto:${profile.email}`}>{profile.email}</a>.</p>
+  <p>Last updated: 20 October 2026. This notice covers Communication Coach and its pages on ggnagarkar.com. Publisher and privacy contact: GG Nagarkar (Gunanand Nagarkar), Pune, India, at <a href={`mailto:${profile.email}`}>{profile.email}</a>.</p>
   <h2>Practice conversations</h2>
   <p>The current coach consists of instructions and prompts. It has no publisher-run backend, account system, progress database, payment system, or analytics integration. It does not send your practice answers, recordings, transcripts, or progress summaries to a server operated by GG Nagarkar.</p>
   <p>When you use a prompt or the plugin in an AI service, that service processes your conversation. The plugin does not give its publisher access to your conversations. If you choose to send an excerpt to support, the publisher receives that excerpt as explained below.</p>
+  <h2>Prefilled exercise links</h2>
+  <p>When you select a ChatGPT or Claude practice button, the public exercise prompt is included in the destination URL so the service can fill its message box. The prompt may appear in browser history and be processed by the destination service. These links contain only the published instructions, not your answers or progress. Review the published prompt before opening the link. The destination service may prefill or automatically send it; the website does not control that behaviour. Copy prompt is available if you prefer to paste it manually.</p>
   <h2>Your AI provider</h2>
   <p>ChatGPT, Claude, and any other service you choose have their own account, recording, retention, training, security, and deletion policies. Those settings are not controlled by this coach. Employer-managed accounts may also be subject to your organisation’s policies.</p>
   <p>Review <a href="https://openai.com/policies/privacy-policy/">OpenAI’s privacy policy</a>, <a href="https://privacy.claude.com/en/">Anthropic’s Privacy Center</a>, and the settings applicable to your account. Use the provider’s controls for chat-history or recording deletion. Deleting a local progress summary does not delete a provider’s copy.</p>

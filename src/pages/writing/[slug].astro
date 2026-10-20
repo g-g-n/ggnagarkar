@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import { getWritingPosts, type WritingPost } from '../../lib/writing';
 import profile from '../../data/profile.json';
+import CoachPracticeLinks from '../../components/CoachPracticeLinks.astro';
+import { coach } from '../../data/communication-coach';
 
 export function getStaticPaths() {
   return getWritingPosts().map((post) => ({
@@ -70,6 +72,7 @@ const jsonLd = {
       </div>
       <ShareLinks title={post.title} url={`${site}${post.canonicalPath}`} />
       <div class="article-body mt-8 max-w-3xl" set:html={post.html} />
+      {post.canonicalPath === coach.articlePath && <div class="article-body max-w-3xl"><CoachPracticeLinks /></div>}
     </div>
   </article>
 </Layout>

@@ -9,7 +9,7 @@ Canonical site: https://www.ggnagarkar.com
 Advisory availability: Open to part-time technology advisor roles with startups and investment funds that back startups.
 
 Core pages:
-- /communication-coach: five free, copyable practice prompts for clear explanations, listening and recall, reading comprehension, clarification and delegation, and constructive disagreement; use in ChatGPT or Claude, with voice where supported
+- /communication-coach: five free practice prompts with prefilled ChatGPT/Claude links and a copy fallback for clear explanations, listening and recall, reading comprehension, clarification and delegation, and constructive disagreement; use in ChatGPT or Claude, with voice where supported
 - /communication-coach/support: email support and troubleshooting for Communication Coach
 - /communication-coach/privacy: privacy notice for the instruction-only coach, static website, third-party AI services, and support email
 - /communication-coach/terms: terms of use for Communication Coach practice materials

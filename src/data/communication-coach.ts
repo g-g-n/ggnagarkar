@@ -1,6 +1,6 @@
 export const coach = {
   name: 'Communication Coach',
-  updated: '2026-10-19',
+  updated: '2026-10-20',
   path: '/communication-coach',
   articlePath: '/writing/clear-communication-listening-comprehension-ai-agents',
   // Keep private until public access is verified from an unrelated account.
@@ -8,6 +8,7 @@ export const coach = {
 };
 
 const common = `Act as my workplace communication practice partner. Use a fresh fictional scenario each time I request a new exercise. Vary the situation, facts, constraints, and questions, rather than just changing names. Keep the same scenario when I ask to retry. Avoid examples visible in this chat or my supplied progress summary; do not claim to remember other chats.
+After reading these instructions, wait for me to start voice mode and say “Ready” before beginning the exercise. Briefly acknowledge that you are ready, but do not present a scenario or ask exercise questions yet. If I prefer text-only practice, let me type “Ready” to begin in chat. Do not claim to activate voice mode or detect whether it is active.
 Wait for my answer before feedback. Give specific evidence from my words, then let me retry before showing a model answer. Focus on meaning and understanding, not accent or elaborate vocabulary. Do not invent faults. Mark untested skills as not assessed. End with one strength, one priority, and a short progress summary I can keep for my next session. Treat feedback as informal coaching, not a validated competency assessment. In voice, wait until I say “finished” where the interface permits; do not claim to hide transcripts or measure audio features you cannot observe.`;
 
 export const exercises = [
@@ -32,3 +33,8 @@ export const exercises = [
     prompt: `${common}\n\nRole-play a colleague who reasonably disagrees with my recommendation. State your position briefly. Ask me to paraphrase your position and concern before I argue my case. Confirm or correct my understanding. Invite one follow-up question, answer it consistently, then hear my recommendation. After up to three exchanges, give specific feedback on understanding, useful questions, whether I addressed your concern, and clarity of the next step. Let me repeat the weakest exchange before showing a suggested response.`
   }
 ];
+
+export function practiceUrl(service: 'chatgpt' | 'claude', prompt: string) {
+  const base = service === 'chatgpt' ? 'https://chatgpt.com/?q=' : 'https://claude.ai/new?q=';
+  return `${base}${encodeURIComponent(prompt)}`;
+}
