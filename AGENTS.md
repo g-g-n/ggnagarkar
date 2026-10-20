@@ -7,7 +7,7 @@ This repo is the pre-production Astro website for GG Nagarkar. Treat changes as 
 - Static Astro site with Tailwind CSS and GitHub Pages deployment.
 - No backend and no client-side framework. First-party writing uses `src/content/writing/*.mdx`.
 - Primary pages: `/`, `/about`, `/experience`, `/projects`, `/built`, `/patents`, `/writing`, `/contact`, `/facts`.
-- Communication Coach pages: `/communication-coach`, `/communication-coach/support`, `/communication-coach/privacy`, `/communication-coach/terms`. Preserve these paths and keep availability and data-handling claims consistent with the instruction-only plugin.
+- Communication Coach pages: `/communication-coach`, `/communication-coach/support`, `/communication-coach/privacy`, `/communication-coach/terms`. Preserve these paths and keep availability and data-handling claims consistent with the prompt-based coach.
 - Built detail pages are generated at `/built/{slug}` from `src/data/built.json`.
 - First-party writing pages are generated at `/writing/{slug}` from `src/content/writing/*.mdx`.
 - Feed endpoint: `/activity.xml`.
@@ -93,7 +93,7 @@ Expected pre-prod output:
 
 - Build emits the primary HTML pages plus one built detail page per `src/data/built.json` item and one writing detail page per `src/content/writing/*.mdx` item.
 - `/activity.xml` exists.
-- The four `/communication-coach` pages and their sitemap entries exist. A public plugin CTA must only be enabled after public access is verified; copyable prompts remain available independently.
+- The four `/communication-coach` pages and their sitemap entries exist. The coach uses direct ChatGPT/Claude practice links and copyable prompts; keep access instructions focused on these options.
 - `/activity` and `/rss.xml` should 404 unless intentionally reintroduced.
 - `dist/sitemap-index.xml` and `dist/sitemap-0.xml` must exist and list the expected page URLs.
 - `check:links` and `check:seo` must pass.

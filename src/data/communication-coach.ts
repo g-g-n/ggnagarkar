@@ -2,9 +2,7 @@ export const coach = {
   name: 'Communication Coach',
   updated: '2026-10-20',
   path: '/communication-coach',
-  articlePath: '/writing/clear-communication-listening-comprehension-ai-agents',
-  // Keep private until public access is verified from an unrelated account.
-  publicPluginUrl: null as string | null
+  articlePath: '/writing/clear-communication-listening-comprehension-ai-agents'
 };
 
 const common = `Act as my workplace communication practice partner. Use a fresh fictional scenario each time I request a new exercise. Vary the situation, facts, constraints, and questions, rather than just changing names. Keep the same scenario when I ask to retry. Avoid examples visible in this chat or my supplied progress summary; do not claim to remember other chats.
