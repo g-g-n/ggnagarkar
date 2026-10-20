@@ -57,7 +57,7 @@ This repo is the pre-production Astro website for GG Nagarkar. Treat changes as 
 - Keep canonical paths aligned with existing page URLs; do not change canonical paths for existing pages.
 - Update `public/llms.txt` whenever the canonical page set, entities, feeds, or current focus changes.
 - Update `public/robots.txt` if the production domain or sitemap path changes, and verify the rendered sitemap files.
-- Social preview image defaults to `/brand/gg-logo-horizontal.png`; blog/article-specific images may replace it only when they are production-ready, correctly dimensioned, legible, raster PNG/JPG assets, and shareable on LinkedIn, X/Twitter, and common link-preview surfaces. When adding or updating a first-party article, verify the built HTML emits absolute `og:image` and `twitter:image` URLs that point to the raster social image.
+- Social preview image defaults to `/brand/gg-social-card.png`; blog/article-specific images may replace it only when they are production-ready, correctly dimensioned, legible, raster PNG/JPG assets, and shareable on LinkedIn, X/Twitter, and common link-preview surfaces. When adding or updating a first-party article, verify the built HTML emits absolute `og:image` and `twitter:image` URLs that point to the raster social image.
 
 ## Design Standards
 
