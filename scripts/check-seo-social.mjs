@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
+import sharp from 'sharp';
 
 const distDir = join(process.cwd(), 'dist');
 const requiredMetaNames = ['description', 'robots', 'twitter:card', 'twitter:title', 'twitter:description', 'twitter:image'];
@@ -40,6 +41,7 @@ if (!existsSync(distDir)) {
 
 const failures = [];
 const htmlFiles = collectHtmlFiles(distDir);
+const checkedImages = new Set();
 
 for (const file of htmlFiles) {
   const html = readFileSync(file, 'utf8');
@@ -68,6 +70,29 @@ for (const file of htmlFiles) {
   for (const property of requiredMetaProperties) {
     if (!hasMetaProperty(html, property)) {
       failures.push(`${label}: missing meta property="${property}"`);
+    }
+  }
+
+  for (const key of ['og:image', 'twitter:image']) {
+    const image = html.match(new RegExp(`<meta\\s+[^>]*(?:property|name)=["']${key}["'][^>]*content=["']([^"']+)["']`, 'i'))?.[1];
+    if (!image || !image.startsWith('https://')) {
+      failures.push(`${label}: ${key} must be an absolute HTTPS URL`);
+      continue;
+    }
+    const url = new URL(image);
+    if (url.origin !== new URL(canonical).origin || checkedImages.has(url.pathname)) continue;
+    checkedImages.add(url.pathname);
+    const imagePath = join(distDir, decodeURIComponent(url.pathname));
+    try {
+      const metadata = await sharp(imagePath).metadata();
+      // Older articles still use SVG previews. Keep their readability check without
+      // making this image repair a migration of unrelated article artwork.
+      if (metadata.format === 'svg') continue;
+      if (!['png', 'jpeg'].includes(metadata.format) || metadata.width < 1200 || metadata.height < 630) {
+        failures.push(`${label}: ${key} must reference a PNG/JPG image at least 1200×630`);
+      }
+    } catch (error) {
+      failures.push(`${label}: ${key} image cannot be read: ${error.message}`);
     }
   }
 }
