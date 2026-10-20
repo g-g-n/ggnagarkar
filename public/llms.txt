@@ -11,7 +11,7 @@ Advisory availability: Open to part-time technology advisor roles with startups 
 Core pages:
 - /communication-coach: five free practice prompts with prefilled ChatGPT/Claude links and a copy fallback for clear explanations, listening and recall, reading comprehension, clarification and delegation, and constructive disagreement; use in ChatGPT or Claude, with voice where supported
 - /communication-coach/support: email support and troubleshooting for Communication Coach
-- /communication-coach/privacy: privacy notice for the instruction-only coach, static website, third-party AI services, and support email
+- /communication-coach/privacy: privacy notice for the prompt-based coach, static website, third-party AI services, and support email
 - /communication-coach/terms: terms of use for Communication Coach practice materials
 - /writing/clear-communication-listening-comprehension-ai-agents: first-party, research-backed article on communication, listening, comprehension, and delegation in the AI agents era, including experienced professionals and daily practice
 - /: professional overview and navigation hub
@@ -83,7 +83,7 @@ Feeds:
 - /activity.xml: public activity feed including external blogs, talks, videos, and updates
 
 Source notes:
-- Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). Its ChatGPT plugin is currently private; public readers can use prompts at /communication-coach. Do not present the private plugin as publicly installable.
+- Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). Readers can use direct ChatGPT/Claude practice links or copy the prompts at /communication-coach; no separate coach installation is required.
 - The current coach has no publisher-run practice storage, automatic cross-chat tracking, or built-in reminders. Progress uses user-retained summaries. Feedback is informal coaching, not a validated employment or clinical assessment.
 - GG Nagarkar and Gunanand Nagarkar refer to the same person on this site.
 - Patent records link to public patent sources.

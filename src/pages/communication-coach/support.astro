@@ -2,18 +2,18 @@
 import CoachLayout from '../../layouts/CoachLayout.astro';
 import profile from '../../data/profile.json';
 ---
-<CoachLayout title="Communication Coach Support" path="/communication-coach/support" description="Get help with Communication Coach prompts, exercise feedback, voice practice, progress summaries, and plugin availability.">
+<CoachLayout title="Communication Coach Support" path="/communication-coach/support" description="Get help with Communication Coach prompts, exercise feedback, voice practice, and progress summaries.">
   <p>Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). For help or feedback, email <a href={`mailto:${profile.email}?subject=Communication%20Coach%20support`}>{profile.email}</a>. Support is handled by email; there is no guaranteed response time.</p>
   <h2>What to include</h2>
   <ul>
-    <li>The exercise name and whether you used the copyable prompt or the ChatGPT plugin.</li>
+    <li>The exercise name and whether you used a practice button or copied the prompt.</li>
     <li>Your AI service, app or browser, and whether you used chat or voice.</li>
     <li>A short description of what happened and what you expected.</li>
     <li>An optional anonymised excerpt. Remove names, credentials, customer details, and confidential workplace information.</li>
   </ul>
   <p>Do not send passwords, login codes, payment details, full private conversations, or sensitive recordings. Sending an excerpt is optional; a description is enough to start.</p>
-  <h2>Can anyone install the plugin?</h2>
-  <p>The plugin is currently private. Use the complete prompts on the <a href="/communication-coach">coach page</a> now. Public availability will be shown there once verified. A private plugin link is not a public installation link.</p>
+  <h2>How do I start?</h2>
+  <p>Choose an exercise on the <a href="/communication-coach">coach page</a>, then use its ChatGPT or Claude button, or copy the prompt into your preferred AI chat. No separate coach account or installation is needed.</p>
   <h2>Why does an example change?</h2>
   <p>“New example” requests a fresh situation with different facts and constraints. “Try again” keeps the same situation for a meaningful revision. In a new chat, paste your previous summary to help avoid earlier examples. The coach cannot guarantee it knows examples from other conversations.</p>
   <h2>Where is my progress?</h2>
@@ -24,5 +24,5 @@ import profile from '../../data/profile.json';
   <h2>Incorrect or unhelpful feedback</h2>
   <p>Compare feedback with the original brief. Ask the AI to cite the exact passage or your actual words supporting a correction. Report misleading instructions or recurring problems by email. This is an informal practice tool, not a validated assessment.</p>
   <h2>Privacy requests</h2>
-  <p>For information you sent to support, contact the email above and describe your request. For AI conversations, recordings, account access, or billing, contact your AI provider. GG Nagarkar cannot access or delete your provider-held chat history through this plugin. See the <a href="/communication-coach/privacy">privacy notice</a> and <a href="/communication-coach/terms">terms</a>.</p>
+  <p>For information you sent to support, contact the email above and describe your request. For AI conversations, recordings, account access, or billing, contact your AI provider. GG Nagarkar cannot access or delete your provider-held chat history through this website. See the <a href="/communication-coach/privacy">privacy notice</a> and <a href="/communication-coach/terms">terms</a>.</p>
 </CoachLayout>
