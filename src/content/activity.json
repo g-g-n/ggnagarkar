@@ -1,5 +1,20 @@
 [
   {
+    "title": "How I Work With AI Agents for Design and Coding",
+    "type": "blog",
+    "date": "2026-11-06",
+    "source": "GG Nagarkar",
+    "summary": "Personal practices for working with coding agents: plan and decision reviews, open questions, UI walkthroughs, data modeling, alternatives, and mandatory unit and integration tests.",
+    "url": "/writing/how-i-work-with-ai-agents-for-design-and-coding",
+    "image": "/images/writing/ai-agent-design-coding-practices.png",
+    "tags": [
+      "AI Coding Agents",
+      "Software Engineering",
+      "System Design",
+      "Testing"
+    ]
+  },
+  {
     "title": "Clear Communication Matters More in the AI Agents Era",
     "type": "blog",
     "date": "2026-10-19",

@@ -1,0 +1,136 @@
+---
+title: "How I Work With AI Agents for Design and Coding"
+metaTitle: "My AI Agent Design and Coding Practices | GG Nagarkar"
+description: "Practical lessons from working with AI coding agents: review plans, discuss decisions, surface open questions, walk through the UI, and verify behavior with tests."
+date: "2026-11-06"
+author: "GG Nagarkar"
+tags: ["AI Coding Agents", "Software Engineering", "System Design", "Testing"]
+image: "/images/writing/ai-agent-design-coding-practices.png"
+imageAlt: "Editorial illustration of an engineer reviewing connected planning, interface design, data modeling, and testing artifacts."
+---
+
+The longer I work with AI agents on design and coding, the more attention I give to the conversation before and around the code.
+
+An agent can produce a detailed plan, a convincing design document, and a working-looking implementation surprisingly quickly. Reading that output carefully takes time. Understanding the decisions inside it takes more.
+
+That is where much of my work now happens.
+
+I have developed a few habits across product design, architecture discussions, coding, and debugging. They are quite ordinary engineering practices. Working with agents has made me more deliberate about them, because the agent can move much faster than I can review.
+
+## I start with a plan, then review it
+
+My first request is usually some version of: **“Create a plan first. Let us review it before implementation.”**
+
+I want to know what the agent believes the problem is, what already exists, what it proposes to change, and how we will know the change works.
+
+A useful plan gives me something to question. Does this really need a new abstraction? Are we overlooking an existing component? What happens to existing data? Is there a smaller change that solves the problem?
+
+I also want the plan to include verification. “Write tests” is too vague. Which behaviors matter? Which boundaries could break? How will we check the user journey?
+
+For a small fix, this can be a short conversation. For a feature involving storage, permissions, background jobs, and a new interface, it needs more detail. The amount of planning should match the consequences of getting the decision wrong.
+
+**A prompt I use:** “Inspect the existing implementation and propose a plan. Include assumptions, alternatives, affected components, compatibility risks, and verification. Identify the decisions I need to review before you implement.”
+
+## A long document needs a decision walkthrough
+
+A large design document can be difficult to review in one sitting. Every paragraph may look reasonable, while a consequential assumption sits quietly in the middle.
+
+So I ask the agent to walk me through the decisions, one at a time.
+
+Why this data model? Why does this object belong to this workspace? Why store this information at all? What alternative did we reject, and what would make us reconsider?
+
+I am asking for a reviewable explanation: the recommendation, the evidence, the alternatives, and the consequences. That gives me a chance to disagree before the choice spreads into APIs, database tables, screens, and tests.
+
+There is also a difference between understanding a sentence and understanding its implications. “Store the conversation in the current tenant” sounds straightforward. In a workflow that searches across customers, it immediately raises questions about whose data the transcript contains and who can read it later.
+
+**A prompt I use:** “Walk me through each material design decision. For each, explain the options, your recommendation, the tradeoff, and what changes if we choose differently. Pause where my answer affects the design.”
+
+![A decision review moves from the proposed choice through alternatives and consequences to an explicit decision or an open question.](/images/writing/ai-agent-decision-review.svg "A design becomes easier to review when its decisions are visible individually.")
+
+## I explicitly ask what remains undecided
+
+Another question I keep returning to is: **“Are there any open or pending questions and decisions?”**
+
+An agent may fill gaps to keep moving. Some assumptions are harmless and easy to reverse. Others become expensive once implementation starts.
+
+I want to distinguish what we have agreed, what we are assuming, and what still needs an answer. I also want to know which questions block implementation and which can wait.
+
+For example, choosing a button label can often wait. Deciding who owns a shared conversation, or whether deleting an object also deletes its history, may affect the entire design.
+
+The question is useful again after the design changes. A decision that was settled under one requirement may reopen when the scope expands.
+
+**A prompt I use:** “List the remaining questions, assumptions, and pending decisions. For each, say what depends on it, whether it blocks the next step, and what you recommend.”
+
+## If users will see it, I want to experience the flow
+
+When a change affects the UI, a written description is rarely enough for me. I ask for a walkthrough or a visual mockup so I can get a feel for the experience.
+
+Where does the user start? What do they see? What happens after the click? What if there is no data, access is missing, or only part of the operation succeeds?
+
+This often changes my understanding of the data model.
+
+In a cross-customer investigation design discussion, asking where the conversation would live exposed a data-separation concern. Then another question followed: would the user have to remember to select the correct workspace every time? That moved the discussion from storage ownership to making the correct workflow easy to enter.
+
+These were design questions, before implementation. The UI helped make their consequences concrete.
+
+A similar pattern appeared while exploring community route sharing. A simple “publish a route” idea expanded into questions about the private recorded activity, the public track, search, authorship, votes, and comments. Public browsing and authenticated publishing needed different access rules.
+
+The screen and the data model inform each other. I prefer to discover those relationships while the design is still easy to change.
+
+**A prompt I use:** “Walk through this with realistic sample data. Show the starting screen, key actions, empty and failure states, and what gets stored at each step. Then tell me what the walkthrough reveals about our data model.”
+
+![A feedback loop connects the user journey, interface states, data ownership and relationships, and a revised design.](/images/writing/ai-agent-ui-data-loop.svg "Visualize the experience, inspect the data implications, and revise both together.")
+
+## I challenge the first recommendation
+
+Looking back at my other work, another habit stands out: I often ask the agent to research alternatives again before we finalize a choice.
+
+During the route-sharing discussion, for example, I asked for another comparison before settling on a storage and backend approach. The question was broader than “Which service has free storage?” It included search, user management, access control, geographic queries, and the constraints behind the free offering.
+
+A recommendation becomes more useful when I understand what it optimizes for. Lowest initial cost? Simplest implementation? A capability we will need later? Less operational work?
+
+**A prompt I use:** “Before we finalize this, compare the strongest alternatives against our actual requirements. Check current primary documentation. Explain where your recommendation loses, and what would change your choice.”
+
+This does not mean reopening every decision forever. It means doing the comparison while changing course is still inexpensive.
+
+## Unit tests and integration tests are mandatory
+
+For coding work, this is a firm requirement for me. I expect both unit tests and integration tests.
+
+Unit tests help verify rules and edge cases. Integration tests check whether the pieces actually work together: persistence, permissions, API behavior, and failure handling. I also want to see the important user journey exercised when the change affects an interface.
+
+The tests need to follow the requirement. An agent can misunderstand a rule, implement that misunderstanding, and write a passing test for it. A green result then proves consistency between two artifacts, while the product behavior is still wrong.
+
+I therefore review what the tests assert, especially around denied actions, retries, stale data, and partial failure. For a bug fix, a regression test should reproduce the failure and show why the fix resolves it.
+
+A tracking-app issue made this particularly concrete. The reported moving time was much lower than elapsed time, even during continuous movement. The review expanded beyond a simple timing calculation into slow walking, weak GPS accuracy, pauses, and signal gaps. Longer simulations helped check the behavior, but they still left a real-device recording to verify.
+
+That last distinction matters. A simulation passing is useful evidence. It does not establish how every phone behaves in the field.
+
+**A prompt I use:** “Add unit and integration tests against the intended behavior. Include failure and permission boundaries where relevant. Run them, report what passed and failed, and state what remains unverified. Do not weaken an assertion just to get a green result.”
+
+## I want evidence when the agent says it is done
+
+A review comment is another input to investigate. I want the agent to check it against the requirement and the implementation, fix valid findings, and explain disagreements with evidence.
+
+The same standard applies to the final handoff. What changed? Which checks ran? Were they run against the latest code? What could not be tested? What still needs my decision?
+
+My repository instructions help make some of these expectations repeatable. On this website, for example, stable URLs, factual content, social-preview requirements, and build and audit commands are written down. The agent should not have to rediscover those constraints in every chat.
+
+There is useful support for this approach in [Claude Code’s best-practices documentation](https://code.claude.com/docs/en/best-practices), which discusses supplying project-specific context, giving the agent concrete checks, and enforcing requirements through tooling. Anthropic’s [work on long-running agents](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents) also describes incremental progress, durable handoff artifacts, and user-facing verification as responses to observed failures. These are supporting engineering observations, rather than proof that one workflow fits every project.
+
+## What about two agents reviewing each other?
+
+People also recommend having agents from different providers review one another’s plans, designs, and code. I do not currently use that as a practice, so I cannot offer it as a lesson from my own experience.
+
+My routine centers on reviewing decisions, making uncertainty visible, walking through the experience, and checking behavior with tests. Whatever review tools I use, I still need to understand the result well enough to take responsibility for it.
+
+## The habit behind all of this
+
+I enjoy how quickly an agent can turn an idea into something concrete. That makes it easier to explore a design, compare alternatives, and try a change.
+
+The habit I keep coming back to is asking one more useful question before accepting the output.
+
+What decision is hidden here? What is still open? Can you show me how this feels to the user? What happens to the data? Which test proves that? What have we not verified yet?
+
+Those questions keep me involved in the engineering. The code arrives faster; understanding and ownership still take deliberate work.
