@@ -4,82 +4,99 @@ interface Props { onCoach?: boolean; }
 const { onCoach = false } = Astro.props;
 const firstExercise = exercises[0];
 ---
-<section aria-label="Start or save Communication Coach" class="my-6 border-y border-slate-200 bg-slate-50 p-4 md:p-5">
+<section id="add-to-screen" aria-label="Start or save Communication Coach" class="my-6 scroll-mt-28 border-y border-slate-200 bg-slate-50 p-4 md:p-5">
   <p class="!mt-0 font-semibold text-slate-950">Make five minutes of practice easy to start</p>
   <p class="mt-2 text-sm leading-6 text-slate-700">Start with Explain clearly, or <a href={onCoach ? '#quick-practice-links' : '/communication-coach/#quick-practice-links'}>choose another exercise</a>. Send the prompt if needed, then say or type “Ready”.</p>
   <div class="mt-4 flex flex-wrap gap-3">
     <a href={practiceUrl('chatgpt', firstExercise.prompt)} target="_blank" rel="noopener noreferrer" class="rounded-lg bg-slate-900 px-4 py-3 text-sm font-semibold !text-white !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Start in ChatGPT</a>
     <a href={practiceUrl('claude', firstExercise.prompt)} target="_blank" rel="noopener noreferrer" class="rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-semibold !text-slate-900 !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Start in Claude</a>
-    {onCoach ? (
-      <a href="#add-to-screen" data-coach-install class="rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-semibold !text-slate-900 !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Add Coach to your screen</a>
-    ) : (
-      <a href="/communication-coach/#add-to-screen" class="rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-semibold !text-slate-900 !no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Add Coach to your screen</a>
-    )}
+    <button type="button" data-coach-install hidden class="rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Add Coach to your screen</button>
   </div>
   <p class="mt-3 text-sm leading-6 text-slate-600">Save a shortcut to this practice page on your phone or computer. Sessions run in ChatGPT or Claude and need an internet connection; sign-in may be required.</p>
-  {onCoach && <>
-    <p data-coach-install-status role="status" aria-live="polite" class="text-sm leading-6 text-slate-700"></p>
-    <details id="add-to-screen" class="mt-4 scroll-mt-28 border-t border-slate-200 pt-4">
-      <summary class="cursor-pointer py-2 font-semibold text-slate-950">Phone and desktop shortcut instructions</summary>
-      <p class="text-sm leading-6">Your browser asks you to confirm adding the Coach. If no add prompt appears, use the steps for your device. Open this page in Safari, Chrome, or Edge if you are viewing it inside WhatsApp, LinkedIn, or another app.</p>
-      <ul class="text-sm leading-7">
-        <li><strong>iPhone or iPad:</strong> in Safari, open Share (sometimes under More), choose Add to Home Screen, then Add. If offered, enable Open as Web App.</li>
-        <li><strong>Android:</strong> in Chrome, open the ⋮ menu, then Add to Home screen or Install app, and confirm.</li>
-        <li><strong>Computer, Chrome or Edge:</strong> use the address-bar install icon or the browser menu’s Install page as app / Apps option. In Chrome, this may be under Cast, save, and share. After installing, your browser may offer a desktop or taskbar shortcut.</li>
-        <li><strong>Mac, Safari:</strong> on macOS Sonoma or later, choose File → Add to Dock, then Add.</li>
-        <li><strong>Another browser:</strong> bookmark this Coach page (Ctrl+D on Windows/Linux or Command+D on Mac), then keep it in your bookmarks bar.</li>
-      </ul>
-      <p class="text-sm leading-6">The saved icon opens Communication Coach, where you choose a session. It does not start voice, add reminders, or save your practice progress. Browser menu names and availability vary.</p>
-      <p class="text-sm leading-6">Official instructions: <a href="https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/ios">iPhone</a> · <a href="https://support.google.com/chrome/answer/9658361?hl=en">Chrome</a> · <a href="https://support.apple.com/en-us/104996">Mac Safari</a>.</p>
-    </details>
-  </>}
+  <p data-coach-install-status role="status" aria-live="polite" class="text-sm leading-6 text-slate-700"></p>
+  <p class="text-sm leading-6 text-slate-600">The add button appears when your browser offers installation. Tap it, then confirm in the browser. If it is unavailable, you can still start a session above.</p>
 </section>
+<aside data-coach-nudge hidden aria-label="Keep Communication Coach handy" aria-live="polite" class="fixed bottom-4 left-4 right-4 z-30 rounded-lg border border-slate-300 bg-white p-4 shadow-lg md:left-auto md:w-80">
+  <p class="!mt-0 font-semibold text-slate-950">Keep the Coach one tap away</p>
+  <p class="mt-2 text-sm leading-6 text-slate-600">Add it to your screen for your next five-minute practice.</p>
+  <div class="mt-3 flex flex-wrap items-center gap-3">
+    <button type="button" data-coach-install class="min-h-11 rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">Add Coach</button>
+    <button type="button" data-coach-nudge-dismiss class="min-h-11 rounded-lg px-3 py-2 text-sm text-slate-600 underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4" aria-label="Dismiss add Coach suggestion">Not now</button>
+  </div>
+</aside>
 <script>
   interface InstallPrompt extends Event {
     prompt(): Promise<void>;
     userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
   }
-  const control = document.querySelector<HTMLAnchorElement>('[data-coach-install]');
-  const guide = document.querySelector<HTMLDetailsElement>('#add-to-screen');
+  const controls = document.querySelectorAll<HTMLButtonElement>('[data-coach-install]');
   const status = document.querySelector<HTMLElement>('[data-coach-install-status]');
-  if (control && guide && status) {
+  const nudge = document.querySelector<HTMLElement>('[data-coach-nudge]');
+  if (controls.length && status && nudge) {
     let pendingPrompt: InstallPrompt | null = null;
-    const standalone = window.matchMedia('(display-mode: standalone)').matches ||
+    let dismissed = false;
+    let installed = window.matchMedia('(display-mode: standalone)').matches ||
       (navigator as Navigator & { standalone?: boolean }).standalone === true;
-    if (standalone) status.textContent = 'You are already using the Coach in its own window.';
+    let remaining = 6000;
+    let started = 0;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const hideControls = () => controls.forEach((control) => { control.hidden = true; });
+    const maybeShowNudge = () => {
+      nudge.hidden = installed || dismissed || !pendingPrompt || remaining > 0 || document.visibilityState !== 'visible';
+    };
+    const resumeTimer = () => {
+      if (timer !== undefined || remaining <= 0 || installed || dismissed || document.visibilityState !== 'visible') return;
+      started = performance.now();
+      timer = setTimeout(() => { timer = undefined; remaining = 0; maybeShowNudge(); }, remaining);
+    };
+    const pauseTimer = () => {
+      if (timer === undefined) return;
+      clearTimeout(timer);
+      remaining = Math.max(0, remaining - (performance.now() - started));
+      timer = undefined;
+    };
+    hideControls();
+    resumeTimer();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') { resumeTimer(); maybeShowNudge(); }
+      else { pauseTimer(); nudge.hidden = true; }
+    });
     window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault();
+      if (installed) return;
       pendingPrompt = event as InstallPrompt;
+      controls.forEach((control) => { control.hidden = false; });
+      maybeShowNudge();
     });
-    const showGuide = () => {
-      guide.open = true;
-      guide.scrollIntoView({ block: 'start' });
-      guide.querySelector('summary')?.focus();
-    };
-    if (window.location.hash === '#add-to-screen') showGuide();
-    control.addEventListener('click', async (event) => {
-      event.preventDefault();
-      if (!pendingPrompt || standalone) {
-        status.textContent = 'Choose your device below to add a shortcut.';
-        showGuide();
-        return;
-      }
+    document.querySelector('[data-coach-nudge-dismiss]')?.addEventListener('click', () => {
+      dismissed = true;
+      pauseTimer();
+      nudge.hidden = true;
+    });
+    controls.forEach((control) => control.addEventListener('click', async () => {
+      if (!pendingPrompt || installed) return;
       const prompt = pendingPrompt;
       pendingPrompt = null;
+      dismissed = true;
+      pauseTimer();
+      nudge.hidden = true;
+      hideControls();
       try {
         await prompt.prompt();
         const choice = await prompt.userChoice;
         status.textContent = choice.outcome === 'accepted'
-          ? 'Your browser accepted the request. Follow its prompts to finish adding the Coach.'
-          : 'Nothing was added. You can use the browser steps below whenever you are ready.';
-        if (choice.outcome === 'dismissed') showGuide();
+          ? 'Your browser accepted the request. Follow its confirmation to finish adding the Coach.'
+          : 'Nothing was added. You can start a practice session whenever you are ready.';
       } catch {
-        status.textContent = 'Use the browser steps below to add a shortcut.';
-        showGuide();
+        status.textContent = 'The browser could not open its add prompt. You can still start a session above.';
       }
-    });
+    }));
     window.addEventListener('appinstalled', () => {
+      installed = true;
       pendingPrompt = null;
+      pauseTimer();
+      nudge.hidden = true;
+      hideControls();
       status.textContent = 'Communication Coach was added. Look for it on your home screen or in your app launcher.';
     });
   }

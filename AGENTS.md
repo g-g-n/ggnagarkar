@@ -93,7 +93,7 @@ Expected pre-prod output:
 
 - Build emits the primary HTML pages plus one built detail page per `src/data/built.json` item and one writing detail page per `src/content/writing/*.mdx` item.
 - `/activity.xml` exists.
-- The four `/communication-coach` pages and their sitemap entries exist. The coach uses direct ChatGPT/Claude practice links and copyable prompts, plus an optional screen shortcut. Coach pages must reference `/communication-coach/manifest.webmanifest`, whose start URL opens the Coach rather than the site homepage. Retain manual save instructions when native browser installation is unavailable; do not promise offline sessions, automatic voice, or progress storage.
+- The four `/communication-coach` pages and their sitemap entries exist. The coach uses direct ChatGPT/Claude practice links and copyable prompts, plus an optional screen shortcut. Coach pages must reference `/communication-coach/manifest.webmanifest`, whose start URL opens the Coach rather than the site homepage. The add control and delayed, dismissible suggestion must only appear when the browser supplies a native install prompt. Do not auto-open that prompt or replace it with manual steps. Keep practice links available on unsupported browsers, and do not promise offline sessions, automatic voice, or progress storage.
 - `/activity` and `/rss.xml` should 404 unless intentionally reintroduced.
 - `dist/sitemap-index.xml` and `dist/sitemap-0.xml` must exist and list the expected page URLs.
 - `check:links` and `check:seo` must pass.
