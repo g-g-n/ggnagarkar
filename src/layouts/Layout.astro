@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import SEOHead from '../components/SEOHead.astro';
 
 interface Props {
+  coachApp?: boolean;
   title: string;
   description: string;
   canonicalPath: string;
@@ -27,8 +28,9 @@ const props = Astro.props as Props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="shortcut icon" href="/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href={props.coachApp ? "/communication-coach/icon-180.png" : "/apple-touch-icon.png"} />
+    <link rel="manifest" href={props.coachApp ? "/communication-coach/manifest.webmanifest" : "/site.webmanifest"} />
+    {props.coachApp && <meta name="apple-mobile-web-app-title" content="Communication Coach" />}
     <meta name="theme-color" content="#17527f" />
     <SEOHead {...props} />
   </head>

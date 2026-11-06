@@ -2,8 +2,10 @@
 import CoachLayout from '../../layouts/CoachLayout.astro';
 import { coach, exercises, practiceUrl } from '../../data/communication-coach';
 import CoachPracticeLinks from '../../components/CoachPracticeLinks.astro';
+import CoachAccess from '../../components/CoachAccess.astro';
 ---
 <CoachLayout title="Communication Coach" path={coach.path} description="Five guided exercises to practise clear explanations, listening, reading comprehension, clarification, and constructive disagreement in ChatGPT or Claude.">
+  <CoachAccess onCoach />
   <p>Created by <a href="/about">GG Nagarkar</a> for working professionals at any career stage. Practise for five or ten minutes, get specific feedback, and try again.</p>
   <p>Many people already communicate very well; others benefit from focused practice. This is a supportive space to practise, not a judgment of anyone’s ability or worth. As AI agents take on more work, clear explanations and careful understanding matter at every career stage.</p>
   <section aria-labelledby="start-heading">
@@ -20,7 +22,7 @@ import CoachPracticeLinks from '../../components/CoachPracticeLinks.astro';
   </section>
   <section aria-labelledby="exercises-heading">
     <h2 id="exercises-heading">Choose an exercise</h2>
-    <p>After “Ready”, share your domain, role, audience, and preferred challenge, or say “use defaults”. For example: “retail shift lead, team briefing, introductory” or “experienced finance analyst, executive audience, challenging”. Ask for plain language, shorter material, or written practice if useful. The coach should supply specialist facts and assess your communication rather than assume ability from your title or experience. These adaptable prompts have not been validated for every domain or role.</p>
+    <p>Say or type “Ready” to start a five-minute round immediately with a general workplace example. For a tailored round, include your domain, role, audience, and preferred challenge in the same message. For example: “retail shift lead, team briefing, introductory” or “experienced finance analyst, executive audience, challenging”. Ask for plain language, shorter material, or written practice if useful. The coach should supply specialist facts and assess your communication rather than assume ability from your title or experience. These adaptable prompts have not been validated for every domain or role.</p>
     <p><strong>“New example”</strong> changes the scenario. <strong>“Try again”</strong> keeps the facts the same so you can improve your answer. Carry your progress summary into a new chat to help avoid repeating earlier examples; uniqueness across all past sessions is not guaranteed.</p>
     <div class="mt-5 divide-y divide-slate-200">
       {exercises.map((exercise, index) => <details id={exercise.id} class="py-4">
