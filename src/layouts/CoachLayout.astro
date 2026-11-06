@@ -8,7 +8,7 @@ const links = [
   ['Privacy', '/communication-coach/privacy'], ['Terms', '/communication-coach/terms']
 ];
 ---
-<Layout title={`${title} | GG Nagarkar`} description={description} canonicalPath={path}
+<Layout coachApp title={`${title} | GG Nagarkar`} description={description} canonicalPath={path}
   jsonLd={{ '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url: `${site}${path}`, author: { '@type': 'Person', name: 'GG Nagarkar', url: `${site}/about` } }}
   breadcrumbs={[{ name: 'Home', item: `${site}/` }, { name: 'Communication Coach', item: `${site}/communication-coach` }, ...(path === '/communication-coach' ? [] : [{ name: title, item: `${site}${path}` }])]}
 >

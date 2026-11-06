@@ -1,0 +1,16 @@
+{
+  "id": "/communication-coach/",
+  "name": "Communication Coach",
+  "short_name": "Coach",
+  "description": "Five short exercises to practise clear communication, listening, and comprehension.",
+  "start_url": "/communication-coach/",
+  "scope": "/communication-coach/",
+  "display": "standalone",
+  "theme_color": "#17527f",
+  "background_color": "#f3f6f9",
+  "prefer_related_applications": false,
+  "icons": [
+    { "src": "/communication-coach/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/communication-coach/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

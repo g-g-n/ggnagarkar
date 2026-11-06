@@ -4,6 +4,7 @@ import ShareLinks from '../../components/ShareLinks.astro';
 import { getWritingPosts, type WritingPost } from '../../lib/writing';
 import profile from '../../data/profile.json';
 import CoachPracticeLinks from '../../components/CoachPracticeLinks.astro';
+import CoachAccess from '../../components/CoachAccess.astro';
 import { coach } from '../../data/communication-coach';
 
 export function getStaticPaths() {
@@ -70,6 +71,7 @@ const jsonLd = {
           <span class="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">#{tag}</span>
         ))}
       </div>
+      {post.canonicalPath === coach.articlePath && <div class="max-w-3xl"><CoachAccess /></div>}
       <ShareLinks title={post.title} url={`${site}${post.canonicalPath}`} />
       <div class="article-body mt-8 max-w-3xl" set:html={post.html} />
       {post.canonicalPath === coach.articlePath && <div class="article-body max-w-3xl"><CoachPracticeLinks /></div>}

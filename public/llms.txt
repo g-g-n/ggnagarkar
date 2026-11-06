@@ -84,7 +84,7 @@ Feeds:
 - /activity.xml: public activity feed including external blogs, talks, videos, and updates
 
 Source notes:
-- Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). Readers can use direct ChatGPT/Claude practice links or copy the prompts at /communication-coach; no separate coach installation is required.
+- Communication Coach is published by GG Nagarkar (Gunanand Nagarkar). Readers can use direct ChatGPT/Claude practice links or copy the prompts at /communication-coach; no separate coach installation is required. An optional phone home-screen or desktop shortcut opens the Coach page, with native browser installation when available and manual instructions otherwise. Say or type Ready to start one short round immediately; optional context can be included in that message.
 - The current coach has no publisher-run practice storage, automatic cross-chat tracking, or built-in reminders. Progress uses user-retained summaries. Feedback is informal coaching, not a validated employment or clinical assessment.
 - GG Nagarkar and Gunanand Nagarkar refer to the same person on this site.
 - Patent records link to public patent sources.
