@@ -1,0 +1,21 @@
+The longer I work with AI agents on design and coding, the more attention I give to the conversation around the code.
+
+A few habits have become central to how I work:
+
+• Create a plan first, then review it.
+• Ask for a walkthrough of each material design decision.
+• Ask what questions and decisions are still open.
+• Experience the UI flow with realistic data—and refine the data model as the experience becomes clearer.
+• Make unit tests and integration tests mandatory.
+
+Looking back at my other work, I also noticed how often I challenge the first recommendation and ask what remains unverified.
+
+One distinction: having agents from different providers review each other is advice I hear, but it is not a practice I currently follow.
+
+I wrote about the practices I do use, with examples and prompts you can adapt.
+
+The code arrives faster. Understanding and ownership still take deliberate work.
+
+Which question has helped you catch a weak assumption before it became code?
+
+#AICodingAgents #SoftwareEngineering #SystemDesign
